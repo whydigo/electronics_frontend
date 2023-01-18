@@ -1,0 +1,42 @@
+.serviceLocation_title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 30px;
+  line-height: 32px;
+}
+
+.banner_title {
+  font-size: 42px;
+  line-height: 56px;
+  font-weight: bold;
+  color: #ffffff;
+  margin: 0 0 44px;
+}
+
+.serviceLocation_banner {
+  background: linear-gradient(89.51deg, #e56b31 2.39%, #be3690 99.79%);
+  border-radius: 40px;
+  min-height: 440px;
+  box-sizing: border-box;
+  margin-bottom: 52px;
+  padding: 44px 68px 68px;
+  position: relative;
+  color: white;
+}
+
+.banner_advantage {
+  display: flex;
+  vertical-align: top;
+  font-size: 20px;
+  line-height: 28px;
+  color: #ffffff;
+  box-sizing: border-box;
+  padding-left: 62px;
+  position: relative;
+  margin-bottom: 24px;
+}
+
+.advantage_item {
+    width: 170px;
+    margin: 0px 20px;
+}
