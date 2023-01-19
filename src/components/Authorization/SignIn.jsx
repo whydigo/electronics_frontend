@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { authSignIn } from "../../features/applicationSlice";
 import "../../styles/auth.css";
 import { Link } from "react-router-dom";
+import Header from "../Header/Header";
 
 const SignIn = () => {
   const [login, setLogin] = useState("");
@@ -27,6 +28,7 @@ const SignIn = () => {
   };
   return (
     <>
+      <Header/>
       <div className="auth__main">
         <form className="auth__form" onSubmit={handleSignIn}>
           <input

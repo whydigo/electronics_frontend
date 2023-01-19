@@ -5,6 +5,7 @@ import { authSignUp } from "../../features/applicationSlice";
 import '../../styles/auth.css'
 import {Link} from 'react-router-dom'
 
+
 const SignUp = () => {
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
@@ -26,6 +27,8 @@ const SignUp = () => {
     setPassword("");
   };
   return (
+   <>
+   
     <div className="auth__main">
       <form className="auth__form" onSubmit={handleSignUp}>
         <input
@@ -54,6 +57,7 @@ const SignUp = () => {
         <div className="auth__element_6"></div>
       </div>
     </div>
+    </>
   );
 };
 
