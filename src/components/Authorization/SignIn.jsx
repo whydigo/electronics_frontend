@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { authSignIn } from "../../features/applicationSlice";
 import "../../styles/auth.css";
 import { Link } from "react-router-dom";
-import Header from "../Header/Header";
+
 
 const SignIn = () => {
   const [login, setLogin] = useState("");
@@ -28,7 +28,7 @@ const SignIn = () => {
   };
   return (
     <>
-      <Header/>
+      
       <div className="auth__main">
         <form className="auth__form" onSubmit={handleSignIn}>
           <input
@@ -53,11 +53,7 @@ const SignIn = () => {
             Зарегистрироваться
           </Link>
         </form>
-        <div className="auth__elements">
-          <div className="auth__element_1"></div>
-          <div className="auth__element_2"></div>
-          <div className="auth__element_3"></div>
-        </div>
+       
       </div>
     </>
   );
