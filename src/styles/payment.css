@@ -3,11 +3,7 @@
 }
 
 .m-payment {
-    width: 80%;
-    margin-top: 5%;
-    margin-left: 10%;
     padding: 1rem;
-    background: rgb(252, 252, 252);
     display: flex;
     flex-direction: column;
     gap: 10px;;

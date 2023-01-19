@@ -1,7 +1,4 @@
-.block {
-    font-variant: small-caps
-}
-
-.block b {
-    font-weight: 800
+.block h2 {
+    font-weight: 700;
+    margin-bottom: 40px;
 }

@@ -1,9 +1,12 @@
 import React from 'react';
 import '../../../styles/payment.css';
+import Service from '../Service';
 
 const Payment = () => {
     return (
-        <div className='h-payment'>
+        <>
+        <Service />      
+          <div className='service__container'>
             <div className='m-payment'>
                 <h1 className='m-zagolovok'>Способы оплаты</h1>
                 <details>
@@ -43,6 +46,7 @@ const Payment = () => {
                 </details>
             </div>
         </div>
+    </>
     );
 };
 

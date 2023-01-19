@@ -1,13 +1,13 @@
 .serviceSaleRule_title {
   font-size: 28px;
-  font-weight: 700;
+  font-weight: 600;
   margin-bottom: 30px;
   line-height: 32px;
 }
 
 .serviceSaleRule_list li {
   list-style: none;
-  font-size: 20px;
+  font-size: 19px;
   line-height: 22px;
   margin-bottom: 30px;
 }
