@@ -1,5 +1,9 @@
 .purchase_returns {
-  font-weight: 900;
+  font-weight: 700;
+}
+
+.parent h4:not(:first-child) {
+  margin-top: 40px;
 }
 
 .pointe {
@@ -53,4 +57,8 @@
 .oplata {
   display: flex;
   justify-content: space-between;
+}
+
+.aaa {
+  font-size: 15px;
 }
