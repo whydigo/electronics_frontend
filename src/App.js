@@ -3,7 +3,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import SignIn from "./components/Authorization/SignIn";
 import SignUp from "./components/Authorization/SignUp";
 import Service from "./components/Services/Service";
-
 function App() {
   return (
     <div className="App">
