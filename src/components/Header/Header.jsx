@@ -9,8 +9,6 @@ import basket from "../../accets/icon10.png"
 const Header = () => {
 
   
-  
-   
 
     return (
      <>
@@ -54,7 +52,9 @@ const Header = () => {
 
 
         </header>
-
+         <main>
+          
+         </main>
        
      </>
 
