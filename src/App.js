@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import SignIn from "./components/Authorization/SignIn";
 import SignUp from "./components/Authorization/SignUp";
@@ -20,7 +20,7 @@ function App() {
       <Routes>
         <Route path="/register" element={<SignUp />} />
         <Route path="/login" element={<SignIn />} />
-        <Route path="/services" element={<Service />} />
+        <Route path="/services" element={<Navigate to="/services/kak-sdelat-zakaz" />} />
 
         <Route
           path="/services/pravila-prodazhi"
