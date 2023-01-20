@@ -10,11 +10,14 @@ body {
   color: rgb(185, 183, 183);
 }
 
-
-
 .footer-row {
   display: flex;
   justify-content: space-between;
+  margin: 0 -200px;
+}
+
+.container-3 {
+  width: 150px;
 }
 
 .footer-row b {
@@ -45,14 +48,20 @@ body {
   height: 15em;
   display: flex;
   align-items: center;
+  font-size: 16px;
   padding: 10%;
   width: 100%;
   justify-content: center;
 }
-.container-6:hover {
-  text-decoration: underline;
-}
 
 .white {
   margin-bottom: 25px;
+}
+
+.container-4 a {
+  color: rgb(185, 183, 183);
+}
+
+.container-4 a:hover {
+  color: #fcfcfc;
 }
