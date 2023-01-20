@@ -1,0 +1,136 @@
+.serviceLocation_title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 30px;
+  line-height: 32px;
+}
+
+.banner_title {
+  font-size: 46px;
+  line-height: 56px;
+  font-weight: bold;
+  color: #ffffff;
+  margin: 0 0 44px;
+  width: 800px;
+}
+
+.serviceLocation_banner {
+  background: linear-gradient(89.51deg, #e56b31 2.39%, #be3690 99.79%);
+  border-radius: 40px;
+  min-height: 440px;
+  box-sizing: border-box;
+  margin-bottom: 52px;
+  padding: 44px 68px 68px;
+  position: relative;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+}
+
+.banner_advantage {
+  display: flex;
+  vertical-align: top;
+  font-size: 20px;
+  line-height: 28px;
+  color: #ffffff;
+  box-sizing: border-box;
+  padding-left: 62px;
+  position: relative;
+  margin-bottom: 24px;
+  margin-left: -80px;
+}
+
+.advantage_item {
+  font-size: 24px;
+  width: 240px;
+  margin: 0px 40px;
+  display: flex;
+  justify-content: space-around;
+  height: 50px;
+}
+
+.advantage_img {
+  margin-right: 15px;
+}
+
+.delivery_banner_btn {
+  line-height: 1.1;
+  font-weight: bold;
+  text-decoration: none;
+  box-sizing: border-box;
+  border-radius: 8px;
+  text-align: center;
+  cursor: pointer;
+  display: inline-block;
+  min-width: 244px;
+  letter-spacing: 0;
+  color: #ffffff;
+  background: rgba(217, 217, 217, 0.2);
+  font-size: 18px;
+  padding: 16px 25px 15px;
+  margin-top: 84px;
+  transition: background 0.3s ease;
+}
+
+.delivery_banner_btn:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.delivery_copter {
+  position: absolute;
+  top: 47px;
+  right: 92px;
+  z-index: 1;
+}
+
+.delivery-geo__title {
+  margin-bottom: 20px;
+}
+
+.delivery-geo__wrap {
+  display: flex;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgb(0 0 0 / 20%);
+}
+
+.delivery-geo__left {
+  padding: 28px 28px 40px;
+  width: 30%;
+  height: 700px;
+}
+
+.delivery-geo__right {
+  width: 70%;
+}
+
+.type-delivery__name {
+  color: #242424;
+  width: 73px;
+  font-size: 22px;
+  line-height: 22px;
+  display: block;
+  border-bottom: 2px solid #cb11ab;
+  padding-bottom: 2px;
+  -webkit-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
+
+.list-poo__item {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 22px;
+  color: #242424bc;
+}
+
+.list-poo__info {
+  font-size: 18px;
+  line-height: 20px;
+  color: #8b8b8b;
+  margin-top: 3px;
+}
+
+.list-poo {
+  padding: 20px;
+}

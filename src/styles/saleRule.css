@@ -1,0 +1,22 @@
+.serviceSaleRule_title {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 30px;
+  line-height: 32px;
+}
+
+.serviceSaleRule_list li {
+  list-style: none;
+  font-size: 19px;
+  line-height: 22px;
+  margin-bottom: 30px;
+}
+ol li span {
+  margin-left: -30px;
+  font-weight: 700;
+  margin-right: 20px;
+}
+
+u {
+  cursor: pointer;
+}
