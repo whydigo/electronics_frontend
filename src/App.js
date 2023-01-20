@@ -13,11 +13,17 @@ import Payment from "./components/Services/ServicesItems/Payment";
 import RulesUse from "./components/Services/ServicesItems/RulesUse";
 import AboutUs from "./components/Services/ServicesItems/AboutUs";
 import Requisites from "./components/Services/ServicesItems/Requisites";
+import Contacts from "./components/Services/ServicesItems/Contacts";
+import Menu from "./components/Header/Menu";
+import { useState } from "react";
 
 function App() {
+  const [openModal, setOpenModal] = useState(false)
   return (
     <div className="App">
-      <Header />
+      <Header setOpenModal={setOpenModal}/>
+      <Menu setOpenModal={setOpenModal} openModal={openModal}/>
+      <Contacts />
       <Routes>
         <Route path="/register" element={<SignUp />} />
         <Route path="/login" element={<SignIn />} />
