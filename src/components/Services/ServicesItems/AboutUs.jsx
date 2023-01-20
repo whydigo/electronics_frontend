@@ -12,12 +12,15 @@ import emirates from "../../../components/Services/icons/emirates.png";
 import palestine from "../../../components/Services/icons/palestine.png";
 import katar from "../../../components/Services/icons/katar.png";
 import irack from "../../../components/Services/icons/irack.png";
+import Service from '../ServiceDouble';
 
 
 
 const AboutUs = () => {
 	return (
 		<>
+		<Service />
+		<div className='service__container'>
 		<div className='start-block__intro'>
 			<img className='wildber' src={box} alt="wildber"/>
 			<div className='welcome'>Добро пожаловать <br/> на Wildberries</div>
@@ -96,6 +99,7 @@ const AboutUs = () => {
 			<div className='republic chechnya'><img src={irack} alt="wildber"/></div>
 			<div className='country_name'>Ирак</div>
 			</div>
+		</div>
 		</div>
 		</>
 	);
