@@ -13,7 +13,6 @@ import Payment from "./components/Services/ServicesItems/Payment";
 import RulesUse from "./components/Services/ServicesItems/RulesUse";
 import AboutUs from "./components/Services/ServicesItems/AboutUs";
 import Requisites from "./components/Services/ServicesItems/Requisites";
-import Contacts from "./components/Services/ServicesItems/Contacts";
 import Menu from "./components/Header/Menu";
 import { useState } from "react";
 
@@ -23,7 +22,6 @@ function App() {
     <div className="App">
       <Header setOpenModal={setOpenModal}/>
       <Menu setOpenModal={setOpenModal} openModal={openModal}/>
-      <Contacts />
       <Routes>
         <Route path="/register" element={<SignUp />} />
         <Route path="/login" element={<SignIn />} />
