@@ -13,6 +13,7 @@ import ServiceOrder from "./components/Services/ServicesItems/ServiceOrder";
 import Payment from "./components/Services/ServicesItems/Payment";
 import RulesUse from "./components/Services/ServicesItems/RulesUse";
 
+
 function App() {
   return (
     <div className="App">
@@ -21,6 +22,7 @@ function App() {
         <Route path="/register" element={<SignUp />} />
         <Route path="/login" element={<SignIn />} />
         <Route path="/services" element={<Service />} />
+
 
         <Route
           path="/services/pravila-prodazhi"
@@ -45,3 +47,5 @@ function App() {
 }
 
 export default App;
+
+ 
