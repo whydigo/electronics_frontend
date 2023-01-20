@@ -1,78 +1,67 @@
 body {
-    margin: 0;
-    font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
 }
 
 .footer {
-    padding-top: 45px;
-    padding-bottom: 45px;
-    background: rgb(72, 3, 104);
-    color: rgb(185, 183, 183);
-}
-
-.container {
-    max-width: 1110px;
-    margin-left: auto;
-    margin-right: auto;
-     
+  padding-top: 45px;
+  padding-bottom: 45px;
+  background: rgb(72, 3, 104);
+  color: rgb(185, 183, 183);
 }
 
 .footer-row {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    
+  display: flex;
+  justify-content: space-between;
+  margin: 0 -200px;
+}
+
+.container-3 {
+  width: 150px;
 }
 
 .footer-row b {
-    margin: 0;
-    margin-bottom: 10px;
-    font-size:16px;
-    font-weight: 600;
-    line-height: 130%;
-    }
+  margin: 0;
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 130%;
+}
 
-    .footer-row b:hover{
-        color: #fdfdfd; /* Меняем цвет текста */
-        -webkit-text-shadow: 2px 2px 2px #000;
-        -moz-text-shadow: 2px 2px 2px #000;
-            text-shadow: 2px 2px 2px #000;
-      }
-           
+.footer-row b:hover {
+  color: #fdfdfd; /* Меняем цвет текста */
+  -webkit-text-shadow: 2px 2px 2px #000;
+  -moz-text-shadow: 2px 2px 2px #000;
+  text-shadow: 2px 2px 2px #000;
+}
 
 .footer-row p {
-    cursor: pointer;
-    
-    
+  cursor: pointer;
 }
 
 .footer-row p:hover {
-box-shadow: 0px 0px 5px 5px rgba(76, 0, 255, 0.2);
 
-color: #fcfcfc;
-background: #413c3c; /* Цвет фона */
+  color: #fcfcfc;
 }
 
 .container-6 {
-    height: 15em;
-    display: flex;
-    align-items: center;
-    text-align: center;
+  height: 15em;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
   padding: 10%;
-    width: 100%;
-    justify-content:center
-}
-.container-6:hover {
-    text-decoration: underline;
+  width: 100%;
+  justify-content: center;
 }
 
 .white {
-    margin-bottom: 25px;
+  margin-bottom: 25px;
 }
 
+.container-4 a {
+  color: rgb(185, 183, 183);
+}
 
-
-
-
-
-
+.container-4 a:hover {
+  color: #fcfcfc;
+}

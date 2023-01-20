@@ -4,10 +4,13 @@ import box from "../../../assets/dostavka_1.png";
 import circle from "../../../assets/dostavka_2.png";
 import openBox from "../../../assets/dostavka_3.png";
 import copter from "../../../assets/dostavka_4.png";
+import Service from "../Service";
 
 const ServiceLocation = () => {
   return (
-    <div>
+    <>
+    <Service />
+    <div className="service__container">
       <h1 className="serviceLocation_title">Доставка</h1>
       <div className="serviceLocation_banner">
         <div className="banner_content">
@@ -59,6 +62,7 @@ const ServiceLocation = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 
