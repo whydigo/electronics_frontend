@@ -1,0 +1,133 @@
+.start-block__intro{
+	background-color: #1E0036;
+	width: 1300px;
+	margin: auto;
+	margin-top: 20px;
+	border-radius: 60px;
+	color: #ffff;
+	font-size: 70px;
+	height: 430px;
+	
+}
+.wildber{
+	position: absolute;
+	height: 350px;
+}
+
+.welcome{
+	position: relative;
+	padding: 40px 0 0 95px;
+	font-weight: 700;
+	
+}
+.welcome_two{
+	position: absolute;
+	font-size: 20px;
+	padding: 20px 0 0 95px ;
+}
+.indicators{
+	width: 1200px;
+	margin: 50px auto 0;
+	display: flex;
+	justify-content: space-between;
+}
+.indicators__item{
+	font-size: 46px;
+	font-weight: 700;
+}
+.indicators__text{
+	font-size: 18px;
+	color: #A98B8B;
+}
+.features{
+	margin: 50px auto 0 auto;
+	width:1300px ;
+	text-align: center;
+}
+.features__list{
+	margin-top: 40px;
+	display: flex;
+	justify-content: space-between;
+}
+.features__section-header{
+	font-size: 48px;
+	font-weight: 700;
+	text-align: center;
+}
+.features__top-wrapper{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	font-size: 28px;
+	background-color: #F2F2F2;
+	width: 295px;
+	height: 373px;
+	font-weight: 700;
+	border-radius: 25px;
+}
+.features__header{
+	margin-bottom: 20px;
+}
+.features__item_delivery{
+	width: 295px;
+}
+.features__top-wrapper:hover{
+	background-color: #F2A064;
+	color: #fff;
+	
+}
+.features__top-wrapper:hover img{
+	transform: scale(1.1);
+	transition: 1s;
+}
+.features__text{
+
+	font-size: 46px;
+	font-weight: 700;
+}
+.features__text_down{
+	color:#A98B8B ;
+}
+
+.features__top-wrapper:hover + .features__text{
+	color:#CB11AB ;
+	transition: 1s;
+}
+.section-header{
+	margin-top: 150px;
+	text-align: center;
+	font-size: 48px;
+	font-weight:700;
+}
+.country{
+	width: 1300px;
+	margin: 50px auto 0 auto;
+	display: flex;
+	justify-content: space-between;
+}
+.country_name{
+	text-align: center;
+	width: 90px;
+	font-size: 18px;
+	font-weight: 700;
+	margin-top: 10px;
+}
+
+.country img{
+	width: 90px;
+	height: 90px;
+	border-radius: 70px;
+}
+
+.republic{
+	border-radius: 70px;
+}
+
+.country_parent:hover img{
+	transform: scale(1.1);
+	transition: 1s;
+}
+.country_parent:hover .country_name{
+	color:#CB11AB ;
+	transition: 1s;
+}
