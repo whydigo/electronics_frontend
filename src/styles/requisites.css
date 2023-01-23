@@ -1,0 +1,31 @@
+body {
+  background-color: #ffffff;
+}
+
+.block-11 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.block-1 p {
+  margin-left: 35px;
+  color: rgb(146, 143, 143);
+  font-style: italic;
+}
+
+.block_1 {
+  margin-left: 35px;
+  font-weight: 600;
+}
+
+.block-2 p {
+  margin-right: 500px;
+  font-size: 19px;
+}
+
+.block-3 {
+  font-stretch: ultra-condensed;
+  margin-left: 35px;
+  margin-top: 45px;
+}

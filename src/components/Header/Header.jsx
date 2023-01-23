@@ -6,13 +6,13 @@ import user from "../../accets/icon8.png";
 import basket from "../../accets/icon10.png";
 import { Link } from "react-router-dom";
 
-const Header = () => {
+const Header = ({setOpenModal}) => {
   return (
     <>
       <header className="header">
         <div className="conainer">
           <nav className="nav-header">
-            <div className="burger">
+            <div className="burger" onClick={() => setOpenModal(true)}>
               <div className="bar1"></div>
               <div className="bar2"></div>
               <div className="bar3"></div>

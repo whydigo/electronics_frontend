@@ -11,16 +11,24 @@ import ServiceRefund from "./components/Services/ServicesItems/ServiceRefund";
 import ServiceOrder from "./components/Services/ServicesItems/ServiceOrder";
 import Payment from "./components/Services/ServicesItems/Payment";
 import RulesUse from "./components/Services/ServicesItems/RulesUse";
-import MainPage from "./components/Main/MainPage";
+import AboutUs from "./components/Services/ServicesItems/AboutUs";
+import Requisites from "./components/Services/ServicesItems/Requisites";
+import Menu from "./components/Header/Menu";
+import { useState } from "react";
 
 function App() {
+  const [openModal, setOpenModal] = useState(false)
   return (
     <div className="App">
-      <Header />
+      <Header setOpenModal={setOpenModal}/>
+      <Menu setOpenModal={setOpenModal} openModal={openModal}/>
       <Routes>
         <Route path="/register" element={<SignUp />} />
         <Route path="/login" element={<SignIn />} />
-        <Route path="/" element={<MainPage />} />
+        <Route
+          path="/services"
+          element={<Navigate to="/services/kak-sdelat-zakaz" />}
+        />
 
         <Route
           path="/services"
@@ -42,6 +50,9 @@ function App() {
           path="/services/pravila-polzovaniya-torgovoy-ploshchadkoy"
           element={<RulesUse />}
         />
+
+        <Route path="/services/about-us" element={<AboutUs />} />
+        <Route path="/services/rekvizity" element={<Requisites />} />
       </Routes>
       <Footer />
     </div>
