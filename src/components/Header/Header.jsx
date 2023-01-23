@@ -18,7 +18,7 @@ const Header = ({setOpenModal}) => {
               <div className="bar3"></div>
             </div>
             <Link to="/">
-              <h1 className="nav-title">WILDBERRIES</h1>
+              <h1 className="nav-title">ELECTRONICS</h1>
             </Link>
             <div className="nav_search">
               <img className="search_icon" src={search} alt="" />
@@ -32,11 +32,15 @@ const Header = ({setOpenModal}) => {
             <div className="navbar">
               <div className="navbar-adress">
                 <img src={adress} alt="" className="navbar-img" />
+                <Link to="services/location">
                 <p className="navbar-img-text">Адреса</p>
+                </Link>
               </div>
               <div className="navbar-adress">
                 <img src={user} alt="" className="navbar-img2" />
+                <Link to="/login">
                 <p className="navbar-img-text2">Войти</p>
+                </Link>
               </div>
               <div className="navbar-adress">
                 <img src={basket} alt="" className="navbar-img3" />
