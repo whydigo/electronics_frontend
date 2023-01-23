@@ -7,8 +7,7 @@ import { Link } from "react-router-dom";
 
 
 function Menu({ setOpenModal, openModal = [] }) {
-  const categories = useSelector((state) => state.categoryReducer.categories);
-  console.log(categories, 'fghjk');
+    const categories = useSelector((state) => state.categoryReducer.categories);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchCategories());

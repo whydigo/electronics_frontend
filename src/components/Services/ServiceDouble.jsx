@@ -13,8 +13,8 @@ const Service = () => {
         <NavLink to="/services/rekvizity" className={isactive}>
           Реквизиты
         </NavLink>
-        <NavLink to="/services/location" className={isactive}>
-          Пресс-центр
+        <NavLink to="/services/contacts" className={isactive}>
+          Контакты
         </NavLink>
       </div>
     </div>

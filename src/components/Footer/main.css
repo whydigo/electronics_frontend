@@ -65,3 +65,10 @@ body {
 .container-4 a:hover {
   color: #fcfcfc;
 }
+
+.container-3 p {
+  color: rgb(185, 183, 183);
+}
+.container-1 p {
+  color: rgb(185, 183, 183);
+}
