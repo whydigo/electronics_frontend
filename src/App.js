@@ -15,6 +15,7 @@ import AboutUs from "./components/Services/ServicesItems/AboutUs";
 import Requisites from "./components/Services/ServicesItems/Requisites";
 import Menu from "./components/Header/Menu";
 import Cameras from "./components/Cart/Camera/Cameras";
+import Headsets from "./components/Cart/HeadSet/Headsets";
 import SmartWatchs from "./components/Cart/Smart-Watch/SmartWatchs";
 import { useState } from "react";
 import MainPage from "./components/Main/MainPage";
@@ -34,6 +35,10 @@ function App() {
         <Route
           path="/category/63caaf6db2f72ed28aa640f6"
           element={<SmartWatchs />}
+        />
+		    <Route
+          path="/category/63ce643c9288831a7330dc4a"
+          element={<Headsets />}
         />
         <Route path="/register" element={<SignUp />} />
         <Route path="/login" element={<SignIn />} />
