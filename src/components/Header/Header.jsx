@@ -5,7 +5,7 @@ import adress from "../../accets/icons9.png";
 import user from "../../accets/icon8.png";
 import basket from "../../accets/icon10.png";
 import { Link } from "react-router-dom";
-import AllProducts from "../AllProducts/AllProducts";
+// import AllProducts from "../AllProducts/AllProducts";
 import { useState } from "react";
 
 const Header = ({setOpenModal}) => {
@@ -55,7 +55,7 @@ const Header = ({setOpenModal}) => {
           </nav>
         </div>
       </header>
-      <AllProducts text={text} setText={setText}/>
+      {/* <AllProducts text={text} setText={setText}/> */}
     </>
   );
 };
