@@ -1,20 +1,98 @@
-.wrapper {
+.с-wrapper {
     width: 100%;
 }
 
 .c-zagolovok {
-    color: black;
+    color: rgb(8, 8, 8);
+    margin-bottom: 50px;
 }
 
 .c-main {
     width: 80%;
-    margin-top: 1%;
+    margin-top: 5%;
     margin-left: 10%;
-    padding: 1rem;
     background: rgb(252, 252, 252);
     /* display: flex;
     flex-direction: column;
     gap: 10px; */
 }
 
-/* background: linear-gradient(89.65deg, #E56B31 2.39%, #BE3690 99.79%); */
+.c-blocks {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 100px;
+    
+}
+
+.c-block {
+    display: flex;
+}
+
+.c-block-left {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.c-block-right {
+    display: flex;
+    justify-content: center;
+    width: 50%;
+}
+
+.questions {
+    
+    margin-left: 0%;
+    width: 200px;
+    height: 50px;
+    padding: 5px;
+    border: 1px solid white;
+    border-radius: 5px;
+    background: linear-gradient(89.65deg, #E56B31 2.39%, #f30404 99.79%);
+}
+
+.questions-a:hover {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    margin-left: 5%;
+}
+.questions-a {
+    text-decoration: none;
+    color: white;
+    margin-left: 5%;
+}
+
+.c-block {
+    border-radius: 15px;
+    width: 47%;
+    height: 400px;
+    box-sizing: border-box;
+    padding: 44px 68px 68px;
+    position: relative;
+    color: white;
+    background: linear-gradient(89.65deg, #E56B31 2.39%, #f30404 99.79%);
+}
+
+.c-block-1 {
+    border-radius: 15px;
+    width: 23%;
+    height: 400px;
+    box-sizing: border-box;
+    /* margin-bottom: 52px; */
+    padding: 44px 48px 48px;
+    position: relative;
+    color: white;
+    background: linear-gradient(89.65deg, #E56B31 2.39%, #f30404 99.79%);
+}
+
+.c-block-1 p {
+    margin-top: 8%;
+    margin-left: 0%;
+}
+
+
+
+
+
