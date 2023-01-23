@@ -14,6 +14,8 @@ import RulesUse from "./components/Services/ServicesItems/RulesUse";
 import AboutUs from "./components/Services/ServicesItems/AboutUs";
 import Requisites from "./components/Services/ServicesItems/Requisites";
 import Menu from "./components/Header/Menu";
+import Cameras from "./components/Cart/Camera/Cameras"
+import SmartWatchs from "./components/Cart/Smart-Watch/SmartWatchs"
 import { useState } from "react";
 
 
@@ -25,6 +27,8 @@ function App() {
       <Header setOpenModal={setOpenModal}/>
       <Menu setOpenModal={setOpenModal} openModal={openModal}/>
       <Routes>
+		<Route path="/category/63cbaae09cfb3fc70c243fce" element={<Cameras/>}/>
+      <Route path="/category/63caaf6db2f72ed28aa640f6" element={<SmartWatchs/>}/>  
         <Route path="/register" element={<SignUp />} />
         <Route path="/login" element={<SignIn />} />
         <Route
