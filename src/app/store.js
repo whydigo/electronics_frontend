@@ -6,6 +6,8 @@ import smartWatchReducer from "../features/SmartWatchSlice";
 import headsetWatchReducer from "../features/HeadsetSlice";
 import laptopReducer from "../features/LaptopSlice";
 import smartPhoneReducer from "../features/SmartPhoneSlice";
+import tabletReducer from "../features/TabletSlice";
+import televisionReducer from "../features/TelevisionSlice";
 
 export const store = configureStore({
   reducer: {
@@ -14,7 +16,9 @@ export const store = configureStore({
     cameraReducer,
 	 smartWatchReducer,
 	 headsetWatchReducer,
+	 tabletReducer,
 	 laptopReducer,
-	 smartPhoneReducer
+	 smartPhoneReducer,
+	 televisionReducer
   },
 });
