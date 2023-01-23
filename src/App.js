@@ -22,6 +22,8 @@ import MainPage from "./components/Main/MainPage";
 import Contacts from "./components/Services/ServicesItems/Contacts";
 import Laptops from "./components/Cart/Laptop/Laptops";
 import SmartPhones from "./components/Cart/SmatPhone/SmartPhones";
+import Tablets from "./components/Cart/Table/Tablets";
+import Televisions from "./components/Cart/Television/Televisions";
 
 
 function App() {
@@ -51,6 +53,15 @@ function App() {
           path="/category/63caaf8b48bfffa7fcebe59d"
           element={<SmartPhones />}
         />
+	       <Route
+          path="/category/63ce9096f74e0891f0e202fe"
+          element={<Tablets />}
+        />
+     <Route
+          path="/category/63caafc448bfffa7fcebe59f"
+          element={<Televisions />}
+        />
+
 
         <Route path="/register" element={<SignUp />} />
         <Route path="/login" element={<SignIn />} />
