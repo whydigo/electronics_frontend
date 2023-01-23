@@ -2,9 +2,8 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import SignIn from "./components/Authorization/SignIn";
 import SignUp from "./components/Authorization/SignUp";
-import Service from "./components/Services/Service";
 import Header from "./components/Header/Header";
-import Footer from "./components/Footer/Footer"
+import Footer from "./components/Footer/Footer";
 import ServiceSaleRule from "./components/Services/ServicesItems/ServiceSaleRule";
 import ServiceLocation from "./components/Services/ServicesItems/ServiceLocation";
 import ServiceReturn from "./components/Services/ServicesItems/ServiceReturn";
@@ -12,6 +11,7 @@ import ServiceRefund from "./components/Services/ServicesItems/ServiceRefund";
 import ServiceOrder from "./components/Services/ServicesItems/ServiceOrder";
 import Payment from "./components/Services/ServicesItems/Payment";
 import RulesUse from "./components/Services/ServicesItems/RulesUse";
+import MainPage from "./components/Main/MainPage";
 
 function App() {
   return (
@@ -20,8 +20,12 @@ function App() {
       <Routes>
         <Route path="/register" element={<SignUp />} />
         <Route path="/login" element={<SignIn />} />
-        <Route path="/services" element={<Navigate to="/services/kak-sdelat-zakaz" />} />
+        <Route path="/" element={<MainPage />} />
 
+        <Route
+          path="/services"
+          element={<Navigate to="/services/kak-sdelat-zakaz" />}
+        />
         <Route
           path="/services/pravila-prodazhi"
           element={<ServiceSaleRule />}
