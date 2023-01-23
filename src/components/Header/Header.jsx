@@ -5,8 +5,11 @@ import adress from "../../accets/icons9.png";
 import user from "../../accets/icon8.png";
 import basket from "../../accets/icon10.png";
 import { Link } from "react-router-dom";
+import AllProducts from "../AllProducts/AllProducts";
+import { useState } from "react";
 
 const Header = ({setOpenModal}) => {
+  const [text, setText] = useState("")
   return (
     <>
       <header className="header">
@@ -26,6 +29,8 @@ const Header = ({setOpenModal}) => {
                 className="search_nav"
                 type="text"
                 placeholder="Я ищу..."
+                value={text}
+                onChange = {(e) => setText(e.target.value)}
               />
             </div>
 
@@ -50,7 +55,7 @@ const Header = ({setOpenModal}) => {
           </nav>
         </div>
       </header>
-      <main></main>
+      <AllProducts text={text} setText={setText}/>
     </>
   );
 };
