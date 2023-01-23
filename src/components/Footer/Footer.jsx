@@ -1,5 +1,5 @@
 import React from "react";
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom";
 import "./main.css";
 
 const Footer = () => {
@@ -12,26 +12,26 @@ const Footer = () => {
               <div className="white">
                 <b>Покупателям</b>
               </div>
-              <Link to="/services/kak-sdelat-zakaz"> 
-              <p>Как сделать заказ</p>
+              <Link to="/services/kak-sdelat-zakaz">
+                <p>Как сделать заказ</p>
               </Link>
-              <Link to="/services/sposob-oplati"> 
-              <p>Способы оплаты</p>
+              <Link to="/services/sposob-oplati">
+                <p>Способы оплаты</p>
               </Link>
-              <Link to="/services/location"> 
-              <p>Доставка</p>
+              <Link to="/services/location">
+                <p>Доставка</p>
               </Link>
-              <Link to="/services/vozvrat-tovara"> 
-              <p>Возврат товара</p>
+              <Link to="/services/vozvrat-tovara">
+                <p>Возврат товара</p>
               </Link>
-              <Link to="/services/vozvrat-denezhnyh-sredstv"> 
-              <p>Возврат денежных средств</p>
+              <Link to="/services/vozvrat-denezhnyh-sredstv">
+                <p>Возврат денежных средств</p>
               </Link>
-              <Link to="/services/pravila-prodazhi"> 
-              <p>Правила продажи</p>
+              <Link to="/services/pravila-prodazhi">
+                <p>Правила продажи</p>
               </Link>
-              <Link to="/services/pravila-polzovaniya-torgovoy-ploshchadkoy"> 
-              <p>Правила пользования торговой площадкой</p>
+              <Link to="/services/pravila-polzovaniya-torgovoy-ploshchadkoy">
+                <p>Правила пользования торговой площадкой</p>
               </Link>
             </div>
             <div className="container-2">
@@ -48,10 +48,15 @@ const Footer = () => {
               <div className="white">
                 <b>Компания</b>
               </div>
-              <p>О нас</p>
-              <p>Реквизиты</p>
-              <p>Пресс-центр</p>
-              <p>Контакты</p>
+              <Link to="/services/about-us">
+                <p>О нас</p>
+              </Link>
+              <Link to="/services/rekvizity">
+                <p>Реквизиты</p>
+              </Link>
+              <Link to="/services/contacts">
+                <p>Контакты</p>
+              </Link>
               <p>Bug Bounty</p>
               <p>WB.Tech</p>
             </div>
@@ -95,12 +100,11 @@ const Footer = () => {
             </div>
           </div>
           <div className="container-6">
-            
-              2004-2023 © Wildberries — модный интернет-магазин одежды, обуви и
-              аксессуаров.
-              <br />
-              Все права защищены. Доставка по всей России.
-              <br />
+            2004-2023 © Wildberries — модный интернет-магазин одежды, обуви и
+            аксессуаров.
+            <br />
+            Все права защищены. Доставка по всей России.
+            <br />
           </div>
         </div>
       </div>
