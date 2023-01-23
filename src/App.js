@@ -33,6 +33,10 @@ function App() {
         />
 
         <Route
+          path="/services"
+          element={<Navigate to="/services/kak-sdelat-zakaz" />}
+        />
+        <Route
           path="/services/pravila-prodazhi"
           element={<ServiceSaleRule />}
         />

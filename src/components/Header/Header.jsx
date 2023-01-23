@@ -4,6 +4,7 @@ import search from "../../accets/search.png";
 import adress from "../../accets/icons9.png";
 import user from "../../accets/icon8.png";
 import basket from "../../accets/icon10.png";
+import { Link } from "react-router-dom";
 
 const Header = ({setOpenModal}) => {
   return (
@@ -16,7 +17,9 @@ const Header = ({setOpenModal}) => {
               <div className="bar2"></div>
               <div className="bar3"></div>
             </div>
-            <h1 className="nav-title">WILDBERRIES</h1>
+            <Link to="/">
+              <h1 className="nav-title">WILDBERRIES</h1>
+            </Link>
             <div className="nav_search">
               <img className="search_icon" src={search} alt="" />
               <input
