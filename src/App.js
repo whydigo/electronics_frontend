@@ -21,7 +21,7 @@ import { useState } from "react";
 import MainPage from "./components/Main/MainPage";
 import Contacts from "./components/Services/ServicesItems/Contacts";
 import Laptops from "./components/Cart/Laptop/Laptops";
-
+import SmartPhones from "./components/Cart/SmatPhone/SmartPhones";
 
 
 function App() {
@@ -47,6 +47,11 @@ function App() {
           path="/category/63ce9491f74e0891f0e20300"
           element={<Laptops />}
         />
+		       <Route
+          path="/category/63caaf8b48bfffa7fcebe59d"
+          element={<SmartPhones />}
+        />
+
         <Route path="/register" element={<SignUp />} />
         <Route path="/login" element={<SignIn />} />
         <Route
