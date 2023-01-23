@@ -39,11 +39,8 @@ const Contacts = () => {
                 <p>Для запросов СМИ и на участие в мероприятиях</p>
               </div>
             </div>
-          </div>
         </div>
-      </div>
-    </>
-  );
+    );
 };
 
 export default Contacts;
