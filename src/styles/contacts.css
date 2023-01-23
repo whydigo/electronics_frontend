@@ -14,9 +14,6 @@
     margin-top: 5%;
     margin-left: 10%;
     background: rgb(252, 252, 252);
-    /* display: flex;
-    flex-direction: column;
-    gap: 10px; */
 }
 
 .c-blocks {
@@ -24,7 +21,6 @@
     flex-wrap: wrap;
     gap: 20px;
     margin-bottom: 100px;
-    
 }
 
 .c-block {
@@ -45,7 +41,6 @@
 }
 
 .questions {
-    
     margin-left: 0%;
     width: 200px;
     height: 50px;
@@ -60,6 +55,7 @@
     color: rgb(255, 255, 255);
     margin-left: 5%;
 }
+
 .questions-a {
     text-decoration: none;
     color: white;
@@ -82,7 +78,6 @@
     width: 23%;
     height: 400px;
     box-sizing: border-box;
-    /* margin-bottom: 52px; */
     padding: 44px 48px 48px;
     position: relative;
     color: white;
