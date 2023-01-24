@@ -31,6 +31,13 @@ import PostSmartphone from "./components/Admin/PostProducts/PostSmartphone";
 import PostSmartwatch from "./components/Admin/PostProducts/PostSmartwatch";
 import PostTablet from "./components/Admin/PostProducts/PostTablet";
 import PostTelevision from "./components/Admin/PostProducts/PostTelevision";
+import CameraById from "./components/Cart/Camera/CameraById";
+import HeadSetById from "./components/Cart/HeadSet/HeadsetById";
+import SmartWatchById from "./components/Cart/Smart-Watch/SmartWatchById";
+import LaptopById from "./components/Cart/Laptop/LaptopById";
+import SmartPhoneById from "./components/Cart/SmatPhone/SmartPhoneById";
+import TabletById from "./components/Cart/Table/TableById";
+import TelevisionById from "./components/Cart/Television/TelevisionById";
 
 function App() {
   const [openModal, setOpenModal] = useState(false);
@@ -40,13 +47,34 @@ function App() {
       <Menu setOpenModal={setOpenModal} openModal={openModal} />
       <Routes>
         {/* ------------------------Категории------------------------ */}
-        <Route path="/category/63cbaae09cfb3fc70c243fce" element={<Cameras />} />
-        <Route path="/category/63caaf6db2f72ed28aa640f6" element={<SmartWatchs />} />
-        <Route path="/category/63ce643c9288831a7330dc4a" element={<Headsets />} />
-        <Route path="/category/63ce9491f74e0891f0e20300" element={<Laptops />} />
-        <Route path="/category/63caaf8b48bfffa7fcebe59d" element={<SmartPhones />} />
-        <Route path="/category/63ce9096f74e0891f0e202fe" element={<Tablets />} />
-        <Route path="/category/63caafc448bfffa7fcebe59f" element={<Televisions />} />
+        <Route
+          path="/category/63cbaae09cfb3fc70c243fce"
+          element={<Cameras />}
+        />
+        <Route
+          path="/category/63caaf6db2f72ed28aa640f6"
+          element={<SmartWatchs />}
+        />
+        <Route
+          path="/category/63ce643c9288831a7330dc4a"
+          element={<Headsets />}
+        />
+        <Route
+          path="/category/63ce9491f74e0891f0e20300"
+          element={<Laptops />}
+        />
+        <Route
+          path="/category/63caaf8b48bfffa7fcebe59d"
+          element={<SmartPhones />}
+        />
+        <Route
+          path="/category/63ce9096f74e0891f0e202fe"
+          element={<Tablets />}
+        />
+        <Route
+          path="/category/63caafc448bfffa7fcebe59f"
+          element={<Televisions />}
+        />
 
         {/* ------------------------Авторизация------------------------ */}
         <Route path="/register" element={<SignUp />} />
@@ -82,6 +110,15 @@ function App() {
         <Route path="/services/about-us" element={<AboutUs />} />
         <Route path="/services/rekvizity" element={<Requisites />} />
         <Route path="/services/contacts" element={<Contacts />} />
+
+        {/* ------------------------Карты------------------------ */}
+        <Route path="/camera/:id" element={<CameraById />} />
+        <Route path="/headset/:id" element={<HeadSetById />} />
+        <Route path="/smartwatch/:id" element={<SmartWatchById />} />
+        <Route path="/laptop/:id" element={<LaptopById />} />
+        <Route path="/smartphone/:id" element={<SmartPhoneById />} />
+        <Route path="/tablet/:id" element={<TabletById />} />
+        <Route path="/television/:id" element={<TelevisionById />} />
 
         {/* ------------------------Админ------------------------ */}
         <Route path="/admin/products/camera" element={<PostCamera />} />

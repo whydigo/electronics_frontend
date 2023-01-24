@@ -9,7 +9,6 @@ import SmartWatch from "./SmartWatch";
 const SmartWatchs = () => {
   const { id } = useParams();
   const smartWatch = useSelector((state) => state.smartWatchReducer.smartWatch);
-  console.log(smartWatch, 'hhh');
   const filtered = smartWatch.filter((item) => {
     if (!id) return true;
     return item.category === id;
@@ -30,6 +29,7 @@ const SmartWatchs = () => {
               price={item.price}
 				  discount={item.discount}
 				  model={item.model}
+				  id={item._id}
             />
         );
       })}
