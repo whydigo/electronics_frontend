@@ -4,7 +4,6 @@
 	display: flex;
 	margin: 40px auto;
 	flex-wrap: wrap;
-	text-align: center
 }
 
 
@@ -54,7 +53,7 @@
 	color: #8B8BA9;
 	font-weight: 400;
 	font-size: 20px;
-	margin-top: 20px;
+	margin-top: 29px;
 }
 
 .discount_order{
