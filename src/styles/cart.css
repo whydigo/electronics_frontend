@@ -1,9 +1,10 @@
 .cart_container{
 	box-sizing: border-box;
+	gap:7px;
 	display: flex;
-	justify-content: space-between;
 	margin: 40px auto;
-	flex-wrap: wrap
+	flex-wrap: wrap;
+	text-align: center
 }
 
 
@@ -106,4 +107,7 @@
 	font-size: 20px;
 	border-radius: 10px;
 	margin-top: 10px;
+}
+.productById_image{
+	border-radius: 20px;
 }
