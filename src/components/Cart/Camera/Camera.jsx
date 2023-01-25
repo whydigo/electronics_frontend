@@ -2,9 +2,13 @@ import React from "react";
 import "../../../styles/cart.css";
 import { Link } from 'react-router-dom';
 
+
 const Camera = ({ image, name, price, discount,model,id }) => {
   return (
+	
     <div className="cart">
+		       
+
       <div className="cart_item">
         <div className="product-card__img-wrap"><Link to={`/camera/${id}`}>
           <img
@@ -22,7 +26,7 @@ const Camera = ({ image, name, price, discount,model,id }) => {
 			</div>}
         <div className="cart_title"><span className="cart_title_name">{name}</span>/<span className="cart_title_model">{model}</span></div>
 		  <div className="basket">В корзину</div>
-      </div>
+      </div>	
     </div>
   );
 };

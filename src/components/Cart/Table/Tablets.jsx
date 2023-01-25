@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { fetchTablet } from "../../../features/TabletSlice";
 import Tablet from "./Tablet";
 import "../../../styles/cart.css";
+import Fade from 'react-reveal/Fade';
 
 const Tablets = () => {
   const { id } = useParams();
@@ -19,6 +20,7 @@ const Tablets = () => {
     dispatch(fetchTablet());
   }, [dispatch]);
   return (
+	<Fade right>
     <div className="cart_container">
       {filtered.map((item) => {
         return (
@@ -34,6 +36,7 @@ const Tablets = () => {
         );
       })}
     </div>
+	 </Fade>
   );
 };
 
