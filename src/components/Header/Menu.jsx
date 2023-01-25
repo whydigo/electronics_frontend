@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 
 function Menu({ setOpenModal, openModal = [] }) {
-    const categories = useSelector((state) => state.categoryReducer.categories);
+  const categories = useSelector((state) => state.categoryReducer.categories);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchCategories());
@@ -16,15 +16,15 @@ function Menu({ setOpenModal, openModal = [] }) {
   return (
     <>
       {openModal && (
-        <div className="overlay">
-          <div className="drawer">
-            <div className='btn-close'>
-              <button className="removeBtn" onClick={() => setOpenModal(false)}>x</button>
+        <div className="m-overlay">
+          <div className="m-drawer">
+            <div className='m-btn-close'>
+              <button className="m-removeBtn" onClick={() => setOpenModal(false)}>&times;</button>
             </div>
-            <div className="items">
+            <div className="m-items">
               {categories.map((category) => {
                 return (
-                  <div className="categoty" key={category._id}><Link to={`/category/${category._id}`} key={category._id}>{category.name}</Link></div>
+                  <div className="m-categoty" key={category._id}><Link to={`/category/${category._id}`} key={category._id}>{category.name}</Link></div>
                 );
               })}
             </div>
