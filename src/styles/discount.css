@@ -1,0 +1,15 @@
+.discount__container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 60px;
+    margin: 20px 150px;
+}
+
+.discount__item {
+    border-radius: 20px;
+}
+.discount__image {
+    border-radius: 20px;
+    width: 250px;
+}
