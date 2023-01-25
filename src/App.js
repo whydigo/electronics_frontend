@@ -130,6 +130,7 @@ function App() {
         <Route path="/admin/products/tv" element={<PostTelevision />} />
       </Routes>
       <Footer />
+     
     </div>
   );
 }
