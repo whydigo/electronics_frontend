@@ -13,6 +13,7 @@ import Payment from "./components/Services/ServicesItems/Payment";
 import RulesUse from "./components/Services/ServicesItems/RulesUse";
 import AboutUs from "./components/Services/ServicesItems/AboutUs";
 import Requisites from "./components/Services/ServicesItems/Requisites";
+import Profile from "./components/Profile/Profile";
 
 function App() {
   return (
@@ -43,10 +44,13 @@ function App() {
           element={<RulesUse />}
         />
 
+       <Route path="/profile" element={<Profile />} />
+
         <Route path="/services/about-us" element={<AboutUs />} />
         <Route path="/services/rekvizity" element={<Requisites />} />
       </Routes>
       <Footer />
+     
     </div>
   );
 }
