@@ -2,7 +2,7 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
 import slider_1 from "../../assets/slider_1.jpg";
-import slider_2 from "../../assets/slider_2.jpg";
+import slider_2 from "../../assets/slider_4.jpg";
 import slider_3 from "../../assets/slider_3.jpg";
 import "swiper/swiper-bundle.css";
 import "swiper/css/navigation";
