@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { fetchSmartWatch } from "../../../features/SmartWatchSlice";
 import "../../../styles/cart.css";
 import SmartWatch from "./SmartWatch";
+import Fade from 'react-reveal/Fade';
 
 const SmartWatchs = () => {
   const { id } = useParams();
@@ -19,6 +20,7 @@ const SmartWatchs = () => {
     dispatch(fetchSmartWatch());
   }, [dispatch]);
   return (
+	<Fade right>
     <div className="cart_container">
       {filtered.map((item) => {
         return (
@@ -34,6 +36,7 @@ const SmartWatchs = () => {
         );
       })}
     </div>
+	 </Fade>
   );
 };
 
