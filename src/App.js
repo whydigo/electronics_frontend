@@ -38,6 +38,7 @@ import LaptopById from "./components/Cart/Laptop/LaptopById";
 import SmartPhoneById from "./components/Cart/SmatPhone/SmartPhoneById";
 import TabletById from "./components/Cart/Table/TableById";
 import TelevisionById from "./components/Cart/Television/TelevisionById";
+import Basket from "./components/Basket/Basket";
 
 function App() {
   const [text, setText] = useState("");
@@ -130,6 +131,8 @@ function App() {
         <Route path="/admin/products/smartwatch" element={<PostSmartwatch />} />
         <Route path="/admin/products/tablet" element={<PostTablet />} />
         <Route path="/admin/products/tv" element={<PostTelevision />} />
+        <Route path="/basket" element={<Basket />} />
+        
       </Routes>
       <Footer />
      
