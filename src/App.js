@@ -31,14 +31,17 @@ import PostSmartphone from "./components/Admin/PostProducts/PostSmartphone";
 import PostSmartwatch from "./components/Admin/PostProducts/PostSmartwatch";
 import PostTablet from "./components/Admin/PostProducts/PostTablet";
 import PostTelevision from "./components/Admin/PostProducts/PostTelevision";
+import UltraMainPage from "./components/Pages/UltraMainPage";
 
 function App() {
+  const [text, setText] = useState("");
   const [openModal, setOpenModal] = useState(false);
   return (
     <div className="App">
-      <Header setOpenModal={setOpenModal} />
+      <Header openModal={openModal} setOpenModal={setOpenModal} text={text} setText={setText} />
       <Menu setOpenModal={setOpenModal} openModal={openModal} />
       <Routes>
+
         {/* ------------------------Категории------------------------ */}
         <Route path="/category/63cbaae09cfb3fc70c243fce" element={<Cameras />} />
         <Route path="/category/63caaf6db2f72ed28aa640f6" element={<SmartWatchs />} />
@@ -57,7 +60,7 @@ function App() {
           path="/services"
           element={<Navigate to="/services/kak-sdelat-zakaz" />}
         />
-        <Route path="/" element={<MainPage />} />
+        <Route path="/" element={<MainPage text={text} />} />
 
         <Route
           path="/services"

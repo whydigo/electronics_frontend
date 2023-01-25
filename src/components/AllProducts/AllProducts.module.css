@@ -1,18 +1,26 @@
 .mainWrapper {
-    border: 1px solid red;
     flex-wrap: wrap;
     width: 100%;
     display: flex;
+    justify-content: center;
 }
 .cardWrapper {
     border: 1px solid;
-    width: 20%;
+    width: 15%;
+    margin: 45px 5px;
 }
 .imageWrapper {
     width: 100%;
+text-align: center;
 }
 .imageWrapper img {
-    width: 100%;
-    height: 100%;
+    width: 50%;
     object-fit: cover;
+}
+
+.allProductsTitle {
+    font-size: 20px;
+    margin-top: 80px;
+    margin-left: 160px;
+    font-weight: 600;
 }
