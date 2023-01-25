@@ -49,7 +49,10 @@ const Header = ({setOpenModal}) => {
               </div>
               <div className="navbar-adress">
                 <img src={basket} alt="" className="navbar-img3" />
+                <Link to="/basket">
                 <p className="navbar-img-text3">Корзина</p>
+                </Link>
+                
               </div>
             </div>
           </nav>
