@@ -24,7 +24,7 @@ const TelevisionById = () => {
             <div className="productById">
               <div className="container_productById">
                 <div className="productById_name">
-                  <span>{item.name}</span> / Фотоаппараты{" "}
+                  <span>{item.name}</span> / Телевизоры{" "}
                   <span>{item.model}</span>
                 </div>
                 <div className="productById_characteristics">
