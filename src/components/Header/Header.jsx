@@ -5,10 +5,8 @@ import adress from "../../accets/icons9.png";
 import user from "../../accets/icon8.png";
 import basket from "../../accets/icon10.png";
 import { Link } from "react-router-dom";
-import AllProducts from "../AllProducts/AllProducts";
-import { useState } from "react";
 
-const Header = ({setOpenModal, text, setText}) => {
+const Header = ({ setOpenModal, text, setText }) => {
   return (
     <>
       <header className="header">
@@ -29,21 +27,24 @@ const Header = ({setOpenModal, text, setText}) => {
                 type="text"
                 placeholder="Я ищу..."
                 value={text}
-                onChange = {(e) => setText(e.target.value)}
+                onChange={(e) => setText(e.target.value)}
               />
+              <button className="header__btn">
+                <a href={"#allproducts"}>найти</a>
+              </button>
             </div>
 
             <div className="navbar">
               <div className="navbar-adress">
                 <img src={adress} alt="" className="navbar-img" />
                 <Link to="services/location">
-                <p className="navbar-img-text">Адреса</p>
+                  <p className="navbar-img-text">Адреса</p>
                 </Link>
               </div>
               <div className="navbar-adress">
                 <img src={user} alt="" className="navbar-img2" />
                 <Link to="/login">
-                <p className="navbar-img-text2">Войти</p>
+                  <p className="navbar-img-text2">Войти</p>
                 </Link>
               </div>
               <div className="navbar-adress">

@@ -5,11 +5,11 @@ import { useEffect } from "react";
 import { fetchSmartWatch } from "../../../features/SmartWatchSlice";
 import "../../../styles/cart.css";
 import SmartWatch from "./SmartWatch";
+import Fade from 'react-reveal/Fade';
 
 const SmartWatchs = () => {
   const { id } = useParams();
   const smartWatch = useSelector((state) => state.smartWatchReducer.smartWatch);
-  console.log(smartWatch, 'hhh');
   const filtered = smartWatch.filter((item) => {
     if (!id) return true;
     return item.category === id;
@@ -20,6 +20,7 @@ const SmartWatchs = () => {
     dispatch(fetchSmartWatch());
   }, [dispatch]);
   return (
+	<Fade right>
     <div className="cart_container">
       {filtered.map((item) => {
         return (
@@ -30,10 +31,12 @@ const SmartWatchs = () => {
               price={item.price}
 				  discount={item.discount}
 				  model={item.model}
+				  id={item._id}
             />
         );
       })}
     </div>
+	 </Fade>
   );
 };
 

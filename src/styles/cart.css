@@ -1,9 +1,9 @@
 .cart_container{
 	box-sizing: border-box;
+	gap:7px;
 	display: flex;
-	justify-content: space-between;
 	margin: 40px auto;
-	flex-wrap: wrap
+	flex-wrap: wrap;
 }
 
 
@@ -53,7 +53,7 @@
 	color: #8B8BA9;
 	font-weight: 400;
 	font-size: 20px;
-	margin-top: 20px;
+	margin-top: 29px;
 }
 
 .discount_order{
@@ -106,4 +106,7 @@
 	font-size: 20px;
 	border-radius: 10px;
 	margin-top: 10px;
+}
+.productById_image{
+	border-radius: 20px;
 }

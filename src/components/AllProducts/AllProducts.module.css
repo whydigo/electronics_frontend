@@ -1,26 +1,65 @@
 .mainWrapper {
-    flex-wrap: wrap;
-    width: 100%;
-    display: flex;
-    justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
 }
 .cardWrapper {
-    border: 1px solid;
-    width: 15%;
-    margin: 45px 5px;
+  width: 13%;
 }
 .imageWrapper {
-    width: 100%;
-text-align: center;
+    height: 250px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(242, 242, 242);
+  border-radius: 15px;
 }
 .imageWrapper img {
-    width: 50%;
-    object-fit: cover;
+  width: 70%;
+  object-fit: cover;
 }
 
 .allProductsTitle {
-    font-size: 20px;
-    margin-top: 80px;
-    margin-left: 160px;
-    font-weight: 600;
+  font-size: 22px;
+  margin-top: 80px;
+  margin-left: 170px;
+  margin-bottom: 50px;
+  font-weight: 800;
+}
+
+.cardPrice {
+  font-weight: 700;
+  font-size: 19px;
+}
+
+.cardDiscount {
+  color: rgb(162, 162, 162);
+  text-decoration: line-through;
+  font-size: 16px;
+}
+
+.cardName {
+  color: rgb(175, 175, 175);
+  padding-left: 5px;
+}
+
+.priceManipulation {
+  padding-top: 10px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.comment {
+    margin: 80px 120px;
+    color: rgb(164, 164, 164);
+}
+
+.commentTitle {
+    font-size: 19px;
+    color: rgb(42, 42, 42);
+    font-weight: 700;
 }

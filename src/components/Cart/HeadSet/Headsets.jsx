@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { fetchHeadset } from "../../../features/HeadsetSlice";
 import Headset from "./Headset";
 import "../../../styles/cart.css";
+import Fade from 'react-reveal/Fade';
 
 const Headsets = () => {
   const { id } = useParams();
@@ -19,6 +20,7 @@ const Headsets = () => {
     dispatch(fetchHeadset());
   }, [dispatch]);
   return (
+	<Fade right>
     <div className="cart_container">
       {filtered.map((item) => {
         return (
@@ -29,10 +31,12 @@ const Headsets = () => {
               price={item.price}
 				  discount={item.discount}
 				  model={item.model}
+				  id={item._id}
             />
         );
       })}
     </div>
+	 </Fade>
   );
 };
 

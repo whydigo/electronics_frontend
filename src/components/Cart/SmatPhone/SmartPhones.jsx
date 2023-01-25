@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { fetchSmartPhone } from "../../../features/SmartPhoneSlice";
 import SmartPhone from "./SmartPhone";
 import "../../../styles/cart.css";
+import Fade from 'react-reveal/Fade';
 
 const SmartPhones = () => {
   const { id } = useParams();
@@ -18,7 +19,9 @@ const SmartPhones = () => {
   useEffect(() => {
     dispatch(fetchSmartPhone());
   }, [dispatch]);
+  
   return (
+	<Fade right>
     <div className="cart_container">
       {filtered.map((item) => {
         return (
@@ -29,10 +32,12 @@ const SmartPhones = () => {
               price={item.price}
 				  discount={item.discount}
 				  model={item.model}
+				  id={item._id}
             />
         );
       })}
     </div>
+	 </Fade>
   );
 };
 

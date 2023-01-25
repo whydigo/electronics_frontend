@@ -1,16 +1,17 @@
 import React from "react";
 import "../../../styles/cart.css";
+import { Link } from 'react-router-dom';
 
-const Laptop = ({ image, name, price, discount,model }) => {
+const Laptop = ({ image, name, price, discount,model,id }) => {
   return (
     <div className="cart">
       <div className="cart_item">
-        <div className="product-card__img-wrap">
+        <div className="product-card__img-wrap"><Link to={`/laptop/${id}`}>
           <img
             className="cart__image"
             src={`http://localhost:4000/${image}`}
             alt=""
-          />
+          /></Link>
 			 {discount ? <div className="discount_order">-{discount}%</div> : <div className="discount_none"></div>}
         </div>
 		  {!discount ? <div className="price_product">{price} ₽</div> :

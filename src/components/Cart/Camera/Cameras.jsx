@@ -5,6 +5,9 @@ import { useEffect } from "react";
 import { fetchCamera } from "../../../features/CameraSlice";
 import Camera from "./Camera";
 import "../../../styles/cart.css";
+import Fade from 'react-reveal/Fade';
+
+
 
 const Cameras = () => {
   const { id } = useParams();
@@ -19,6 +22,7 @@ const Cameras = () => {
     dispatch(fetchCamera());
   }, [dispatch]);
   return (
+	<Fade right>
     <div className="cart_container">
       {filtered.map((item) => {
         return (
@@ -29,10 +33,15 @@ const Cameras = () => {
               price={item.price}
 				  discount={item.discount}
 				  model={item.model}
+				  id={item._id}
             />
         );
+		 
       })}
+		
     </div>
+	 </Fade>
+	 
   );
 };
 

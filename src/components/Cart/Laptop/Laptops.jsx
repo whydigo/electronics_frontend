@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { fetchLaptop } from "../../../features/LaptopSlice";
 import Laptop from "./Laptop";
 import "../../../styles/cart.css";
+import Fade from 'react-reveal/Fade';
 
 const Laptops = () => {
   const { id } = useParams();
@@ -19,6 +20,7 @@ const Laptops = () => {
     dispatch(fetchLaptop());
   }, [dispatch]);
   return (
+	<Fade right>
     <div className="cart_container">
       {filtered.map((item) => {
         return (
@@ -29,10 +31,12 @@ const Laptops = () => {
               price={item.price}
 				  discount={item.discount}
 				  model={item.model}
+				  id={item._id}
             />
         );
       })}
     </div>
+	 </Fade>
   );
 };
 
