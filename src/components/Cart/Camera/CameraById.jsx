@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { fetchCamera } from "../../../features/CameraSlice";
 import "../../../styles/cartProductById.css";
 
+
 const CameraById = () => {
   const { id } = useParams();
   const camera = useSelector((state) => state.cameraReducer.camera);

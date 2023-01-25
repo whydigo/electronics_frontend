@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { fetchTelevision } from "../../../features/TelevisionSlice";
 import Television from "./Television";
 import "../../../styles/cart.css";
+import Fade from 'react-reveal/Fade';
 
 const Televisions = () => {
   const { id } = useParams();
@@ -19,6 +20,7 @@ const Televisions = () => {
     dispatch(fetchTelevision());
   }, [dispatch]);
   return (
+	<Fade right>
     <div className="cart_container">
       {filtered.map((item) => {
         return (
@@ -34,6 +36,7 @@ const Televisions = () => {
         );
       })}
     </div>
+	 </Fade>
   );
 };
 
