@@ -7,9 +7,20 @@ import basket from "../../accets/icon10.png";
 import { Link } from "react-router-dom";
 // import AllProducts from "../AllProducts/AllProducts";
 import { useState } from "react";
+import { useSelector } from "react-redux";
+import Basket from "../Basket/Basket";
 
-const Header = ({setOpenModal}) => {
-  const [text, setText] = useState("")
+
+const Header = ({ setOpenModal }) => {
+  const [text, setText] = useState("");
+  const token = useSelector((state) => state.application.token);
+  const handkeTockenclear = () => {
+    localStorage.clear(token);
+    window.location.reload();
+  };
+  const [opened, setOpened] = useState(false);
+
+  const handleCartOpen = () => setOpened(!opened);
   return (
     <>
       <header className="header">
@@ -30,33 +41,42 @@ const Header = ({setOpenModal}) => {
                 type="text"
                 placeholder="Я ищу..."
                 value={text}
-                onChange = {(e) => setText(e.target.value)}
+                onChange={(e) => setText(e.target.value)}
               />
             </div>
-
             <div className="navbar">
               <div className="navbar-adress">
                 <img src={adress} alt="" className="navbar-img" />
                 <Link to="services/location">
-                <p className="navbar-img-text">Адреса</p>
+                  <p className="navbar-img-text">Адреса</p>
                 </Link>
               </div>
               <div className="navbar-adress">
                 <img src={user} alt="" className="navbar-img2" />
-                <Link to="/login">
-                <p className="navbar-img-text2">Войти</p>
-                </Link>
+                {!token ? (
+                  <Link to="/login">
+                    <p className="navbar-img-text2">Войти</p>
+                  </Link>
+                ) : (
+                  <p
+                    className="navbar-img-text-exit"
+                    onClick={handkeTockenclear}
+                  >
+                    Выйти
+                  </p>
+                )}
               </div>
-              <div className="navbar-adress">
-                <img src={basket} alt="" className="navbar-img3" />
-                <Link to="/basket">
-                <p className="navbar-img-text3">Корзина</p>
-                </Link>
-                
-              </div>
+              {token &&
+                <div className="navbar-adress"  onClick={handleCartOpen}>
+                  <img src={basket} alt="" className="navbar-img3" />
+                  <p className="navbar-img-text3">Корзина</p>
+                </div>}
             </div>
+				{opened && <Basket setOpened={setOpened} className="basket"/>}
           </nav>
+			
         </div>
+		 
       </header>
       {/* <AllProducts text={text} setText={setText}/> */}
     </>

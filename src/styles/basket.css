@@ -1,0 +1,33 @@
+.bas {
+	position: absolute;
+	margin:370px 0px 0 0;
+	right: 0;
+	height: 300px;
+	width: 600px;
+	background-color: rgba(255, 255, 255, 0.893);
+	z-index: 2;
+	border: 1px solid black;
+}
+
+.basket_close img{
+	width: 30px;
+	height: 30px;
+	margin: 5px 0 0 560px;
+}
+.basket_items{
+	margin-top: 15px;
+}
+
+.cardsName{
+	display: flex;
+}
+.cardsName_one{
+	font-size: 25px;
+}
+
+.cardsName_item{
+	margin-left: 30px;
+}
+.productNumber{
+	margin-left: 5px;
+}
