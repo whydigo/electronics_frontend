@@ -20,8 +20,8 @@ const SignIn = () => {
   };
 
   const handleSignIn = (e) => {
+	e.preventDefault();
     dispatch(authSignIn({ login, password }));
-    e.preventDefault();
     setLogin("");
     setPassword("");
   };
