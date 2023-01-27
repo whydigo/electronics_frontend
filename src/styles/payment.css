@@ -6,29 +6,30 @@
     padding: 1rem;
     display: flex;
     flex-direction: column;
-    gap: 10px;;
+    gap: 20px;;
 }
 
-details {
+.m-zagolovok {
+    margin-bottom: 1%;
+}
+
+.m-details {
     border-bottom: 1px solid rgb(226, 225, 225);
     padding: 5px 0;
 }
 
-.zagolovok {
-    margin-bottom: 3%;
-}
-
-summary {
-    font-size: 2rem;
-    font-weight: 500;
-}
-
-p {
+.m-summary {
     font-size: 1.4rem;
-    margin-left: 5%;
+    font-weight: 600;
 }
 
-li {
+.m-p {
     font-size: 1.4rem;
-    margin-left: 5%;
+    margin-left: 4%;
+}
+
+.m-li {
+    margin-top: 1%;
+    font-size: 1.2rem;
+    margin-left: 4%;
 }
