@@ -40,7 +40,7 @@ import SmartPhoneById from "./components/Cart/SmatPhone/SmartPhoneById";
 import TabletById from "./components/Cart/Table/TableById";
 import TelevisionById from "./components/Cart/Television/TelevisionById";
 import Basket from "./components/Basket/Basket";
-
+import CreditCard from "./components/Basket/CreditCard";
 function App() {
   const [text, setText] = useState("");
   const [openModal, setOpenModal] = useState(false);
@@ -49,7 +49,7 @@ function App() {
       <Header openModal={openModal} setOpenModal={setOpenModal} text={text} setText={setText} />
       <Menu setOpenModal={setOpenModal} openModal={openModal} />
       <Routes>
-
+<Route path="/creditcard" element={<CreditCard/>}/>
         {/* ------------------------Категории------------------------ */}
         <Route
           path="/category/63cbaae09cfb3fc70c243fce"
