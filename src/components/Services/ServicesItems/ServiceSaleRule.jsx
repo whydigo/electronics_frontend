@@ -8,7 +8,7 @@ const ServiceSaleRule = () => {
       <Service />
       <div className="service__container">
           <h1 className="serviceSaleRule_title">
-            Правила продажи товаров в интернет-магазине Wildberries
+            Правила продажи товаров в интернет-магазине Electronics
           </h1>
           <ol className="serviceSaleRule_list">
             <li>
@@ -44,8 +44,8 @@ const ServiceSaleRule = () => {
             </li>
             <li>
               <span>5</span>
-              Заказ формируется через интернет-сайт ООО «Вайлдберриз»
-              (www.wildberries.ru).
+              Заказ формируется через интернет-сайт ООО «Электроникс»
+              (www.electronics.ru).
             </li>
             <li>
               <span>6</span>
