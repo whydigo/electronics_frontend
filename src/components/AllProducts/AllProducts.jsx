@@ -19,7 +19,7 @@ const AllProducts = ({ text }) => {
   // console.log(camera, smartWatchs, "cam");
   // console.log(allProducts, "all");
   const filteredProducts = allProducts.filter((i) => {
-    return i.name.toLowerCase().includes(text?.toLowerCase().toString());
+    return i.name?.toLowerCase().includes(text?.toLowerCase().toString());
   });
   // console.log(filteredProducts, 'filtered products');
 

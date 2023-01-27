@@ -1,5 +1,6 @@
 import React from "react";
 import CartItem from "./CartItem";
+import {Link} from "react-router-dom"
 
 const CartItems = ({ cart }) => {
   console.log(cart, "cart");
@@ -25,7 +26,7 @@ const CartItems = ({ cart }) => {
         })}
       </div>
       <div className="orderingOrder">
-			<div className="orderingOrder_one">оформить заказ</div>
+			<Link to={"/creditcard"} className="orderingOrder_one">Оформить заказ</Link>
       </div>
     </div>
 	 </>

@@ -84,7 +84,7 @@
 	height: 300px;
 	width: 500px;
 	box-shadow:  0 0 20px rgb(0 0 0 / 10%);
-	margin: 0 50px 0 450px;
+	margin: 0 50px 0 380px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -109,6 +109,11 @@
 	justify-content: center;
 	font-size: 25px;
 	border-radius: 50px;
+	transition: 0.3s;
+}
+.orderingOrder_one:hover{
+	width: 300px;
+	height: 100px;
 }
 .strice{
 	color: #8B8B8B;

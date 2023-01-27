@@ -21,9 +21,7 @@ const Basket = () => {
 		<div>
 			{filt.map((i) => {
 				return (
-				
 					<CartItems key={i._id} cart={i.cart}/>
-					
 				)
 			})}
 		</div>
