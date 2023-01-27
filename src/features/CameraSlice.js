@@ -24,48 +24,29 @@ export const fetchCamera = createAsyncThunk(
 
 export const postCamera = createAsyncThunk(
   "camera/post",
-  async (
-    {
-      name,
-      description,
-      price,
-      discount,
-      model,
-      nutrition,
-      batteryCapacity,
-      typeOfMatrix,
-      permission,
-    },
-    thunkAPI
-  ) => {
-    
+  async (data, thunkAPI) => {
+    const formData = new FormData();
+    formData.append("img", data.img);
+    formData.append("name", data.name);
+    formData.append("description", data.description);
+    formData.append("price", data.price);
+    formData.append("discount", data.discount);
+    formData.append("model", data.model);
+    formData.append("nutrition", data.nutrition);
+    formData.append("batteryCapacity", data.batteryCapacity);
+    formData.append("typeOfMatrix", data.typeOfMatrix);
+    formData.append("permission", data.permission);
+
     try {
       const res = await fetch("http://localhost:4000/camera", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name: name,
-          description: description,
-          price: price,
-          discount: discount,
-          model: model,
-          nutrition: nutrition,
-          batteryCapacity: batteryCapacity,
-          typeOfMatrix: typeOfMatrix,
-          permission: permission,
-        }),
+        body: formData,
       });
-      const data = await res.json();
-
-      if (data.error) {
-        return thunkAPI.rejectWithValue(data.error);
-      }
-
-      return data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+      const result = await res.json();
+      console.log(result, "result");
+      return thunkAPI.fulfillWithValue(result);
+    } catch (err) {
+      return thunkAPI.rejectWithValue(err);
     }
   }
 );
@@ -77,6 +58,7 @@ const CameraSlicer = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchCamera.fulfilled, (state, action) => {
+        console.log(action.payload, "ACTION FINAL");
         state.camera = action.payload;
         state.error = null;
         state.loading = false;
@@ -86,19 +68,6 @@ const CameraSlicer = createSlice({
         state.loading = false;
       })
       .addCase(fetchCamera.pending, (state, action) => {
-        state.loading = true;
-        state.error = null;
-      })
-      .addCase(postCamera.fulfilled, (state, action) => {
-        state.camera = state.camera.push(action.payload);
-        state.error = null;
-        state.loading = false;
-      })
-      .addCase(postCamera.rejected, (state, action) => {
-        state.error = action.payload;
-        state.loading = false;
-      })
-      .addCase(postCamera.pending, (state, action) => {
         state.loading = true;
         state.error = null;
       });
