@@ -1,4 +1,5 @@
 import React from 'react';
+import close from "../Services/icons/close.png";
 
 const CartItem = ({name,price,discount,image,model}) => {
 	return (
@@ -18,10 +19,13 @@ const CartItem = ({name,price,discount,image,model}) => {
 					 <div className='basket_product_price strice'><strike>{price} ₽</strike></div>
 					 </div>
 					}
+					
 				</div>
+				<div className='basket_close'><img className='basket_close_img' src={close} alt=""/></div>
 			</div>
 		</div>
 	);
 };
 
 export default CartItem;
+

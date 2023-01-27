@@ -113,3 +113,13 @@
 .strice{
 	color: #8B8B8B;
 }
+.basket_close{
+	display: flex;
+	align-items: center;
+	margin-right: 10px;
+}
+.basket_close_img{
+	width: 30px;
+	height: 30px;
+
+}
