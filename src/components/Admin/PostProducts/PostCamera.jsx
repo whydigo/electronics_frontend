@@ -32,7 +32,7 @@ const PostCamera = () => {
         permission,
       })
     );
-    console.log(name, description, price, discount, "component");
+   
   };
 
   return (

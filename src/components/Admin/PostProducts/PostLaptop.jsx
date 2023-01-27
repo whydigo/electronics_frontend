@@ -50,7 +50,7 @@ const PotsLaptop = () => {
         housingMaterial,
       })
     );
-    console.log(name, description, price, discount, "component");
+    
   };
 
   return (

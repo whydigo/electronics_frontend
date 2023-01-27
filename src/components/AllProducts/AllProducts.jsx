@@ -23,6 +23,7 @@ const AllProducts = ({ text }) => {
   });
   // console.log(filteredProducts, 'filtered products');
 
+
   useEffect(() => {
     dispatch(fetchCamera());
     dispatch(fetchSmartWatch());

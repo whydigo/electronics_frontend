@@ -32,7 +32,7 @@ const PostSmartwatch = () => {
         permission,
       })
     );
-    console.log(name, description, price, discount, "component");
+   
   };
 
   return (

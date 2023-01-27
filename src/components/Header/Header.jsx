@@ -6,7 +6,8 @@ import user from "../../accets/icon8.png";
 import basket from "../../accets/icon10.png";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import Basket from "../Basket/Basket";
+
+
 
 
 const Header = ({ setOpenModal, text, setText }) => {
@@ -15,9 +16,7 @@ const Header = ({ setOpenModal, text, setText }) => {
     localStorage.clear(token);
     window.location.reload();
   };
-  const [opened, setOpened] = useState(false);
 
-  const handleCartOpen = () => setOpened(!opened);
   return (
     <>
       <header className="header">
@@ -68,12 +67,11 @@ const Header = ({ setOpenModal, text, setText }) => {
                 )}
               </div>
               {token &&
-                <div className="navbar-adress"  onClick={handleCartOpen}>
+                <Link to = {`/basket`}><div className="navbar-adress">
                   <img src={basket} alt="" className="navbar-img3" />
                   <p className="navbar-img-text3">Корзина</p>
-                </div>}
+                </div></Link>}
             </div>
-				{opened && <Basket setOpened={setOpened} className="basket"/>}
           </nav>
 			
         </div>
