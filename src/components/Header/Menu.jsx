@@ -24,7 +24,7 @@ function Menu({ setOpenModal, openModal = [] }) {
             <div className="m-items">
               {categories.map((category) => {
                 return (
-                  <div className="m-categoty" key={category._id}><Link to={`/category/${category._id}`} key={category._id}>{category.name}</Link></div>
+                  <div className="m-categoty" key={category._id}><Link onClick={() => setOpenModal(false)} to={`/category/${category._id}`} key={category._id}>{category.name}</Link></div>
                 );
               })}
             </div>
