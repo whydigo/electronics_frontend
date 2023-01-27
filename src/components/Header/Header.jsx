@@ -5,14 +5,11 @@ import adress from "../../accets/icons9.png";
 import user from "../../accets/icon8.png";
 import basket from "../../accets/icon10.png";
 import { Link } from "react-router-dom";
-// import AllProducts from "../AllProducts/AllProducts";
-import { useState } from "react";
 import { useSelector } from "react-redux";
 import Basket from "../Basket/Basket";
 
 
-const Header = ({ setOpenModal }) => {
-  const [text, setText] = useState("");
+const Header = ({ setOpenModal, text, setText }) => {
   const token = useSelector((state) => state.application.token);
   const handkeTockenclear = () => {
     localStorage.clear(token);
@@ -43,6 +40,9 @@ const Header = ({ setOpenModal }) => {
                 value={text}
                 onChange={(e) => setText(e.target.value)}
               />
+              <button className="header__btn">
+                <a href={"#allproducts"}>найти</a>
+              </button>
             </div>
             <div className="navbar">
               <div className="navbar-adress">
@@ -53,6 +53,7 @@ const Header = ({ setOpenModal }) => {
               </div>
               <div className="navbar-adress">
                 <img src={user} alt="" className="navbar-img2" />
+
                 {!token ? (
                   <Link to="/login">
                     <p className="navbar-img-text2">Войти</p>
@@ -78,7 +79,6 @@ const Header = ({ setOpenModal }) => {
         </div>
 		 
       </header>
-      {/* <AllProducts text={text} setText={setText}/> */}
     </>
   );
 };

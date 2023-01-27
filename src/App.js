@@ -42,12 +42,14 @@ import TelevisionById from "./components/Cart/Television/TelevisionById";
 import Basket from "./components/Basket/Basket";
 
 function App() {
+  const [text, setText] = useState("");
   const [openModal, setOpenModal] = useState(false);
   return (
     <div className="App">
-      <Header setOpenModal={setOpenModal} />
+      <Header openModal={openModal} setOpenModal={setOpenModal} text={text} setText={setText} />
       <Menu setOpenModal={setOpenModal} openModal={openModal} />
       <Routes>
+
         {/* ------------------------Категории------------------------ */}
         <Route
           path="/category/63cbaae09cfb3fc70c243fce"
@@ -87,7 +89,7 @@ function App() {
           path="/services"
           element={<Navigate to="/services/kak-sdelat-zakaz" />}
         />
-        <Route path="/" element={<MainPage />} />
+        <Route path="/" element={<MainPage text={text} />} />
 
         <Route
           path="/services"
