@@ -29,13 +29,13 @@ const ServiceReturn = () => {
           </p>
           <p className="purchase_returns">Как вернуть товар</p>
           <p className="return_point">
-            1. В пункты выдачи/возврата Wildberries
+            1. В пункты выдачи/возврата Electronics
           </p>
           <p>
             Покупатель может самостоятельно вернуть неподошедший товар в наши
             фирменные <spann className="pointe">пункты выдачи/возврата</spann>
           </p>
-          <p className="return_point">2. Курьером Wildberries</p>
+          <p className="return_point">2. Курьером Electronics</p>
           <p>
             Услуга доступна для населенных пунктов, куда осуществляется доставка
             курьером
