@@ -52,7 +52,7 @@ const Header = ({ setOpenModal, text, setText }) => {
               <div className="navbar-adress">
                 <img src={adress} alt="" className="navbar-img" />
                 <Link to="services/location">
-                  <p className="navbar-img-text">Адреса</p>
+                  <p className="navbar-img-text4">Адреса</p>
                 </Link>
               </div>
               <div className="navbar-adress">
