@@ -130,6 +130,7 @@ function App() {
         <Route path="/admin/products/tablet" element={<PostTablet />} />
         <Route path="/admin/products/tv" element={<PostTelevision />} />
         <Route path="/basket" element={<Basket />} />
+	
         
       </Routes>
       <Footer />

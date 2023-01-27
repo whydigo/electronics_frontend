@@ -4,7 +4,8 @@ const initialState = {
   error: null,
   signUp: false,
   signIn: false,
-  users:[],
+  users: [],
+  cart: [],
   token: localStorage.getItem("token"),
   id: localStorage.getItem("id"),
 };
@@ -49,30 +50,46 @@ export const authSignIn = createAsyncThunk(
       localStorage.setItem("token", token.token);
       localStorage.setItem("id", token.id);
 
-
       return token;
     } catch (error) {
       thunkApi.rejectWithValue(error.message);
     }
   }
 );
+export const addToCart = createAsyncThunk(
+  "addtoCart",
+  async ({ userId, cartById }, thunkAPI) => {
+   
+    try {
+      const res = await fetch(`http://localhost:4000/addtoCart/${userId}/${cartById}`, {
+        method: "PATCH",
+        headers: {
+          "Content-type": "application/json",
+          Authorization: `Bearer ${thunkAPI.getState().application.token}`,
+        },
+      });
+      const user = await res.json();
+      if (user.error) {
+        return thunkAPI.rejectWithValue(user.error);
+      }
+      return thunkAPI.fulfillWithValue({userId, cartById });
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
 export const fetchUser = createAsyncThunk("fetch/user", async (_, thunkAPI) => {
-	try {
-	  const res = await fetch("http://localhost:4000/users", {
-		 headers: {
-			"Content-type": "application/json",
-			Authorization: `Bearer ${thunkAPI.getState().token.token}`,
-		 },
-	  });
-	  const users = await res.json();
-	  if (users.error) {
-		 return thunkAPI.rejectWithValue(users.error);
-	  }
-	  return thunkAPI.fulfillWithValue(users);
-	} catch (error) {
-	  return thunkAPI.rejectWithValue(error.message);
-	}
- });
+  try {
+    const res = await fetch("http://localhost:4000/users")
+    const users = await res.json();
+    if (users.error) {
+      return thunkAPI.rejectWithValue(users.error);
+    }
+    return thunkAPI.fulfillWithValue(users);
+  } catch (error) {
+    return thunkAPI.rejectWithValue(error.message);
+  }
+});
 
 const applicationSlice = createSlice({
   name: "application",
@@ -105,10 +122,8 @@ const applicationSlice = createSlice({
       .addCase(authSignIn.fulfilled, (state, action) => {
         state.error = null;
         state.signIn = false;
-        state.token = action.payload.token
-        state.id = action.payload.id
-
-		  ;
+        state.token = action.payload.token;
+        state.id = action.payload.id;
       })
       .addCase(fetchUser.rejected, (state, action) => {
         state.loading = false;
@@ -117,13 +132,28 @@ const applicationSlice = createSlice({
       .addCase(fetchUser.fulfilled, (state, action) => {
         state.loading = false;
         state.error = false;
-        action.payload.map((item) => {
-          if (item._id === localStorage.getItem("id")) {
-            state.users = item;
-          }
-          return state.users;
-        });
+		  state.users = action.payload
+      //   action.payload.map((item) => {
+      //     if (item._id === localStorage.getItem("id")) {
+      //       state.users = item;
+      //     }
+      //     return state.users;
+      //   });
       })
+      //ADD TO CART
+      .addCase(addToCart.pending, (state) => {
+        state.loading = true;
+        state.error = false;
+      })
+      .addCase(addToCart.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+      })
+      .addCase(addToCart.fulfilled, (state, action) => {
+
+        state.loading = false;
+        state.error = false;
+      });
   },
 });
 

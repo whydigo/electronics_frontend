@@ -19,7 +19,7 @@ const AllProducts = ({ text, setText }) => {
   const filteredProducts = allProducts.filter((i) => {
     return i.name.toLowerCase().includes(text.toLowerCase().toString());
   });
-  console.log(filteredProducts, 'filtered products');
+
   useEffect(() => {
     dispatch(fetchCamera());
     dispatch(fetchSmartWatch());

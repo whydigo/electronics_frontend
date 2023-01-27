@@ -38,7 +38,7 @@ export const postCamera = createAsyncThunk(
     },
     thunkAPI
   ) => {
-    console.log(name, description, price, discount, "action");
+    
     try {
       const res = await fetch("http://localhost:4000/camera", {
         method: "POST",

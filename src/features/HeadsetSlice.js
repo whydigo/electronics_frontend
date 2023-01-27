@@ -38,7 +38,7 @@ export const postHeadset = createAsyncThunk(
     },
     thunkAPI
   ) => {
-    console.log(name, description, price, discount, "action");
+   
     try {
       const res = await fetch("http://localhost:4000/headset", {
         method: "POST",

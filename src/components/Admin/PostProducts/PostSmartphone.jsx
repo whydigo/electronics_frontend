@@ -32,7 +32,7 @@ const PostSmartphone = () => {
         permission,
       })
     );
-    console.log(name, description, price, discount, "component");
+ 
   };
 
   return (

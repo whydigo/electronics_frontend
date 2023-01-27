@@ -1,16 +1,31 @@
 import React from 'react';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchUser } from '../../features/applicationSlice';
 import "../../styles/basket.css";
-import close from "../Services/icons/close.png"
 import CartItems from './CartItems';
 
-const Basket = ({setOpened}) => {
-	const handleCartClose = () =>{
-		setOpened(false)
-	}
+
+const Basket = () => {
+	const dispatch = useDispatch()
+	const id = useSelector((state) => state.application.id)
+	const users = useSelector((state) => state.application.users)
+	const filt = users.filter((i) => i._id === id)
+	
+
+	useEffect(() => {
+		dispatch(fetchUser())
+	}, [dispatch])
+
 	return (
-		<div className='bas'>
-		<div className='basket_close'><img className='close' src={close} alt="" onClick={handleCartClose}/></div>
-		<div className='basket_items'><CartItems /></div>
+		<div>
+			{filt.map((i) => {
+				return (
+				
+					<CartItems key={i._id} cart={i.cart}/>
+					
+				)
+			})}
 		</div>
 	);
 };

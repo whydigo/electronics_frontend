@@ -8,7 +8,8 @@ import { Link } from "react-router-dom";
 // import AllProducts from "../AllProducts/AllProducts";
 import { useState } from "react";
 import { useSelector } from "react-redux";
-import Basket from "../Basket/Basket";
+
+
 
 
 const Header = ({ setOpenModal }) => {
@@ -18,9 +19,7 @@ const Header = ({ setOpenModal }) => {
     localStorage.clear(token);
     window.location.reload();
   };
-  const [opened, setOpened] = useState(false);
 
-  const handleCartOpen = () => setOpened(!opened);
   return (
     <>
       <header className="header">
@@ -67,12 +66,11 @@ const Header = ({ setOpenModal }) => {
                 )}
               </div>
               {token &&
-                <div className="navbar-adress"  onClick={handleCartOpen}>
+                <Link to = {`/basket`}><div className="navbar-adress">
                   <img src={basket} alt="" className="navbar-img3" />
                   <p className="navbar-img-text3">Корзина</p>
-                </div>}
+                </div></Link>}
             </div>
-				{opened && <Basket setOpened={setOpened} className="basket"/>}
           </nav>
 			
         </div>

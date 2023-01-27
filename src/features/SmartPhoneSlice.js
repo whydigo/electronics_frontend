@@ -15,7 +15,7 @@ export const fetchSmartPhone = createAsyncThunk(
       if (smartPhone.error) {
         return thunkAPI.rejectWithValue(smartPhone.error);
       }
-		console.log(smartPhone, "act");
+		
       return thunkAPI.fulfillWithValue(smartPhone);
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
