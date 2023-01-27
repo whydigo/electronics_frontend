@@ -1,6 +1,7 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
+import { Link } from "react-router-dom";
 import slider_1 from "../../assets/slider_1.jpg";
 import slider_2 from "../../assets/slider_4.jpg";
 import slider_3 from "../../assets/slider_3.jpg";
@@ -24,13 +25,21 @@ const SwiperBlock = () => {
         onSlideChange={() => console.log("slide change")}
       >
         <SwiperSlide className="slide">
-          <img className="image-slider" src={slider_1} alt="slice" />
+          <Link to="/category/63cbaae09cfb3fc70c243fce">
+            <img className="image-slider" src={slider_1} alt="slice" />
+          </Link>
         </SwiperSlide>
+
         <SwiperSlide className="slide">
-          <img className="image-slider" src={slider_2} alt="slice" />
+          <Link to="/category/63caaf6db2f72ed28aa640f6">
+            <img className="image-slider" src={slider_2} alt="slice" />
+          </Link>
         </SwiperSlide>
+
         <SwiperSlide className="slide">
-          <img className="image-slider" src={slider_3} alt="slice" />
+          <Link to="/category/63ce643c9288831a7330dc4a">
+            <img className="image-slider" src={slider_3} alt="slice" />
+          </Link>
         </SwiperSlide>
       </Swiper>
     </div>

@@ -97,6 +97,11 @@ const Footer = () => {
               <p>Трудоустройство</p>
               <p>Цифровые товары</p>
               <p>Вопросы и ответы</p>
+              <Link to="/admin/products/camera">
+                <p className="youareadmin">
+                Ты админ?
+                </p>
+              </Link>
             </div>
           </div>
           <div className="container-6">
