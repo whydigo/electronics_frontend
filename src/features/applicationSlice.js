@@ -4,7 +4,9 @@ const initialState = {
   error: null,
   signUp: false,
   signIn: false,
+  users:[],
   token: localStorage.getItem("token"),
+  id: localStorage.getItem("id"),
 };
 
 export const authSignUp = createAsyncThunk(
@@ -41,19 +43,36 @@ export const authSignIn = createAsyncThunk(
         body: JSON.stringify({ login, password }),
       });
       const token = await res.json();
-
       if (token.error) {
         return thunkApi.rejectWithValue(token.error);
       }
-
       localStorage.setItem("token", token.token);
+      localStorage.setItem("id", token.id);
+
 
       return token;
     } catch (error) {
-      thunkApi.rejectWithValue(error);
+      thunkApi.rejectWithValue(error.message);
     }
   }
 );
+export const fetchUser = createAsyncThunk("fetch/user", async (_, thunkAPI) => {
+	try {
+	  const res = await fetch("http://localhost:4000/users", {
+		 headers: {
+			"Content-type": "application/json",
+			Authorization: `Bearer ${thunkAPI.getState().token.token}`,
+		 },
+	  });
+	  const users = await res.json();
+	  if (users.error) {
+		 return thunkAPI.rejectWithValue(users.error);
+	  }
+	  return thunkAPI.fulfillWithValue(users);
+	} catch (error) {
+	  return thunkAPI.rejectWithValue(error.message);
+	}
+ });
 
 const applicationSlice = createSlice({
   name: "application",
@@ -86,8 +105,25 @@ const applicationSlice = createSlice({
       .addCase(authSignIn.fulfilled, (state, action) => {
         state.error = null;
         state.signIn = false;
-        state.token = action.payload;
-      });
+        state.token = action.payload.token
+        state.id = action.payload.id
+
+		  ;
+      })
+      .addCase(fetchUser.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+      })
+      .addCase(fetchUser.fulfilled, (state, action) => {
+        state.loading = false;
+        state.error = false;
+        action.payload.map((item) => {
+          if (item._id === localStorage.getItem("id")) {
+            state.users = item;
+          }
+          return state.users;
+        });
+      })
   },
 });
 
