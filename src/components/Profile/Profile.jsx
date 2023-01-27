@@ -9,7 +9,7 @@ const Profile = () => {
                     <h2 className="profile-title">Фото профиля</h2>
                      <div className='profile-content'> 
                         <div className='profile-user'>
-                        <img className='profile-img' src="https://w7.pngwing.com/pngs/797/602/png-transparent-naruto-anime-naruto-cartoon-pic-membrane-winged-insect.png" alt="" />
+                        <img className='profile-img' src="https://sun9-37.userapi.com/impg/NVhFrc4AMqlCUhRcU6eQTTuL39SSnDTagKj4gg/4YFIEZAis_g.jpg?size=902x1280&quality=95&sign=6b310a809586554cc768cd7a77d526c1&c_uniq_tag=Z98A7AQgMDSul0-XveJmvmqntSwnxreBw3DkTPYRfdQ&type=album" alt="" />
                         <button className='profile-btn'>Выберите файл</button>
                         <img className='profile-img2' src="https://w7.pngwing.com/pngs/786/685/png-transparent-computer-icons-trashcan-text-rectangle-presentation.png" alt="" />
                     </div>

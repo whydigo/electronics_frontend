@@ -24,7 +24,9 @@ const TabletById = () => {
             <div className="productById">
               <div className="container_productById">
                 <div className="productById_name">
+
                   <span>{item.name}</span> / Планшеты{" "}
+
                   <span>{item.model}</span>
                 </div>
                 <div className="productById_characteristics">

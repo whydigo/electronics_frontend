@@ -1,10 +1,11 @@
 import { Routes, Route, Navigate } from "react-router-dom";
-import { useState } from "react";
+import { Profiler, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import SignIn from "./components/Authorization/SignIn";
 import SignUp from "./components/Authorization/SignUp";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
+import Profile from "./components/Profile/Profile"
 import ServiceSaleRule from "./components/Services/ServicesItems/ServiceSaleRule";
 import ServiceLocation from "./components/Services/ServicesItems/ServiceLocation";
 import ServiceReturn from "./components/Services/ServicesItems/ServiceReturn";
@@ -41,12 +42,14 @@ import TelevisionById from "./components/Cart/Television/TelevisionById";
 import Basket from "./components/Basket/Basket";
 
 function App() {
+  const [text, setText] = useState("");
   const [openModal, setOpenModal] = useState(false);
   return (
     <div className="App">
-      <Header setOpenModal={setOpenModal} />
+      <Header openModal={openModal} setOpenModal={setOpenModal} text={text} setText={setText} />
       <Menu setOpenModal={setOpenModal} openModal={openModal} />
       <Routes>
+
         {/* ------------------------Категории------------------------ */}
         <Route
           path="/category/63cbaae09cfb3fc70c243fce"
@@ -86,7 +89,7 @@ function App() {
           path="/services"
           element={<Navigate to="/services/kak-sdelat-zakaz" />}
         />
-        <Route path="/" element={<MainPage />} />
+        <Route path="/" element={<MainPage text={text} />} />
 
         <Route
           path="/services"
@@ -129,9 +132,14 @@ function App() {
         <Route path="/admin/products/smartwatch" element={<PostSmartwatch />} />
         <Route path="/admin/products/tablet" element={<PostTablet />} />
         <Route path="/admin/products/tv" element={<PostTelevision />} />
+
+
+        <Route path="/profile" element={< Profile />} />
+
         <Route path="/basket" element={<Basket />} />
 	
         
+
       </Routes>
       <Footer />
      

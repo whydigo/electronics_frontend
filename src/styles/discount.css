@@ -2,8 +2,8 @@
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    gap: 60px;
-    margin: 20px 150px;
+    gap: 50px;
+    margin: 20px 160px;
 }
 
 .discount__item {

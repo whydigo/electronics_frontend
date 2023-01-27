@@ -23,7 +23,7 @@ const AboutUs = () => {
 		<div className='service__container'>
 		<div className='start-block__intro'>
 			<img className='wildber' src={box} alt="wildber"/>
-			<div className='welcome'>Добро пожаловать <br/> на Wildberries</div>
+			<div className='welcome'>Добро пожаловать <br/> на Electronics</div>
 			<div className='welcome_two'>18 лет мы стремимся сделать для Вас <br/> шопинг удобным и доступным</div>
 		</div>
 		<div className='indicators'>
