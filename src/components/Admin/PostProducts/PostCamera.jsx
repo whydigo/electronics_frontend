@@ -7,6 +7,7 @@ import "../../../styles/admin.css";
 import neo from "../../../assets/neo.png";
 
 const PostCamera = () => {
+  const [img, setImg] = useState(null);
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
@@ -30,10 +31,24 @@ const PostCamera = () => {
         batteryCapacity,
         typeOfMatrix,
         permission,
+        img
       })
     );
-   
+  
   };
+
+  // const sendFile = useCallback(async () => {
+  //   try {
+  //     const data = new FormData();
+  //     data.append("img", img);
+  //     console.log(img);
+
+  //     await axios
+  //       .post("/camera", data, {})
+
+  //       .then((res) => setPreview(res.data.path));
+  //   } catch (error) {}
+  // }, [img]);
 
   return (
     <div className="post-products__container">
@@ -42,7 +57,7 @@ const PostCamera = () => {
       </div>
       <div className="post-products__main">
         <div className="post-products__left">
-            <div className="post-products__title">Камерa</div>
+          <div className="post-products__title">Камерa</div>
           <div className="post-products__inputs">
             <div className="post-products__item">
               Название (Т)
@@ -117,6 +132,13 @@ const PostCamera = () => {
                 value={permission}
                 type="text"
               />
+            </div>
+            <div className="post-products__item">
+              Фото товара
+              <input type="file" onChange={(e) => {
+                const file = e.target.files[0]
+                setImg(file)
+              }} />
             </div>
             <button className="post-products__btn" onClick={handlePostCamera}>
               Добавить
