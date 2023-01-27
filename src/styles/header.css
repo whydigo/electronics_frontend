@@ -109,8 +109,7 @@ li {
 .navbar{
     display: flex;
     align-items: center;
-    
-    
+
 }
 
 .navbar-img{
@@ -207,11 +206,7 @@ li {
 }
 
 .navbar-img-text {
-  position: relative;
-  top: 18px;
-  right: 215px;
-  color: rgb(206, 202, 202);
-  cursor: pointer;
+  
 }
 
 .navbar-img2 {
@@ -230,6 +225,15 @@ li {
   color: rgb(206, 202, 202);
   cursor: pointer;
 }
+.navbar-img-text4 {
+  margin-bottom: 13px;
+  margin-right: 40px;
+  position: relative;
+  top: 18px;
+  right: 205px;
+  color: rgb(206, 202, 202);
+  cursor: pointer;
+}
 
 .navbar-img3 {
   position: relative;
@@ -240,13 +244,7 @@ li {
   cursor: pointer;
 }
 
-.navbar-img-text3 {
-  position: relative;
-  top: 17px;
-  right: 85px;
-  color: rgb(206, 202, 202);
-  cursor: pointer;
-}
+
 
 .navbar-img-text:hover,
 .navbar-img-text2:hover,
@@ -267,7 +265,7 @@ li {
 .navbar-img-text-exit{
 	position: relative;
 	top: 18px;
-	right: 147px;
+	right: 140px;
 	color: rgb(206, 202, 202);
 	cursor: pointer;
 }

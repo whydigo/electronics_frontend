@@ -7,9 +7,6 @@ import basket from "../../accets/icon10.png";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-
-
-
 const Header = ({ setOpenModal, text, setText }) => {
   const token = useSelector((state) => state.application.token);
   const handkeTockenclear = () => {
@@ -44,6 +41,14 @@ const Header = ({ setOpenModal, text, setText }) => {
               </button>
             </div>
             <div className="navbar">
+              {token &&
+              <div className="navbar-adress">
+                <img src={user} alt="" className="navbar-img" />
+                <Link to="/profile">
+                  <p className="navbar-img-text4">Профиль</p>
+                </Link>
+              </div>
+}
               <div className="navbar-adress">
                 <img src={adress} alt="" className="navbar-img" />
                 <Link to="services/location">
@@ -66,16 +71,20 @@ const Header = ({ setOpenModal, text, setText }) => {
                   </p>
                 )}
               </div>
-              {token &&
-                <Link to = {`/basket`}><div className="navbar-adress">
-                  <img src={basket} alt="" className="navbar-img3" />
-                  <p className="navbar-img-text3">Корзина</p>
-                </div></Link>}
+              {token && (
+                <>
+                  
+                  <Link to={`/basket`}>
+                    <div className="navbar-adress">
+                      <img src={basket} alt="" className="navbar-img3" />
+                      <p className="navbar-img-text3">Корзина</p>
+                    </div>
+                  </Link>
+                </>
+              )}
             </div>
           </nav>
-			
         </div>
-		 
       </header>
     </>
   );
