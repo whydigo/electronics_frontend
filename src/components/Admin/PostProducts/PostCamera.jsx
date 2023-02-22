@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import PostNavigation from "../PostNavigation";
 import { useDispatch } from "react-redux";
-import { postCamera } from "../../../features/CameraSlice";
+import { postProduct } from "../../../features/ProductSlice";
 import "../../../styles/admin.css";
 import neo from "../../../assets/neo.png";
 
@@ -21,7 +21,7 @@ const PostCamera = () => {
 
   const handlePostCamera = () => {
     dispatch(
-      postCamera({
+      postProduct({
         name,
         description,
         price,
