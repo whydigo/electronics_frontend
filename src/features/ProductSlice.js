@@ -1,29 +1,29 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  camera: [],
+  product: [],
   error: null,
   loading: false,
 };
 
-export const fetchCamera = createAsyncThunk(
-  "camera/fetch",
+export const fetchProducts = createAsyncThunk(
+  "product/fetch",
   async (_, thunkAPI) => {
     try {
-      const res = await fetch("http://localhost:4000/camera");
-      const camera = await res.json();
-      if (camera.error) {
-        return thunkAPI.rejectWithValue(camera.error);
+      const res = await fetch("http://localhost:4000/product");
+      const product = await res.json();
+      if (product.error) {
+        return thunkAPI.rejectWithValue(product.error);
       }
-      return thunkAPI.fulfillWithValue(camera);
+      return thunkAPI.fulfillWithValue(product);
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
 
-export const postCamera = createAsyncThunk(
-  "camera/post",
+export const postProduct = createAsyncThunk(
+  "product/post",
   async (data, thunkAPI) => {
     const formData = new FormData();
     formData.append("img", data.img);
@@ -38,7 +38,7 @@ export const postCamera = createAsyncThunk(
     formData.append("permission", data.permission);
 
     try {
-      const res = await fetch("http://localhost:4000/camera", {
+      const res = await fetch("http://localhost:4000/product", {
         method: "POST",
         body: formData,
       });
@@ -51,27 +51,27 @@ export const postCamera = createAsyncThunk(
   }
 );
 
-const CameraSlicer = createSlice({
-  name: "camera",
+const ProductSlicer = createSlice({
+  name: "product",
   initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(fetchCamera.fulfilled, (state, action) => {
+      .addCase(fetchProducts.fulfilled, (state, action) => {
         console.log(action.payload, "ACTION FINAL");
-        state.camera = action.payload;
+        state.product = action.payload;
         state.error = null;
         state.loading = false;
       })
-      .addCase(fetchCamera.rejected, (state, action) => {
+      .addCase(fetchProducts.rejected, (state, action) => {
         state.error = action.payload;
         state.loading = false;
       })
-      .addCase(fetchCamera.pending, (state, action) => {
+      .addCase(fetchProducts.pending, (state, action) => {
         state.loading = true;
         state.error = null;
       });
   },
 });
 
-export default CameraSlicer.reducer;
+export default ProductSlicer.reducer;

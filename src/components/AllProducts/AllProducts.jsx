@@ -1,32 +1,27 @@
 import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchSmartWatch } from "../../features/SmartWatchSlice";
-import { fetchCamera } from "../../features/CameraSlice";
+import { fetchProducts } from "../../features/ProductSlice";
 import cls from "./AllProducts.module.css";
 
 const AllProducts = ({ text }) => {
   console.log(text, "all products");
   const dispatch = useDispatch();
-  const camera = useSelector((state) => state.cameraReducer.camera);
-  const smartWatchs = useSelector(
-    (state) => state.smartWatchReducer.smartWatch
-  );
+  const product = useSelector((state) => state.productReducer.product);
 
   // !! ВСЕ ПРОДУКТЫ
   const allProducts = [];
-  allProducts.push(...camera, ...smartWatchs);
-  // console.log(camera, smartWatchs, "cam");
+  allProducts.push(...product);
+  // console.log(product, smartWatchs, "cam");
   // console.log(allProducts, "all");
   const filteredProducts = allProducts.filter((i) => {
     return i.name?.toLowerCase().includes(text?.toLowerCase().toString());
   });
-  // console.log(filteredProducts, 'filtered products');
+  console.log(filteredProducts, 'filtered products');
 
 
   useEffect(() => {
-    dispatch(fetchCamera());
-    dispatch(fetchSmartWatch());
+    dispatch(fetchProducts());
   }, [dispatch]);
 
   return (
@@ -37,9 +32,9 @@ const AllProducts = ({ text }) => {
           : "Товаров не найдено"}
       </div>
       <div className={cls.mainWrapper}>
-        {allProducts.length <= camera.length
+        {/* {allProducts.length <= camera.length
           ? null
-          : filteredProducts
+          :*/ filteredProducts
               .sort(() => Math.round(Math.random() * 100) - 50)
               .map((i) => {
                 return (
