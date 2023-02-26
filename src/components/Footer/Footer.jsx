@@ -97,7 +97,7 @@ const Footer = () => {
               <p>Трудоустройство</p>
               <p>Цифровые товары</p>
               <p>Вопросы и ответы</p>
-              <Link to="/admin/products/camera">
+              <Link to="/admin/products/63caaf6db2f72ed28aa640f6">
                 <p className="youareadmin">
                 Ты админ?
                 </p>

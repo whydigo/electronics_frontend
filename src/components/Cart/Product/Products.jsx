@@ -9,16 +9,17 @@ import Fade from "react-reveal/Fade";
 
 const Products = () => {
   const { id } = useParams();
+  console.log(id, "id")
   const product = useSelector((state) => state.productReducer.product);
-  const filtered = product.filter((item) => {
-    if (!id) return true;
-    return item.category === id;
-  });
+  console.log(product, "product");
+  const filtered = product.filter((item) => item.category === id);
+  console.log(filtered, "filtered");
 
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchProducts());
   }, [dispatch]);
+
   return (
     <Fade right>
       <div className="cart_container">

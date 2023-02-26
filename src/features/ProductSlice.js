@@ -31,11 +31,23 @@ export const postProduct = createAsyncThunk(
     formData.append("description", data.description);
     formData.append("price", data.price);
     formData.append("discount", data.discount);
-    formData.append("model", data.model);
-    formData.append("nutrition", data.nutrition);
-    formData.append("batteryCapacity", data.batteryCapacity);
-    formData.append("typeOfMatrix", data.typeOfMatrix);
-    formData.append("permission", data.permission);
+    formData.append("info0", data.info0);
+    formData.append("info1", data.info1);
+    formData.append("info2", data.info2);
+    formData.append("info3", data.info3);
+    formData.append("info4", data.info4);
+    formData.append("info5", data.info5);
+    formData.append("info6", data.info6);
+    formData.append("info7", data.info7);
+    formData.append("info8", data.info8);
+    formData.append("info9", data.info9);
+    formData.append("info10", data.info10);
+    formData.append("info11", data.info11);
+    formData.append("info12", data.info12);
+    formData.append("info13", data.info13);
+    formData.append("info14", data.info14);
+    formData.append("info15", data.info15);
+    formData.append("category", data.category);
 
     try {
       const res = await fetch("http://localhost:4000/product", {
