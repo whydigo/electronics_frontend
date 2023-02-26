@@ -1,34 +1,30 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
+import React from "react";
+import { NavLink } from "react-router-dom";
 import s from "./PostNavigation.module.css";
+import { fetchCategories } from "../../features/CategoriesSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
 
 const PostNavigation = () => {
-    const isactive =({isActive}) => isActive ? s.active : ""
-    return (
-        <div className='post__navigation'>
-            <NavLink to="/admin/products/camera" className={isactive}>
-            <div className="navigation-element">Камеры</div>
-            </NavLink>
-            <NavLink to="/admin/products/laptop" className={isactive}>
-            <div className="navigation-element">Ноутбуки</div>
-            </NavLink>
-            <NavLink to="/admin/products/headset" className={isactive}>
-            <div className="navigation-element">Наушники</div>
-            </NavLink>
-            <NavLink to="/admin/products/smartphone" className={isactive}>
-            <div className="navigation-element">Смартфоны</div>
-            </NavLink>
-            <NavLink to="/admin/products/smartwatch" className={isactive}>
-            <div className="navigation-element">Умные часы</div>
-            </NavLink>
-            <NavLink to="/admin/products/tablet" className={isactive}>
-            <div className="navigation-element">Планшеты</div>
-            </NavLink>
-            <NavLink to="/admin/products/tv" className={isactive}>
-            <div className="navigation-element">Телевизоры</div>
-            </NavLink>
-        </div>
-    );
+  const isactive = ({ isActive }) => (isActive ? s.active : "");
+  const category = useSelector((state) => state.categoryReducer.categories);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchCategories());
+  }, [dispatch]);
+
+  return (
+    <div className="post__navigation">
+      {category.map((i) => {
+        return (
+          <NavLink key={i._id} to={`/admin/products/${i._id}`} className={isactive}>
+            <div className="navigation-element">{i.name}</div>
+          </NavLink>
+        );
+      })}
+    </div>
+  );
 };
 
 export default PostNavigation;

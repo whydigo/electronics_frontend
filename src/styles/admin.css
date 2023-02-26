@@ -14,6 +14,7 @@
   width: 100%;
 }
 
+
 .post-products__right {
   width: 100%;
   display: flex;
@@ -63,6 +64,7 @@
 
 .post-products__item {
   display: flex;
+  margin: 0px 0;
   padding: 10px;
   font-size: 19px;
   justify-content: space-between;

@@ -5,7 +5,7 @@ import SignIn from "./components/Authorization/SignIn";
 import SignUp from "./components/Authorization/SignUp";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
-import Profile from "./components/Profile/Profile"
+import Profile from "./components/Profile/Profile";
 import ServiceSaleRule from "./components/Services/ServicesItems/ServiceSaleRule";
 import ServiceLocation from "./components/Services/ServicesItems/ServiceLocation";
 import ServiceReturn from "./components/Services/ServicesItems/ServiceReturn";
@@ -19,8 +19,8 @@ import Menu from "./components/Header/Menu";
 import Products from "./components/Cart/Product/Products";
 import MainPage from "./components/Main/MainPage";
 import Contacts from "./components/Services/ServicesItems/Contacts";
-import PostCamera from "./components/Admin/PostProducts/PostCamera";
-import CameraById from "./components/Cart/Product/ProductById";
+import PostProducts from "./components/Admin/PostProducts/PostProducts";
+import ProductById from "./components/Cart/Product/ProductById";
 import Basket from "./components/Basket/Basket";
 import CreditCard from "./components/Basket/CreditCard";
 function App() {
@@ -28,18 +28,23 @@ function App() {
   const [openModal, setOpenModal] = useState(false);
   return (
     <div className="App">
-      <Header openModal={openModal} setOpenModal={setOpenModal} text={text} setText={setText} />
+      <Header
+        openModal={openModal}
+        setOpenModal={setOpenModal}
+        text={text}
+        setText={setText}
+      />
       <Menu setOpenModal={setOpenModal} openModal={openModal} />
       <Routes>
-<Route path="/creditcard" element={<CreditCard/>}/>
+        <Route path="/creditcard" element={<CreditCard />} />
         {/* ------------------------Категории------------------------ */}
         <Route
-          path="/category/63cbaae09cfb3fc70c243fce"
+          path="/category/:id"
           element={<Products />}
         />
 
         {/* ------------------------Авторизация------------------------ */}
-        <Route path="/register" element={<SignUp />} />
+        <Route path="/register" element={<SignUp />} /> 
         <Route path="/login" element={<SignIn />} />
 
         {/* ------------------------Сервисы------------------------ */}
@@ -74,20 +79,16 @@ function App() {
         <Route path="/services/contacts" element={<Contacts />} />
 
         {/* ------------------------Карты------------------------ */}
-        <Route path="/camera/:id" element={<CameraById />} />
+        <Route path="/product/:id" element={<ProductById />} />
 
         {/* ------------------------Админ------------------------ */}
-        <Route path="/admin/products/camera" element={<PostCamera />} />
+        <Route path="/admin/products/:id" element={<PostProducts />} />
 
-        <Route path="/profile" element={< Profile />} />
+        <Route path="/profile" element={<Profile />} />
 
         <Route path="/basket" element={<Basket />} />
-	
-        
-
       </Routes>
       <Footer />
-     
     </div>
   );
 }
