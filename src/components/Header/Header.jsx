@@ -4,15 +4,16 @@ import search from "../../accets/search.png";
 import adress from "../../accets/icons9.png";
 import user from "../../accets/icon8.png";
 import basket from "../../accets/icon10.png";
+// import logo from "../../assets/logo.png";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 const Header = ({ setOpenModal, text, setText }) => {
   const token = useSelector((state) => state.application.token);
-  const handkeTockenclear = () => {
-    localStorage.clear(token);
-    window.location.reload();
-  };
+  // const handkeTockenclear = () => {
+  //   localStorage.clear(token);
+  //   window.location.reload();
+  // };
 
   return (
     <>
@@ -25,7 +26,7 @@ const Header = ({ setOpenModal, text, setText }) => {
               <div className="bar3"></div>
             </div>
             <Link to="/">
-              <h1 className="nav-title">ELECTRONICS</h1>
+              <img className="nav-title" src="" alt="logo" />
             </Link>
             <div className="nav_search">
               <img className="search_icon" src={search} alt="" />
@@ -36,48 +37,34 @@ const Header = ({ setOpenModal, text, setText }) => {
                 value={text}
                 onChange={(e) => setText(e.target.value)}
               />
-              <button className="header__btn">
-                <a href={"#allproducts"}>найти</a>
-              </button>
             </div>
             <div className="navbar">
-              {token &&
-              <div className="navbar-adress">
-                <img src={user} alt="" className="navbar-img" />
-                <Link to="/profile">
-                  <p className="navbar-img-text4">Профиль</p>
-                </Link>
-              </div>
-}
-              <div className="navbar-adress">
-                <img src={adress} alt="" className="navbar-img" />
-                <Link to="services/location">
+              <Link to="services/location">
+                <div className="navbar-adress">
+                  <img src={adress} alt="" className="navbar-img" />
                   <p className="navbar-img-text">Адреса</p>
+                </div>
+              </Link>
+              {!token ? (
+                <Link to="/login">
+                  <div className="navbar-adress">
+                    <p className="navbar-img-text">Войти</p>
+                  </div>
                 </Link>
-              </div>
-              <div className="navbar-adress">
-                <img src={user} alt="" className="navbar-img2" />
-
-                {!token ? (
-                  <Link to="/login">
-                    <p className="navbar-img-text2">Войти</p>
-                  </Link>
-                ) : (
-                  <p
-                    className="navbar-img-text-exit"
-                    onClick={handkeTockenclear}
-                  >
-                    Выйти
-                  </p>
-                )}
-              </div>
+              ) : (
+                <Link to="/profile">
+                  <div className="navbar-adress">
+                    <img src={user} alt="" className="navbar-img" />
+                    <p className="navbar-img-text">Профиль</p>
+                  </div>
+                </Link>
+              )}
               {token && (
                 <>
-                  
                   <Link to={`/basket`}>
                     <div className="navbar-adress">
-                      <img src={basket} alt="" className="navbar-img3" />
-                      <p className="navbar-img-text3">Корзина</p>
+                      <img src={basket} alt="" className="navbar-img" />
+                      <p className="navbar-img-text">Корзина</p>
                     </div>
                   </Link>
                 </>

@@ -5,7 +5,6 @@ import { fetchProducts } from "../../features/ProductSlice";
 import cls from "./AllProducts.module.css";
 
 const AllProducts = ({ text }) => {
-  console.log(text, "all products");
   const dispatch = useDispatch();
   const product = useSelector((state) => state.productReducer.product);
 
@@ -17,7 +16,6 @@ const AllProducts = ({ text }) => {
   const filteredProducts = allProducts.filter((i) => {
     return i.name?.toLowerCase().includes(text?.toLowerCase().toString());
   });
-  console.log(filteredProducts, "filtered products");
 
   useEffect(() => {
     dispatch(fetchProducts());
