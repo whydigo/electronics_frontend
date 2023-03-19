@@ -57,10 +57,11 @@ const Footer = () => {
               <Link to="/services/contacts">
                 <p>Контакты</p>
               </Link>
-              <p>Bug Bounty</p>
-              <p>WB.Tech</p>
+              <Link to="/admin/products/63caaf6db2f72ed28aa640f6">
+                <p className="youareadmin">Ты админ?</p>
+              </Link>
             </div>
-            <div className="container-4">
+            {/* <div className="container-4">
               <div className="white">
                 <b>Мы в соцсетях</b>
               </div>
@@ -89,26 +90,20 @@ const Footer = () => {
                   <a href="##">WhatsApp</a>
                 </div>
               </p>
-            </div>
-            <div className="container-5">
+            </div> */}
+            {/* <div className="container-5">
               <div className="white">
                 <b>Наши проекты</b>
               </div>
               <p>Трудоустройство</p>
               <p>Цифровые товары</p>
               <p>Вопросы и ответы</p>
-              <Link to="/admin/products/63caaf6db2f72ed28aa640f6">
-                <p className="youareadmin">
-                Ты админ?
-                </p>
-              </Link>
-            </div>
+            </div> */}
           </div>
           <div className="container-6">
-            2004-2023 ©Electronics — модный интернет-магазин одежды, обуви и
-            аксессуаров.
+            2022-2023 ©Electronics — интернет-магазин электроники.
             <br />
-            Все права защищены. Доставка по всей России.
+            Все права защищены. Доставка по всей Чеченской Республике.
             <br />
           </div>
         </div>

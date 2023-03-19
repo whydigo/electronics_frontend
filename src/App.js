@@ -17,7 +17,7 @@ import AboutUs from "./components/Services/ServicesItems/AboutUs";
 import Requisites from "./components/Services/ServicesItems/Requisites";
 import Menu from "./components/Header/Menu";
 import Products from "./components/Cart/Product/Products";
-import MainPage from "./components/Main/MainPage";
+import MainPage from "./components/Pages/MainPage";
 import Contacts from "./components/Services/ServicesItems/Contacts";
 import PostProducts from "./components/Admin/PostProducts/PostProducts";
 import ProductById from "./components/Cart/Product/ProductById";
@@ -38,13 +38,10 @@ function App() {
       <Routes>
         <Route path="/creditcard" element={<CreditCard />} />
         {/* ------------------------Категории------------------------ */}
-        <Route
-          path="/category/:id"
-          element={<Products />}
-        />
+        <Route path="/category/:id" element={<Products text={text} />} />
 
         {/* ------------------------Авторизация------------------------ */}
-        <Route path="/register" element={<SignUp />} /> 
+        <Route path="/register" element={<SignUp />} />
         <Route path="/login" element={<SignIn />} />
 
         {/* ------------------------Сервисы------------------------ */}

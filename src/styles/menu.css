@@ -1,56 +1,56 @@
 .m-overlay {
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 100%;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 2;
-    
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2;
 }
 
 .m-drawer {
-    position: absolute;
-    width: 420px;
-    height: 100vh;
-    left: 0;
-    background-color: #ffffff;
-    box-shadow: -10px 4px 24px rgba(0, 0, 0, 0.1);
-    padding: 2px;
-
+  position: absolute;
+  width: 30%;
+  height: 100%;
+  left: 0;
+  background-color: #ffffff;
+  box-shadow: -10px 4px 24px rgba(0, 0, 0, 0.1);
+  padding: 2px;
 }
 
 .m-btn-close {
-    margin-top: 8%;
-    margin-left: 85%;
+  margin-top: 8%;
+  margin-right: 5%;
+  display: flex;
+  justify-content: end;
 }
 
 .m-removeBtn {
-    font-size: 50px;
-    height: 30px;
-    width: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 0;
-    background-color: white;
+  font-size: 50px;
+  height: 30px;
+  width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  background-color: white;
 }
 
 .m-items {
-    margin-top: 14%;
-    margin-left: 10%;
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-    font-weight: 500;
-    font-size: 1.2rem;
-    overflow: auto;
+  margin-top: 14%;
+  margin-left: 10%;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  font-weight: 500;
+  font-size: 1.2rem;
+  overflow: auto;
 }
 
 .m-categoty {
-    border-bottom: 1px solid rgb(226, 225, 225);
+  border-bottom: 1px solid rgb(226, 225, 225);
 }
 
 .m-categoty a {
-    color: black;
+  color: black;
 }

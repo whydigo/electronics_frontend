@@ -1,0 +1,92 @@
+.container {
+  margin: 80px 0;
+  height: 400px;
+  border-radius: 20px;
+  background-color: rgb(41, 41, 41);
+  overflow: hidden;
+  display: flex;
+}
+
+.title {
+  font-size: 34px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  height: 25%;
+  color: aliceblue;
+}
+
+.info {
+  background-color: aliceblue;
+  width: 650px;
+  height: 220px;
+  border-radius: 20px;
+  padding: 15px;
+  margin: auto;
+}
+
+.name {
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.description {
+  height: 100px;
+  overflow-y: hidden;
+  padding: 10px;
+  font-size: 19px;
+  border-radius: 10px 5px 5px 10px;
+  background-color: rgb(218, 227, 236);
+}
+
+/* .description::-webkit-scrollbar {
+    width: 4px;
+}
+
+.description::-webkit-scrollbar-thumb {
+    background-color: #818a9f;
+    border-radius: 10px;
+} */
+
+.price {
+  font-size: 35px;
+  font-weight: 600;
+  color: red;
+}
+
+.discount {
+  text-decoration: line-through;
+  font-size: 25px;
+  color: rgb(155, 0, 0);
+}
+
+.but {
+  text-align: center;
+}
+
+.next {
+  background-color: rgb(77, 77, 77);
+  color: aliceblue;
+  margin-top: 20px;
+  padding: 5px 10px;
+  border-radius: 10px;
+  font-size: 18px;
+  border: none;
+}
+
+.left {
+  width: 60%;
+}
+
+.right {
+  width: 40%;
+}
+
+.pic {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 0 0 20px;
+}
