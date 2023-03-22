@@ -30,7 +30,7 @@ const Product = ({ image, name, price, discount, model, id }) => {
           </Link>
           {discount ? (
             <div className="discount_order">
-              - {Math.round((discount * 100) / price)}%
+              {Math.round((discount * 100) / price)}%
             </div>
           ) : (
             <div className="discount_none"></div>
@@ -52,6 +52,7 @@ const Product = ({ image, name, price, discount, model, id }) => {
           <span className="cart_title_name">{name}</span>/
           <span className="cart_title_model">{model}</span>
         </div>
+
         <div
           disabled={buy}
           className={buy === true ? "basket_onCart" : "basket"}
