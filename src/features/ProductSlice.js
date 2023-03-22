@@ -55,7 +55,6 @@ export const postProduct = createAsyncThunk(
         body: formData,
       });
       const result = await res.json();
-      console.log(result, "result");
       return thunkAPI.fulfillWithValue(result);
     } catch (err) {
       return thunkAPI.rejectWithValue(err);
@@ -70,7 +69,6 @@ const ProductSlicer = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchProducts.fulfilled, (state, action) => {
-        console.log(action.payload, "ACTION FINAL");
         state.product = action.payload;
         state.error = null;
         state.loading = false;

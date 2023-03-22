@@ -11,47 +11,46 @@
 .products {
   display: flex;
   flex-wrap: wrap;
-  gap: 16px;
+  justify-content: space-between;
 }
 
 .product {
-  width: 270px;
-  height: 360px;
+  width: 178px;
   border-radius: 20px;
   overflow: hidden;
 }
 
 .pic {
   width: 100%;
-  height: 60%;
+  height: 237px;
   background-color: rgb(149, 149, 149);
   object-fit: cover;
+  border-radius: 20px;
 }
 
 .info {
   padding: 10px;
   height: 40%;
   width: 100%;
-  background-color: rgb(231, 231, 231);
   color: black;
 }
 
 .name {
-  font-size: 19px;
+  font-size: 17px;
   overflow: hidden;
   height: 30px;
+  color: rgb(110, 110, 110)
 }
 
 .price {
-  font-size: 22px;
-  margin-bottom: 10px;
+  font-size: 18px;
 }
 
 .discount {
   text-decoration: line-through;
-  font-size: 16px;
+  font-size: 14px;
   margin-left: 10px;
-  color: rgb(85, 85, 85);
+  color: rgb(110, 110, 110)
 }
 
 .buy {

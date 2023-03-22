@@ -23,7 +23,7 @@ const NewProductsFilter = () => {
       <div className={s.products}>
         {filtered.map((i) => {
           return (
-            <Link to={`/product/${i._id}`}>
+            <Link to={`/product/${i._id}`} key={i._id}>
               <div className={s.product}>
                 <img
                   src={`http://localhost:4000/${i.image}`}
@@ -31,12 +31,11 @@ const NewProductsFilter = () => {
                   className={s.pic}
                 />
                 <div className={s.info}>
-                  <div className={s.name}>{i.name}</div>
                   <div className={s.price}>
                     {i.price - i.discount} ₽{" "}
                     <span className={s.discount}>{i.price} ₽</span>
                   </div>
-                  <button className={s.buy}>Добавить в корзину</button>
+                  <div className={s.name}>{i.name}</div>
                 </div>
               </div>
             </Link>

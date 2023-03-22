@@ -20,8 +20,7 @@ const SwiperBlock = () => {
         slidesPerView={1}
         loop={true}
         pagination={{ clickable: true, dynamicBullets: true }}
-        onSwiper={(swiper) => console.log(swiper)}
-        onSlideChange={() => console.log("slide change")}
+
       >
         <SwiperSlide className="slide">
           <Link to="/category/63cbaae09cfb3fc70c243fce">

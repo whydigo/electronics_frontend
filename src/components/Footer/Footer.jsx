@@ -34,16 +34,6 @@ const Footer = () => {
                 <p>Правила пользования торговой площадкой</p>
               </Link>
             </div>
-            <div className="container-2">
-              <div className="white">
-                <b>Партнерам</b>
-              </div>
-              <p>Продавайте на Electronics</p>
-              <p>Курьерам</p>
-              <p>Перевозчикам</p>
-              <p>Партнерский пункт выдачи</p>
-              <p>Франшизный пункт выдачи</p>
-            </div>
             <div className="container-3">
               <div className="white">
                 <b>Компания</b>
