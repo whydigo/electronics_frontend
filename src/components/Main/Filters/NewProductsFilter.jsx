@@ -21,7 +21,7 @@ const NewProductsFilter = () => {
     <div className={s.container}>
       <div className={s.title}>Хиты продаж</div>
       <div className={s.products}>
-        {filtered.map((i) => {
+        {filtered.slice(0, 14).map((i) => {
           return (
             <Link to={`/product/${i._id}`} key={i._id}>
               <div className={s.product}>
