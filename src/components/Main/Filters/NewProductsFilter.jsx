@@ -9,9 +9,9 @@ const NewProductsFilter = () => {
 
   const products = useSelector((state) => state.productReducer.product);
 
-  const filtered = products.filter((i) => {
-    return i.price - i.discount < 40000 || i.price < 40000;
-  });
+  // const filtered = products.filter((i) => {
+  //   return i.price - i.discount < 40000 || i.price < 40000;
+  // });
 
   useEffect(() => {
     dispatch(fetchProducts());
@@ -19,9 +19,9 @@ const NewProductsFilter = () => {
 
   return (
     <div className={s.container}>
-      <div className={s.title}>Хиты продаж</div>
+      <div className={s.title}>Новинки</div>
       <div className={s.products}>
-        {filtered.slice(0, 14).map((i) => {
+        {products.slice(0, 7).map((i) => {
           return (
             <Link to={`/product/${i._id}`} key={i._id}>
               <div className={s.product}>

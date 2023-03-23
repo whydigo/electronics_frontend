@@ -1,8 +1,9 @@
 .active div {
   cursor: pointer;
   font-size: 22px;
-  border-bottom: 3px solid #cb11ab;
+  border-bottom: 3px solid #345;
   margin-bottom: -3px;
-  transition: 0.1s;
+  transition: 1s;
   color: rgb(13, 13, 13);
 }
+
