@@ -2,7 +2,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(89.65deg, #e56b31 2.39%, #f30404 99.79%);
 }
 
 .post-products__header {
@@ -11,7 +10,7 @@
 }
 
 .post-products__left {
-  width: 100%;
+  width: 60%;
 }
 
 
@@ -33,6 +32,7 @@
   line-height: 22px;
   padding-bottom: 4px;
   margin-bottom: 4px;
+  transition: 0.1s;
   color: #8b8b8b;
   list-style: none;
 }
@@ -40,9 +40,8 @@
 .navigation-element:hover {
   cursor: pointer;
   font-size: 22px;
-  border-bottom: 3px solid #cb11ab;
+  border-bottom: 3px solid #303030;
   margin-bottom: -3px;
-  transition: 0.1s;
   color: rgb(13, 13, 13);
 }
 
@@ -55,7 +54,7 @@
 }
 
 .post-products__inputs input {
-  width: 300px;
+  width: 65%;
   height: 30px;
   border: 0;
   padding: 0 5px;
@@ -66,6 +65,7 @@
   display: flex;
   margin: 0px 0;
   padding: 10px;
+  align-items: center;
   font-size: 19px;
   justify-content: space-between;
   background-color: rgb(229, 229, 229);
@@ -73,7 +73,10 @@
 }
 
 .post-products__inputs h4 {
-  color: aliceblue;
+  color: rgb(84, 84, 62);
+  font-size: 25px;
+  font-weight: 600;
+  text-align: start;
 }
 
 .post-products__btn {
@@ -113,7 +116,7 @@
 
 .post-products__title {
   font-size: 30px;
-  color: aliceblue;
+  color: rgb(120, 120, 70);
   padding-top: 10px;
   font-weight: 600;
   padding-left: 50px;

@@ -92,7 +92,7 @@ const PostProduct = () => {
         <div className="post-products__left">
           <div className="post-products__title">
             {filteredCategories.map((i) => {
-              return i.name;
+              return `Добавление товара в категорию "${i.name}"`;
             })}
           </div>
           <div className="post-products__inputs">
@@ -163,36 +163,9 @@ const PostProduct = () => {
               />
             </div>
             <div className="post-products__item">
-              {id === "63caaf6db2f72ed28aa640f6"
-                ? "Тип экрана"
-                : id === "63caaf8b48bfffa7fcebe59d"
-                ? "Процессор"
-                : id === "63caafc448bfffa7fcebe59f"
-                ? "Разрешение"
-                : id === "63cbaae09cfb3fc70c243fce"
-                ? "Скапуля"
-                : "Клявикуля"}
-              <input
-                onChange={(e) => setInfo4(e.target.value)}
-                value={info4}
-                type="text"
-              />
-              {id === "63cbaae09cfb3fc70c243fce" ? (
-                <div className="post-products__item">
-                  Тип матрицы
-                  <input
-                    onChange={(e) => setInfo3(e.target.value)}
-                    value={info3}
-                    type="text"
-                  />
-                </div>
-              ) : (
-                ""
-              )}
-            </div>
-            <div className="post-products__item">
               Фото товара
               <input
+              className="form-control"
                 type="file"
                 onChange={(e) => {
                   const file = e.target.files[0];
@@ -205,14 +178,14 @@ const PostProduct = () => {
             </button>
           </div>
         </div>
-        <div className="post-products__right">
+        {/* <div className="post-products__right">
           <div className="neo__title">
             <h1>Ты избранный </h1>
           </div>
           <div className="neo__body">
             <img className="neo__image" src={neo} alt="neo" />
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

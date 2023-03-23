@@ -9,7 +9,7 @@ const ServiceOrder = () => {
       <div className="service__container">
         <div className="block">
           <div className="block_1">
-              <h2>Как сделать заказ</h2>
+            <h2>Как сделать заказ</h2>
           </div>
           <div className="block_2">
             <b>

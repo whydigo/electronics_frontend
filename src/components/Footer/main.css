@@ -26,7 +26,7 @@ body {
 
 .footer-row {
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   gap: 40px;
 }
 
