@@ -19,6 +19,7 @@
 
 .cart_item {
   width: 300px;
+  transition: 1s;
   position: relative;
 }
 
@@ -72,8 +73,9 @@
 }
 
 .cart_title {
-  font-size: 25px;
+  font-size: 20px;
   margin-bottom: 20px;
+  height: 58px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -84,7 +86,8 @@
   white-space: normal;
 }
 .cart_title_name {
-  color: black;
+  color: rgb(0, 0, 0);
+
 }
 .cart_title_model {
   color: #999999;
