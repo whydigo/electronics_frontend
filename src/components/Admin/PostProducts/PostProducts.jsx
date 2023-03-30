@@ -5,7 +5,6 @@ import { postProduct } from "../../../features/ProductSlice";
 import { fetchCategories } from "../../../features/CategoriesSlice";
 import { useParams } from "react-router-dom";
 import { useState } from "react";
-import neo from "../../../assets/neo.png";
 import "../../../styles/admin.css";
 
 const PostProduct = () => {
@@ -24,17 +23,10 @@ const PostProduct = () => {
   const [info7, setInfo7] = useState("");
   const [info8, setInfo8] = useState("");
   const [info9, setInfo9] = useState("");
-  const [info10, setInfo10] = useState("");
-  const [info11, setInfo11] = useState("");
-  const [info12, setInfo12] = useState("");
-  const [info13, setInfo13] = useState("");
-  const [info14, setInfo14] = useState("");
-  const [info15, setInfo15] = useState("");
   const { id } = useParams();
 
   const categories = useSelector((state) => state.categoryReducer.categories);
   const filteredCategories = categories.filter((i) => i._id === id);
-  console.log(filteredCategories);
   const dispatch = useDispatch();
 
   const handlePostProduct = () => {
@@ -54,12 +46,6 @@ const PostProduct = () => {
         info7,
         info8,
         info9,
-        info10,
-        info11,
-        info12,
-        info13,
-        info14,
-        info15,
         img,
         category: id,
       })
@@ -69,19 +55,6 @@ const PostProduct = () => {
   useEffect(() => {
     dispatch(fetchCategories());
   }, [dispatch]);
-
-  // const sendFile = useCallback(async () => {
-  //   try {
-  //     const data = new FormData();
-  //     data.append("img", img);
-  //     console.log(img);
-
-  //     await axios
-  //       .post("/camera", data, {})
-
-  //       .then((res) => setPreview(res.data.path));
-  //   } catch (error) {}
-  // }, [img]);
 
   return (
     <div className="post-products__container">
@@ -130,16 +103,22 @@ const PostProduct = () => {
             </div>
             <br />
             <h4>Характеристики</h4>
+            <p className="primer">
+              <span className="primer_att">
+                ! Отделяйте наименование характеристики от ее значения - дефизом
+              </span>{" "}
+              <br /> Пример: 'Тип экрана - Amoled'
+            </p>
             <div className="post-products__item">
-              Модель
+              first
               <input
                 onChange={(e) => setInfo0(e.target.value)}
-                value={info0}
+                value={info0.characteristic}
                 type="text"
               />
             </div>
             <div className="post-products__item">
-              Питание
+              second
               <input
                 onChange={(e) => setInfo1(e.target.value)}
                 value={info1}
@@ -147,7 +126,7 @@ const PostProduct = () => {
               />
             </div>
             <div className="post-products__item">
-              Емкость аккумулятора
+              third
               <input
                 onChange={(e) => setInfo2(e.target.value)}
                 value={info2}
@@ -155,7 +134,7 @@ const PostProduct = () => {
               />
             </div>
             <div className="post-products__item">
-              Тип матрицы
+              fourth
               <input
                 onChange={(e) => setInfo3(e.target.value)}
                 value={info3}
@@ -163,9 +142,57 @@ const PostProduct = () => {
               />
             </div>
             <div className="post-products__item">
+              fifth
+              <input
+                onChange={(e) => setInfo4(e.target.value)}
+                value={info4}
+                type="text"
+              />
+            </div>
+            <div className="post-products__item">
+              sixth
+              <input
+                onChange={(e) => setInfo5(e.target.value)}
+                value={info5}
+                type="text"
+              />
+            </div>
+            <div className="post-products__item">
+              seventh
+              <input
+                onChange={(e) => setInfo6(e.target.value)}
+                value={info6}
+                type="text"
+              />
+            </div>
+            <div className="post-products__item">
+              eighth
+              <input
+                onChange={(e) => setInfo7(e.target.value)}
+                value={info7}
+                type="text"
+              />
+            </div>
+            <div className="post-products__item">
+              ninth
+              <input
+                onChange={(e) => setInfo8(e.target.value)}
+                value={info8}
+                type="text"
+              />
+            </div>
+            <div className="post-products__item">
+              tenth
+              <input
+                onChange={(e) => setInfo9(e.target.value)}
+                value={info9}
+                type="text"
+              />
+            </div>
+            <div className="post-products__item">
               Фото товара
               <input
-              className="form-control"
+                className="form-control"
                 type="file"
                 onChange={(e) => {
                   const file = e.target.files[0];
@@ -178,14 +205,6 @@ const PostProduct = () => {
             </button>
           </div>
         </div>
-        {/* <div className="post-products__right">
-          <div className="neo__title">
-            <h1>Ты избранный </h1>
-          </div>
-          <div className="neo__body">
-            <img className="neo__image" src={neo} alt="neo" />
-          </div>
-        </div> */}
       </div>
     </div>
   );

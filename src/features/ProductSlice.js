@@ -31,22 +31,18 @@ export const postProduct = createAsyncThunk(
     formData.append("description", data.description);
     formData.append("price", data.price);
     formData.append("discount", data.discount);
-    formData.append("info0", data.info0);
-    formData.append("info1", data.info1);
-    formData.append("info2", data.info2);
-    formData.append("info3", data.info3);
-    formData.append("info4", data.info4);
-    formData.append("info5", data.info5);
-    formData.append("info6", data.info6);
-    formData.append("info7", data.info7);
-    formData.append("info8", data.info8);
-    formData.append("info9", data.info9);
-    formData.append("info10", data.info10);
-    formData.append("info11", data.info11);
-    formData.append("info12", data.info12);
-    formData.append("info13", data.info13);
-    formData.append("info14", data.info14);
-    formData.append("info15", data.info15);
+    formData.append("info_0", data.info0);
+    // formData.append("info_0", data.info0.title, data.info0.characteristic)
+    // formData.append("info0", {title: data.info0.title, characteristic:  data.info0.characteristic })
+    formData.append("info_1", data.info1);
+    formData.append("info_2", data.info2);
+    formData.append("info_3", data.info3);
+    formData.append("info_4", data.info4);
+    formData.append("info_5", data.info5);
+    formData.append("info_6", data.info6);
+    formData.append("info_7", data.info7);
+    formData.append("info_8", data.info8);
+    formData.append("info_9", data.info9);
     formData.append("category", data.category);
 
     try {

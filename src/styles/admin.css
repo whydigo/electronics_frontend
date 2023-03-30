@@ -121,3 +121,14 @@
   font-weight: 600;
   padding-left: 50px;
 }
+
+.primer {
+  margin: 0;
+  color: #8b8b8b;
+}
+.primer_att {
+  color: #ff0000;
+  font-weight: 600;
+  border-radius: 5px;
+  margin-right: 10px;
+}
