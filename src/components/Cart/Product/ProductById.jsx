@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { fetchProducts } from "../../../features/ProductSlice";
 import "../../../styles/cartProductById.css";
+import Review from "./Review";
 
 const ProductById = () => {
   const { id } = useParams();
@@ -218,6 +219,9 @@ const ProductById = () => {
           );
         })}
       </div>
+      {filteredProductById.map((i) => {
+        return <Review key={i._id} name={i.name} image={i.image} id={i._id} />;
+      })}
     </div>
   );
 };

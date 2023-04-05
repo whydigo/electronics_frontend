@@ -22,6 +22,21 @@ export const fetchProducts = createAsyncThunk(
   }
 );
 
+export const deleteProduct = createAsyncThunk(
+  "product/delete",
+  async (id, thunkAPI) => {
+    try {
+      const res = await fetch(`http://localhost:4000/product/${id}`, {
+        method: "DELETE",
+      });
+      const data = await res.json();
+      return data;
+    } catch (error) {
+      thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
 export const postProduct = createAsyncThunk(
   "product/post",
   async (data, thunkAPI) => {
@@ -76,7 +91,43 @@ const ProductSlicer = createSlice({
       .addCase(fetchProducts.pending, (state, action) => {
         state.loading = true;
         state.error = null;
+      })
+      /// УДАЛЕНИЕ
+      .addCase(deleteProduct.fulfilled, (state, action) => {
+        state.product = state.product.filter((product) => {
+          if (product._id === action.payload._id) {
+            return false;
+          }
+          state.loading = false;
+          return true;
+        });
+      })
+      .addCase(deleteProduct.pending, (state, action) => {
+        state.loading = true;
+        state.product = state.product.filter((product) => {
+          if (product._id === action.meta.arg.id) {
+            product.loading = true;
+          }
+          return true;
+        });
+      })
+      .addCase(deleteProduct.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
       });
+      // .addCase(deleteProduct.fulfilled, (state, action) => {
+      //   state.product = action.payload;
+      //   state.error = null;
+      //   state.loading = false;
+      // })
+      // .addCase(deleteProduct.rejected, (state, action) => {
+      //   state.error = action.payload;
+      //   state.loading = false;
+      // })
+      // .addCase(deleteProduct.pending, (state, action) => {
+      //   state.loading = true;
+      //   state.error = null;
+      // })
   },
 });
 

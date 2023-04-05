@@ -3,10 +3,12 @@ import "../../../styles/cart.css";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../../features/applicationSlice";
+import { deleteProduct } from "../../../features/ProductSlice";
 
 const Product = ({ image, name, price, discount, model, id }) => {
   const dispatch = useDispatch();
   const [buy, setBuy] = useState(false);
+  const [dlt, setDlt] = useState(false);
 
   const handleAdd = () => {
     setBuy(true);
@@ -17,6 +19,12 @@ const Product = ({ image, name, price, discount, model, id }) => {
       })
     );
   };
+
+  const handleDeleteProduct = () => {
+    setDlt(true);
+    dispatch(deleteProduct(id));
+  };
+
   return (
     <div className="cart">
       <div className="cart_item">
@@ -52,14 +60,26 @@ const Product = ({ image, name, price, discount, model, id }) => {
           <span className="cart_title_name">{name}</span>/
           <span className="cart_title_model">{model}</span>
         </div>
-
-        <div
-          disabled={buy}
-          className={buy === true ? "basket_onCart" : "basket"}
-          onClick={handleAdd}
-        >
-          {buy === true ? "В корзине" : "Купить"}
-        </div>
+        {dlt !== true ? (
+          <div className="cart__footer_container">
+            <div
+              disabled={buy}
+              className={buy === true ? "basket_onCart" : "basket"}
+              onClick={handleAdd}
+            >
+              {buy === true ? "В корзине" : "Купить"}
+            </div>
+            <div
+              disabled={dlt}
+              onClick={handleDeleteProduct}
+              className="dlt_product"
+            >
+              Удалить
+            </div>
+          </div>
+        ) : (
+          <div className="deleted_product">Продукт удален</div>
+        )}
       </div>
     </div>
   );

@@ -10,12 +10,17 @@ import Fade from "react-reveal/Fade";
 const Products = ({ text }) => {
   const { id } = useParams();
   const product = useSelector((state) => state.productReducer.product);
-  const filtered = product.filter((item) => item.category === id);
-  const allProducts = [];
-  allProducts.push(...filtered);
-  const filteredProducts = allProducts.filter((i) => {
-    return i.name?.toLowerCase().includes(text?.toLowerCase().toString());
+  const filtered = product.filter(item => {
+    return (
+      item.category === id &&
+      item.name?.toLowerCase().includes(text?.toLowerCase().toString())
+    );
   });
+  // const allProducts = [];
+  // allProducts.push(...filtered);
+  // const filteredProducts = allProducts.filter((i) => {
+  //   return i.name?.toLowerCase().includes(text?.toLowerCase().toString());
+  // });
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -25,7 +30,7 @@ const Products = ({ text }) => {
   return (
     <Fade right>
       <div className="cart_container">
-        {filteredProducts.map((item) => {
+        {filtered.map((item) => {
           return (
             <Product
               key={item._id}
