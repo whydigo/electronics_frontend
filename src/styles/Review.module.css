@@ -4,9 +4,26 @@
   max-width: 1600px;
 }
 
+.reviews__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  margin-top: 100px;
+}
+
+.add {
+  font-size: 18px;
+  color: rgb(117, 117, 117);
+}
+
+.add:hover {
+  cursor: pointer;
+  color: rgb(0, 0, 0);
+}
+
 .title {
   font-size: 30px;
-  margin-bottom: 30px;
 }
 
 .review {
@@ -34,3 +51,44 @@
   overflow: hidden;
 }
 
+/*Модальное окно*/
+
+.modalForm {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  flex-flow: column;
+}
+
+.modalInput {
+  padding: 20px;
+  border: 3px solid rgb(146, 146, 146);
+  border-radius: 12px;
+  font-size: 18px;
+  color:#414141;
+  width: 500px;
+}
+
+.modalBtn {
+  background-color: #8b8b8b;
+  color: white;
+  font-size: 18px;
+  margin: auto;
+  width: 150px;
+  padding: 8px;
+  border-radius: 12px;
+  border: 0;
+  transition: 0.5s;
+  margin-top: 20px;
+}
+.modalBtn:hover {
+  background-color: #cccccc;
+  color: rgb(106, 106, 106);
+}
+
+.modalTitle {
+  color: #707070;
+  padding-top: 10px;
+  font-size: 20px;
+  text-align: center;
+}
