@@ -19,10 +19,5 @@
   height: 370px;
 }
 
-.swiper-button-next::after,
-.swiper-button-prev::after {
-    color: rgb(0, 0, 0);
-}
-
 
 
