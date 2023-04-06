@@ -2,22 +2,29 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
-import { fetchReviews, postReview } from "../../../features/ReviewSlice";
+import {
+  deleteReview,
+  fetchReviews,
+  postReview,
+} from "../../../features/ReviewSlice";
 import s from "../../../styles/Review.module.css";
 import Modal from "../../Modal/Modal";
 
 const Review = ({ id, name, image }) => {
   const [modalActive, setModalActive] = useState(false);
   const [text, setText] = useState("");
-  const handlePost = (e) => {
-    dispatch(postReview({ text, product: id }));
-    setText("");
-  };
+  const dispatch = useDispatch();
 
   const reviews = useSelector((state) => state.reviewReducer.reviews);
   const filteredRev = reviews.filter((i) => i.product === id);
+  const handleDelete = () => {
+  };
 
-  const dispatch = useDispatch();
+  const handlePost = (e) => {
+    e.preventDefault();
+    dispatch(postReview({ text, product: id }));
+    setText("");
+  };
 
   useEffect(() => {
     dispatch(fetchReviews());
@@ -44,10 +51,20 @@ const Review = ({ id, name, image }) => {
         >
           {filteredRev.map((i) => {
             return (
-              <SwiperSlide className={s.swiperReviews}>
+              <SwiperSlide key={i._id} className={s.swiperReviews}>
                 <div className={s.review}>
                   <div className={s.profile}>Пользователь</div>
                   <div className={s.text}>{i.text}</div>
+                  <div className={s.delete}>
+                    <div
+                      onClick={() =>
+                        handleDelete(dispatch(deleteReview(i._id)))
+                      }
+                      className={s.dlt}
+                    >
+                      Удалить
+                    </div>
+                  </div>
                 </div>
               </SwiperSlide>
             );
