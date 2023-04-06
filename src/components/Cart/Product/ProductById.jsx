@@ -208,9 +208,15 @@ const ProductById = () => {
                       <summary className="productById_description_individually_description">
                         описание
                       </summary>
-                      <p className="productById_description_individually_sum">
-                        {item.description}
-                      </p>
+                      {item.description ? (
+                        <p className="productById_description_individually_sum">
+                          {item.description}
+                        </p>
+                      ) : (
+                        <p className="productById_description_individually_sum">
+                          Тут ничего нет
+                        </p>
+                      )}
                     </details>
                   </div>
                 </div>
