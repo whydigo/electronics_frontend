@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "../../styles/header.css";
 import search from "../../accets/search.png";
 import adress from "../../accets/icons9.png";
@@ -10,6 +10,24 @@ import { useSelector } from "react-redux";
 
 const Header = ({ setOpenModal, text, setText }) => {
   const token = useSelector((state) => state.application.token);
+  const product = useSelector((state) => state.productReducer.product);
+  const allProducts = [];
+  allProducts.push(...product);
+  const filteredProducts = allProducts.filter((i) => {
+    return i.name?.toLowerCase().includes(text?.toLowerCase().toString());
+  });
+
+  const [isOpen, setIsOpen] = useState(true);
+
+  const itemClickHandler = (e) => {
+    setText(e.target.textContent);
+    setIsOpen(!isOpen);
+  };
+
+  const inputClickHandler = () => {
+    setIsOpen(true);
+  };
+
   // const handkeTockenclear = () => {
   //   localStorage.clear(token);
   //   window.location.reload();
@@ -28,7 +46,13 @@ const Header = ({ setOpenModal, text, setText }) => {
             <Link to="/">
               <img className="nav-title" src="" alt="logo" />
             </Link>
-            <div className="nav_search">
+            <div
+              className={
+                filteredProducts.length === 0 || !text || !isOpen
+                  ? "nav_search"
+                  : "nav_search active"
+              }
+            >
               <img className="search_icon" src={search} alt="" />
               <input
                 className="search_nav"
@@ -36,7 +60,25 @@ const Header = ({ setOpenModal, text, setText }) => {
                 placeholder="Я ищу..."
                 value={text}
                 onChange={(e) => setText(e.target.value)}
+                onClick={inputClickHandler}
               />
+              <ul className="autocomplete">
+                {text && isOpen
+                  ? filteredProducts.map((i) => {
+                      return (
+                        <Link to={`category/${i.category}`}>
+                          <li
+                            key={i._id}
+                            className="autocomplete__item"
+                            onClick={itemClickHandler}
+                          >
+                            {i.name}
+                          </li>
+                        </Link>
+                      );
+                    })
+                  : null}
+              </ul>
             </div>
             <div className="navbar">
               <Link to="services/location">
