@@ -23,7 +23,7 @@ export const fetchReviews = createAsyncThunk(
   }
 );
 
-export const postProduct = createAsyncThunk(
+export const postReview = createAsyncThunk(
   "reviews/post",
   async (data, thunkAPI) => {
     try {
@@ -37,7 +37,7 @@ export const postProduct = createAsyncThunk(
       const reviews = await res.json();
       return reviews;
     } catch (error) {
-        thunkAPI.rejectWithValue(error.message)
+      thunkAPI.rejectWithValue(error.message);
     }
   }
 );
@@ -57,6 +57,18 @@ const ReviewsSlice = createSlice({
         state.loading = false;
       })
       .addCase(fetchReviews.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(postReview.fulfilled, (state, action) => {
+        state.reviews.push(action.payload);
+        state.loading = false;
+      })
+      .addCase(postReview.rejected, (state, action) => {
+        state.error = action.payload;
+        state.loading = false;
+      })
+      .addCase(postReview.pending, (state) => {
         state.loading = true;
         state.error = null;
       });
