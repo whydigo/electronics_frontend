@@ -55,6 +55,21 @@
   overflow: hidden;
 }
 
+.delete {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.dlt {
+  font-size: 14px;
+  margin-top: 18px;
+  color: red;
+}
+.dlt:hover {
+  cursor: pointer;
+  font-weight: 600;
+  }
+
 /*Модальное окно*/
 
 .modalForm {
@@ -69,7 +84,7 @@
   border: 3px solid rgb(146, 146, 146);
   border-radius: 12px;
   font-size: 18px;
-  color:#414141;
+  color: #414141;
   width: 500px;
 }
 

@@ -42,12 +42,29 @@ export const postReview = createAsyncThunk(
   }
 );
 
+export const deleteReview = createAsyncThunk(
+  "review/delete",
+  async (id, thunkAPI) => {
+    console.log(id, "id3")
+    try {
+      const res = fetch(`http://localhost:4000/review/${id}`, {
+        method: "DELETE",
+      });
+      const review = await res.json();
+      return review;
+    } catch (error) {
+      thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
 const ReviewsSlice = createSlice({
   name: "reviews",
   initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder
+      //fetch
       .addCase(fetchReviews.fulfilled, (state, action) => {
         state.reviews = action.payload;
         state.loading = false;
@@ -60,6 +77,7 @@ const ReviewsSlice = createSlice({
         state.loading = true;
         state.error = null;
       })
+      //post
       .addCase(postReview.fulfilled, (state, action) => {
         state.reviews.push(action.payload);
         state.loading = false;
@@ -71,6 +89,29 @@ const ReviewsSlice = createSlice({
       .addCase(postReview.pending, (state) => {
         state.loading = true;
         state.error = null;
+      })
+      //delete
+      .addCase(deleteReview.fulfilled, (state, action) => {
+        state.reviews = state.reviews.filter((review) => {
+          if (review._id === action.payload) {
+            return false;
+          }
+          state.loading = false;
+          return true;
+        });
+      })
+      .addCase(deleteReview.pending, (state, action) => {
+        state.loading = true;
+        state.reviews = state.reviews.filter((review) => {
+          if (review._id === action.meta.arg.id) {
+            review.loading = true;
+          }
+          return true;
+        });
+      })
+      .addCase(deleteReview.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
       });
   },
 });
