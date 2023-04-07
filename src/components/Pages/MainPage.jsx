@@ -6,6 +6,7 @@ import SwiperBlock from "../Main/SwiperBlock";
 import CategoryBlock from "../Main/CategoryBlock";
 import DiscountProductsFilter from "../Main/Filters/DiscountProductsFilter";
 import NewProductsFilter from "../Main/Filters/NewProductsFilter";
+import ReviewsBlock from "../Main/ReviewsBlock";
 // import SmartphoneBanner from "../Main/Banners/SmartphoneBanner";
 
 const MainPage = ({ text }) => {
@@ -16,6 +17,7 @@ const MainPage = ({ text }) => {
       {/* <SmartphoneBanner /> */}
       <DiscountProductsFilter />
       <NewProductsFilter />
+      <ReviewsBlock />
       {/* <DiscountBlock /> */}
       {/* <AllProducts text={text} /> */}
     </div>
