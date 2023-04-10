@@ -18,12 +18,12 @@ const Review = ({ id }) => {
   const reviews = useSelector((state) => state.reviewReducer.reviews);
   const filteredRev = reviews.filter((i) => i.product._id === id);
   const handleDelete = () => {};
-  console.log(filteredRev);
 
   const handlePost = (e) => {
     e.preventDefault();
     dispatch(postReview({ text, product: id }));
     setText("");
+    setModalActive(false)
   };
 
   useEffect(() => {
@@ -50,7 +50,7 @@ const Review = ({ id }) => {
           }
           loop={filteredRev.length >= 3 ? true : false}
         >
-          {filteredRev.map((i) => {
+          {filteredRev.reverse().map((i) => {
             return (
               <SwiperSlide key={i._id} className={s.swiperReviews}>
                 <div className={s.review}>
