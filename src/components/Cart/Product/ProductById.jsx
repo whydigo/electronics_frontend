@@ -226,7 +226,7 @@ const ProductById = () => {
         })}
       </div>
       {filteredProductById.map((i) => {
-        return <Review key={i._id} name={i.name} image={i.image} id={i._id} />;
+        return <Review key={i._id} id={i._id} />;
       })}
     </div>
   );

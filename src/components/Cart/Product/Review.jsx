@@ -10,15 +10,15 @@ import {
 import s from "../../../styles/Review.module.css";
 import Modal from "../../Modal/Modal";
 
-const Review = ({ id, name, image }) => {
+const Review = ({ id }) => {
   const [modalActive, setModalActive] = useState(false);
   const [text, setText] = useState("");
   const dispatch = useDispatch();
 
   const reviews = useSelector((state) => state.reviewReducer.reviews);
-  const filteredRev = reviews.filter((i) => i.product === id);
-  const handleDelete = () => {
-  };
+  const filteredRev = reviews.filter((i) => i.product._id === id);
+  const handleDelete = () => {};
+  console.log(filteredRev);
 
   const handlePost = (e) => {
     e.preventDefault();
@@ -29,6 +29,7 @@ const Review = ({ id, name, image }) => {
   useEffect(() => {
     dispatch(fetchReviews());
   }, [dispatch]);
+
   return (
     <div className={s.reviews__container}>
       <div className={s.reviews__header}>
