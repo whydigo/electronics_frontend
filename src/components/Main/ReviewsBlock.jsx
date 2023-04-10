@@ -1,83 +1,44 @@
-import React from "react";
+import React, { useEffect } from "react";
 import s from "../../styles/ReviewsBlock.module.css";
-import pic from "../../assets/laptop.jpg";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchReviews } from "../../features/ReviewSlice";
+import { Link } from "react-router-dom";
 
 const ReviewsBlock = () => {
+  const dispatch = useDispatch();
+  const reviews = useSelector((state) => state.reviewReducer.reviews);
+
+  useEffect(() => {
+    dispatch(fetchReviews());
+  }, [dispatch]);
+
   return (
     <div className={s.reviews__container}>
-      <div className={s.reviews__item}>
-        <div className={s.left}>
-          <img src={pic} alt="wtf" className={s.img}></img>
-          <div className={s.info}>
-            <div className={s.name}>Умные аппле вотч часы</div>
-            <div className={s.price}>10000r 15000r</div>
+      {reviews.slice(0, 3).map((i) => {
+        console.log(i.product.image);
+        return (
+          <div className={s.reviews__item} key={i._id}>
+            <div className={s.left}>
+              <img
+                src={`http://localhost:4000/${i.product.image}`}
+                alt="wtf"
+                className={s.img}
+              />
+              <div className={s.info}>
+                <div className={s.name}>{i.product.name}</div>
+                <div className={s.price}>{i.product.price}Р</div>
+              </div>
+            </div>
+            <div className={s.right}>
+              <div className={s.profile}>Пользователь П.</div>
+              <div className={s.description}>{i.text}</div>
+              <div className={s.next}>
+                <Link to={`/product/${i.product._id}`} className={s.nextItem}>Перейти к продукту</Link>
+              </div>
+            </div>
           </div>
-        </div>
-        <div className={s.right}>
-          <div className={s.profile}>Пользователь П.</div>
-          <div className={s.description}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae
-            eaque ea esse. Dicta, amet. Id ipsa perspiciatis alias debitis,
-            eligendi iste minima a molestiae! Ex ratione provident fugiat optio
-            voluptatibus? Lorem ipsum dolor sit amet, consectetur adipisicing
-            elit. Quidem tenetur tempore vitae ipsum architecto nemo reiciendis
-            mollitia, ullam reprehenderit sunt ipsa assumenda dolor beatae quasi
-            natus voluptatum quo rem voluptas?
-          </div>
-          <div className={s.next}>
-            <a className={s.nextItem}>Перейти к продукту</a>
-          </div>
-        </div>
-      </div>
-      <div className={s.reviews__item}>
-        <div className={s.left}>
-          <img src={pic} alt="wtf" className={s.img}></img>
-          <div className={s.info}>
-            <div className={s.name}>Умные аппле вотч часы</div>
-            <div className={s.price}>10000r 15000r</div>
-          </div>
-        </div>
-        <div className={s.right}>
-          <div className={s.profile}>Пользователь П.</div>
-          <div className={s.description}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae
-            eaque ea esse. Dicta, amet. Id ipsa perspiciatis alias debitis,
-            eligendi iste minima a molestiae! Ex ratione provident fugiat optio
-            voluptatibus? Lorem ipsum dolor sit amet, consectetur adipisicing
-            elit. Quidem tenetur tempore vitae ipsum architecto nemo reiciendis
-            mollitia, ullam reprehenderit sunt ipsa assumenda dolor beatae quasi
-            natus voluptatum quo rem voluptas?
-          </div>
-          <div className={s.next}>
-            <a className={s.nextItem}>Перейти к продукту</a>
-          </div>
-        </div>
-      </div>
-      <div className={s.reviews__item}>
-        <div className={s.left}>
-          <img src={pic} alt="wtf" className={s.img}></img>
-          <div className={s.info}>
-            <div className={s.name}>Умные аппле вотч часы</div>
-            <div className={s.price}>10000r 15000r</div>
-          </div>
-        </div>
-        <div className={s.right}>
-          <div className={s.profile}>Пользователь П.</div>
-          <div className={s.description}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae
-            eaque ea esse. Dicta, amet. Id ipsa perspiciatis alias debitis,
-            eligendi iste minima a molestiae! Ex ratione provident fugiat optio
-            voluptatibus? Lorem ipsum dolor sit amet, consectetur adipisicing
-            elit. Quidem tenetur tempore vitae ipsum architecto nemo reiciendis
-            mollitia, ullam reprehenderit sunt ipsa assumenda dolor beatae quasi
-            natus voluptatum quo rem voluptas?
-          </div>
-          <div className={s.next}>
-            <a className={s.nextItem}>Перейти к продукту</a>
-          </div>
-        </div>
-      </div>
-
+        );
+      })}
     </div>
   );
 };

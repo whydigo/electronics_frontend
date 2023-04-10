@@ -12,7 +12,6 @@ export const fetchReviews = createAsyncThunk(
     try {
       const res = await fetch("http://localhost:4000/review");
       const reviews = await res.json();
-
       if (reviews.error) {
         return thunkAPI.rejectWithValue(reviews.error);
       }
@@ -45,7 +44,7 @@ export const postReview = createAsyncThunk(
 export const deleteReview = createAsyncThunk(
   "review/delete",
   async (id, thunkAPI) => {
-    console.log(id, "id3")
+    console.log(id, "id3");
     try {
       const res = fetch(`http://localhost:4000/review/${id}`, {
         method: "DELETE",
@@ -67,6 +66,7 @@ const ReviewsSlice = createSlice({
       //fetch
       .addCase(fetchReviews.fulfilled, (state, action) => {
         state.reviews = action.payload;
+        state.error = null;
         state.loading = false;
       })
       .addCase(fetchReviews.rejected, (state, action) => {
