@@ -1,17 +1,27 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../../../styles/cart.css";
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { addToCart } from "../../../features/applicationSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart, fetchUser } from "../../../features/applicationSlice";
 import { deleteProduct } from "../../../features/ProductSlice";
 
-const Product = ({ image, name, price, discount, model, id }) => {
+const Product = ({ image, name, price, discount, id }) => {
   const dispatch = useDispatch();
+  const ide = useSelector((state) => state.application.id);
+  const users = useSelector((state) => state.application.users);
+  const filt = users.filter((i) => i._id === ide);
+  const cartItems = filt.map((i) => {
+    return i.cart;
+  });
+  const isInCart = cartItems.find(
+    (i) => i[0]._id === "64074ca83c0b1789bbb4ea02"
+  );
+
   const [buy, setBuy] = useState(false);
   const [dlt, setDlt] = useState(false);
 
   const handleAdd = () => {
-    setBuy(true);
+    setBuy(!buy);
     dispatch(
       addToCart({
         userId: localStorage.getItem("id"),
@@ -24,6 +34,20 @@ const Product = ({ image, name, price, discount, model, id }) => {
     setDlt(true);
     dispatch(deleteProduct(id));
   };
+
+  useEffect(() => {
+    if (isInCart) {
+      isInCart.map((i) => {
+        if (i._id === id) {
+          return setBuy(true);
+        }
+      });
+    }
+  }, [isInCart, id]);
+
+  useEffect(() => {
+    dispatch(fetchUser());
+  }, [dispatch]);
 
   return (
     <div className="cart">
@@ -58,17 +82,16 @@ const Product = ({ image, name, price, discount, model, id }) => {
         )}
         <div className="cart_title">
           <span className="cart_title_name">{name}</span>/
-          <span className="cart_title_model">{model}</span>
         </div>
         {dlt !== true ? (
           <div className="cart__footer_container">
-            <div
+            <button
               disabled={buy}
-              className={buy === true ? "basket_onCart" : "basket"}
+              className={buy !== true ? "basket" : "basket active"}
               onClick={handleAdd}
             >
-              {buy === true ? "В корзине" : "Купить"}
-            </div>
+              {buy !== true ? "Купить" : "В корзине"}
+            </button>
             <div
               disabled={dlt}
               onClick={handleDeleteProduct}

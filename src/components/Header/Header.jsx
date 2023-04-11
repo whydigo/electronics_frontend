@@ -90,6 +90,7 @@ const Header = ({ setOpenModal, text, setText }) => {
               {!token ? (
                 <Link to="/login">
                   <div className="navbar-adress">
+                    <img src={user} alt="" className="navbar-img" />
                     <p className="navbar-img-text">Войти</p>
                   </div>
                 </Link>
