@@ -59,20 +59,24 @@ export const authSignIn = createAsyncThunk(
 export const addToCart = createAsyncThunk(
   "addtoCart",
   async ({ userId, cartById }, thunkAPI) => {
-   
     try {
-      const res = await fetch(`http://localhost:4000/addtoCart/${userId}/${cartById}`, {
-        method: "PATCH",
-        headers: {
-          "Content-type": "application/json",
-          Authorization: `Bearer ${thunkAPI.getState().application.token}`,
-        },
-      });
+      const res = await fetch(
+        `http://localhost:4000/addtoCart/${userId}/${cartById}`,
+        {
+          method: "PATCH",
+          headers: {
+            "Content-type": "application/json",
+            Authorization: `Bearer ${thunkAPI.getState().application.token}`,
+          },
+        }
+      );
       const user = await res.json();
       if (user.error) {
         return thunkAPI.rejectWithValue(user.error);
       }
-      return thunkAPI.fulfillWithValue({userId, cartById });
+      console.log(user);
+
+      return thunkAPI.fulfillWithValue({ userId, cartById });
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
@@ -80,7 +84,7 @@ export const addToCart = createAsyncThunk(
 );
 export const fetchUser = createAsyncThunk("fetch/user", async (_, thunkAPI) => {
   try {
-    const res = await fetch("http://localhost:4000/users")
+    const res = await fetch("http://localhost:4000/users");
     const users = await res.json();
     if (users.error) {
       return thunkAPI.rejectWithValue(users.error);
@@ -132,13 +136,13 @@ const applicationSlice = createSlice({
       .addCase(fetchUser.fulfilled, (state, action) => {
         state.loading = false;
         state.error = false;
-		  state.users = action.payload
-      //   action.payload.map((item) => {
-      //     if (item._id === localStorage.getItem("id")) {
-      //       state.users = item;
-      //     }
-      //     return state.users;
-      //   });
+        state.users = action.payload;
+        //   action.payload.map((item) => {
+        //     if (item._id === localStorage.getItem("id")) {
+        //       state.users = item;
+        //     }
+        //     return state.users;
+        //   });
       })
       //ADD TO CART
       .addCase(addToCart.pending, (state) => {
@@ -150,7 +154,7 @@ const applicationSlice = createSlice({
         state.error = action.payload;
       })
       .addCase(addToCart.fulfilled, (state, action) => {
-
+        state.cart = state.cart.push(action.payload);
         state.loading = false;
         state.error = false;
       });

@@ -11,8 +11,7 @@ const Basket = () => {
 	const id = useSelector((state) => state.application.id)
 	const users = useSelector((state) => state.application.users)
 	const filt = users.filter((i) => i._id === id)
-	
-
+	console.log(filt._id);
 	useEffect(() => {
 		dispatch(fetchUser())
 	}, [dispatch])
