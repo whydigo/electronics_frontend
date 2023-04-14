@@ -13,9 +13,6 @@ const Product = ({ image, name, price, discount, id }) => {
   const cartItems = filt.map((i) => {
     return i.cart;
   });
-  const isInCart = cartItems.find(
-    (i) => i[0]._id === "64074ca83c0b1789bbb4ea02"
-  );
 
   const [buy, setBuy] = useState(false);
   const [dlt, setDlt] = useState(false);
@@ -36,14 +33,15 @@ const Product = ({ image, name, price, discount, id }) => {
   };
 
   useEffect(() => {
-    if (isInCart) {
-      isInCart.map((i) => {
+    if (cartItems[0]) {
+      cartItems[0].map((i) => {
         if (i._id === id) {
           return setBuy(true);
         }
+        return null;
       });
     }
-  }, [isInCart, id]);
+  }, [cartItems, id]);
 
   useEffect(() => {
     dispatch(fetchUser());

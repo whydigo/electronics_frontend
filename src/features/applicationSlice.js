@@ -74,14 +74,38 @@ export const addToCart = createAsyncThunk(
       if (user.error) {
         return thunkAPI.rejectWithValue(user.error);
       }
-      console.log(user);
-
       return thunkAPI.fulfillWithValue({ userId, cartById });
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
+
+export const deleteFromCart = createAsyncThunk(
+  "deleteFromCart",
+  async ({ userId, cartById }, thunkAPI) => {
+    try {
+      const res = await fetch(
+        `http://localhost:4000/deleteFromCart/${userId}/${cartById}`,
+        {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${thunkAPI.getState().application.token}`,
+          },
+        }
+      );
+      const user = await res.json();
+      if (user.error) {
+        return thunkAPI.rejectWithValue(user.error);
+      }
+      return thunkAPI.fulfillWithValue({ userId, cartById });
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
 export const fetchUser = createAsyncThunk("fetch/user", async (_, thunkAPI) => {
   try {
     const res = await fetch("http://localhost:4000/users");
