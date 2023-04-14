@@ -16,7 +16,9 @@ const Review = ({ id }) => {
   const dispatch = useDispatch();
 
   const reviews = useSelector((state) => state.reviewReducer.reviews);
+  console.log(reviews);
   const filteredRev = reviews.filter((i) => i.product._id === id);
+  console.log(filteredRev);
   const handleDelete = () => {};
 
   const handlePost = (e) => {

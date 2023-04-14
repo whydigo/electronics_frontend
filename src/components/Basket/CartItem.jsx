@@ -1,7 +1,20 @@
 import React from "react";
-import close from "../Services/icons/close.png";
+import { useDispatch } from "react-redux";
+import { deleteFromCart } from "../../features/applicationSlice";
 
-const CartItem = ({ name, price, discount, image }) => {
+const CartItem = ({ name, price, discount, image, id }) => {
+  const dispatch = useDispatch();
+
+  const handleDelete = () => {
+    alert('Удалено')
+    dispatch(
+      deleteFromCart({
+        userId: localStorage.getItem("id"),
+        cartById: id,
+      })
+    );
+  };
+
   return (
     <div className="container_islam">
       <div className="basket_product_parent">
@@ -24,7 +37,7 @@ const CartItem = ({ name, price, discount, image }) => {
           ) : (
             <div>
               <div className="basket_product_discount">
-                {Math.round(price - (price / 100) * discount)} ₽
+                {Math.round(price - discount)} ₽
               </div>
               <div className="basket_product_price strice">
                 <strike>{price} ₽</strike>
@@ -33,7 +46,9 @@ const CartItem = ({ name, price, discount, image }) => {
           )}
         </div>
         <div className="basket_close">
-          <img className="basket_close_img" src={close} alt="" />
+          <div onClick={handleDelete} className="basket_close_el">
+            удалить
+          </div>
         </div>
       </div>
     </div>
