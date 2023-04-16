@@ -10,6 +10,9 @@ const Product = ({ image, name, price, discount, id }) => {
   const ide = useSelector((state) => state.application.id);
   const users = useSelector((state) => state.application.users);
   const filt = users.filter((i) => i._id === ide);
+  const isAdmin = filt.map((i) => {
+    return i.admin;
+  });
   const cartItems = filt.map((i) => {
     return i.cart;
   });
@@ -90,13 +93,15 @@ const Product = ({ image, name, price, discount, id }) => {
             >
               {buy !== true ? "Купить" : "В корзине"}
             </button>
-            <div
-              disabled={dlt}
-              onClick={handleDeleteProduct}
-              className="dlt_product"
-            >
-              Удалить
-            </div>
+            {isAdmin[0] ? (
+              <div
+                disabled={dlt}
+                onClick={handleDeleteProduct}
+                className="dlt_product"
+              >
+                Удалить
+              </div>
+            ) : null}
           </div>
         ) : (
           <div className="deleted_product">Продукт удален</div>
