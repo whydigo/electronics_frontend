@@ -7,27 +7,33 @@ import Product from "./Product";
 import "../../../styles/cart.css";
 import Fade from "react-reveal/Fade";
 import { fetchUser } from "../../../features/applicationSlice";
+import preloader from "../../../assets/loading.gif";
 
 const Products = ({ text }) => {
   const { id } = useParams();
   const product = useSelector((state) => state.productReducer.product);
-  const filtered = product.filter(item => {
+  const filtered = product.filter((item) => {
     return (
       item.category === id &&
       item.name?.toLowerCase().includes(text?.toLowerCase().toString())
     );
   });
-  // const allProducts = [];
-  // allProducts.push(...filtered);
-  // const filteredProducts = allProducts.filter((i) => {
-  //   return i.name?.toLowerCase().includes(text?.toLowerCase().toString());
-  // });
+
+  const loading = useSelector((state) => state.productReducer.loading);
 
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchProducts());
-    dispatch(fetchUser())
+    dispatch(fetchUser());
   }, [dispatch]);
+
+  if (loading) {
+    return (
+      <div className="preloader">
+        <img className="preloader_item" src={preloader} alt="preloader" />
+      </div>
+    );
+  }
 
   return (
     <Fade right>

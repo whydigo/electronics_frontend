@@ -4,6 +4,7 @@ const initialState = {
   error: null,
   signUp: false,
   signIn: false,
+  loading: null,
   users: [],
   cart: [],
   token: localStorage.getItem("token"),
@@ -168,6 +169,11 @@ const applicationSlice = createSlice({
         //     return state.users;
         //   });
       })
+      .addCase(fetchUser.pending, (state) => {
+        state.loading = true;
+        state.error = false;
+      })
+
       //ADD TO CART
       .addCase(addToCart.pending, (state) => {
         state.loading = true;

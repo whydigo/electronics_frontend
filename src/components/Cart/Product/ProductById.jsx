@@ -6,6 +6,7 @@ import { fetchProducts } from "../../../features/ProductSlice";
 import "../../../styles/cartProductById.css";
 import Review from "./Review";
 import { addToCart } from "../../../features/applicationSlice";
+import preloader from "../../../assets/loading.gif";
 
 const ProductById = () => {
   const { id } = useParams();
@@ -18,6 +19,7 @@ const ProductById = () => {
   const cartItems = filt.map((i) => {
     return i.cart;
   });
+  const loading = useSelector((state) => state.productReducer.loading);
 
   const filteredProductById = product.filter((item) => {
     if (!id);
@@ -58,6 +60,14 @@ const ProductById = () => {
       });
     }
   }, [cartItems, id]);
+
+  if (loading) {
+    return (
+      <div className="preloader">
+        <img className="preloader_item" src={preloader} alt="preloader" />
+      </div>
+    );
+  }
 
   return (
     <div>

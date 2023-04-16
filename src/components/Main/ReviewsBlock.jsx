@@ -3,11 +3,13 @@ import s from "../../styles/ReviewsBlock.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchReviews } from "../../features/ReviewSlice";
 import { Link } from "react-router-dom";
+import preloader from "../../assets/loading.gif";
 
 const ReviewsBlock = () => {
   const dispatch = useDispatch();
   const reviews = useSelector((state) => state.reviewReducer.reviews);
   const reviewsRev = [...reviews];
+  const loading = useSelector((state) => state.productReducer.loading);
 
   useEffect(() => {
     dispatch(fetchReviews());
@@ -16,6 +18,9 @@ const ReviewsBlock = () => {
   return (
     <div className={s.container}>
       <div className={s.reviewsHeader}>Последние отзывы покупателей</div>
+      {loading ? <div className="preloader">
+        <img className="preloader_item" src={preloader} alt="preloader" />
+      </div> : null}
       <div className={s.reviews__container}>
         {reviewsRev
           .reverse()

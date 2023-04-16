@@ -18,3 +18,17 @@
   max-width: 100%;
   height: 370px;
 }
+
+.preloader {
+  width: 500px;
+  height: 500px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.preloader_item {
+  width: 100px;
+  height: 100px;
+}
