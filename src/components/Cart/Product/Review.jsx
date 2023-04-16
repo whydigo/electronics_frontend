@@ -10,12 +10,13 @@ import {
 import s from "../../../styles/Review.module.css";
 import Modal from "../../Modal/Modal";
 import { fetchUser } from "../../../features/applicationSlice";
+import preloader from "../../../assets/loading.gif";
 
 const Review = ({ id }) => {
   const [modalActive, setModalActive] = useState(false);
   const [text, setText] = useState("");
   const dispatch = useDispatch();
-
+  const loading = useSelector((state) => state.reviewReducer.loading);
   const ide = useSelector((state) => state.application.id);
   const users = useSelector((state) => state.application.users);
   const filt = users.filter((i) => i._id === ide);
@@ -33,7 +34,6 @@ const Review = ({ id }) => {
   // });
   // console.log(isUserRevs.map(i => {return i}));
 
-
   const handleDelete = () => {};
 
   const handlePost = (e) => {
@@ -47,6 +47,14 @@ const Review = ({ id }) => {
     dispatch(fetchReviews());
     dispatch(fetchUser());
   }, [dispatch]);
+
+  if (loading) {
+    return (
+      <div className="preloader">
+        <img className="preloader_item" src={preloader} alt="preloader" />
+      </div>
+    );
+  }
 
   return (
     <div className={s.reviews__container}>

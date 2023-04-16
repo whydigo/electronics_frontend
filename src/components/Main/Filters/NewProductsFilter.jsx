@@ -1,25 +1,29 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { fetchProducts } from "../../../features/ProductSlice";
 import s from "../../../styles/FiltersProducts.module.css";
+import preloader from "../../../assets/loading.gif";
 
 const NewProductsFilter = () => {
-  const dispatch = useDispatch();
-
+  const loading = useSelector((state) => state.productReducer.loading);
   const products = useSelector((state) => state.productReducer.product);
 
   // const filtered = products.filter((i) => {
   //   return i.price - i.discount < 40000 || i.price < 40000;
   // });
 
-  useEffect(() => {
-    dispatch(fetchProducts());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(fetchProducts());
+  // }, [dispatch]);
 
   return (
     <div className={s.container}>
       <div className={s.title}>Новинки</div>
+      {loading ? (
+        <div className="preloader">
+          <img className="preloader_item" src={preloader} alt="preloader" />
+        </div>
+      ) : null}
       <div className={s.products}>
         {products.slice(0, 7).map((i) => {
           return (
