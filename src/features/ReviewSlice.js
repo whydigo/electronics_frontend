@@ -31,9 +31,14 @@ export const postReview = createAsyncThunk(
         body: JSON.stringify({ text: data.text, product: data.product }),
         headers: {
           "Content-Type": "application/json",
+          Authorization: `Bearer ${thunkAPI.getState().application.token}`,
         },
       });
       const reviews = await res.json();
+
+      if (reviews.error){
+        return thunkAPI.rejectWithValue(reviews.error)
+      }
       return reviews;
     } catch (error) {
       thunkAPI.rejectWithValue(error.message);

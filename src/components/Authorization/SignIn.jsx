@@ -20,7 +20,7 @@ const SignIn = () => {
   };
 
   const handleSignIn = (e) => {
-	e.preventDefault();
+    e.preventDefault();
     dispatch(authSignIn({ login, password }));
     setLogin("");
     setPassword("");

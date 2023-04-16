@@ -9,27 +9,43 @@ import {
 } from "../../../features/ReviewSlice";
 import s from "../../../styles/Review.module.css";
 import Modal from "../../Modal/Modal";
+import { fetchUser } from "../../../features/applicationSlice";
 
 const Review = ({ id }) => {
   const [modalActive, setModalActive] = useState(false);
   const [text, setText] = useState("");
   const dispatch = useDispatch();
 
+  const ide = useSelector((state) => state.application.id);
+  const users = useSelector((state) => state.application.users);
+  const filt = users.filter((i) => i._id === ide);
+  const isAdmin = filt.map((i) => {
+    return i.admin;
+  });
+
   const reviews = useSelector((state) => state.reviewReducer.reviews);
-  console.log(reviews);
   const filteredRev = reviews.filter((i) => i.product._id === id);
-  console.log(filteredRev);
+  // const userRevs = filteredRev.filter((i) => {
+  //   return i.user;
+  // });
+  // const isUserRevs = userRevs.map((i) => {
+  //   return i.user === ide ? true : false;
+  // });
+  // console.log(isUserRevs.map(i => {return i}));
+
+
   const handleDelete = () => {};
 
   const handlePost = (e) => {
     e.preventDefault();
     dispatch(postReview({ text, product: id }));
     setText("");
-    setModalActive(false)
+    setModalActive(false);
   };
 
   useEffect(() => {
     dispatch(fetchReviews());
+    dispatch(fetchUser());
   }, [dispatch]);
 
   return (
@@ -58,16 +74,18 @@ const Review = ({ id }) => {
                 <div className={s.review}>
                   <div className={s.profile}>Пользователь</div>
                   <div className={s.text}>{i.text}</div>
-                  <div className={s.delete}>
-                    <div
-                      onClick={() =>
-                        handleDelete(dispatch(deleteReview(i._id)))
-                      }
-                      className={s.dlt}
-                    >
-                      Удалить
+                  {isAdmin[0] ? (
+                    <div className={s.delete}>
+                      <div
+                        onClick={() =>
+                          handleDelete(dispatch(deleteReview(i._id)))
+                        }
+                        className={s.dlt}
+                      >
+                        Удалить
+                      </div>
                     </div>
-                  </div>
+                  ) : null}
                 </div>
               </SwiperSlide>
             );

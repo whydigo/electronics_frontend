@@ -6,6 +6,7 @@ import { fetchProducts } from "../../../features/ProductSlice";
 import Product from "./Product";
 import "../../../styles/cart.css";
 import Fade from "react-reveal/Fade";
+import { fetchUser } from "../../../features/applicationSlice";
 
 const Products = ({ text }) => {
   const { id } = useParams();
@@ -25,6 +26,7 @@ const Products = ({ text }) => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchProducts());
+    dispatch(fetchUser())
   }, [dispatch]);
 
   return (
