@@ -1,15 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { fetchProducts } from "../../../features/ProductSlice";
 import "../../../styles/cartProductById.css";
 import Review from "./Review";
+import { addToCart } from "../../../features/applicationSlice";
 
 const ProductById = () => {
   const { id } = useParams();
+  const [buy, setBuy] = useState(false);
   const product = useSelector((state) => state.productReducer.product);
   const category = useSelector((state) => state.categoryReducer.categories);
+  const ide = useSelector((state) => state.application.id);
+  const users = useSelector((state) => state.application.users);
+  const filt = users.filter((i) => i._id === ide);
+  const cartItems = filt.map((i) => {
+    return i.cart;
+  });
+
   const filteredProductById = product.filter((item) => {
     if (!id);
     return item._id === id;
@@ -24,10 +33,31 @@ const ProductById = () => {
         .toString()
   );
 
+  const handleAdd = () => {
+    setBuy(!buy);
+    dispatch(
+      addToCart({
+        userId: localStorage.getItem("id"),
+        cartById: id,
+      })
+    );
+  };
+
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchProducts());
   }, [dispatch]);
+
+  useEffect(() => {
+    if (cartItems[0]) {
+      cartItems[0].map((i) => {
+        if (i._id === id) {
+          return setBuy(true);
+        }
+        return null;
+      });
+    }
+  }, [cartItems, id]);
 
   return (
     <div>
@@ -202,7 +232,16 @@ const ProductById = () => {
                           </div>
                         </div>
                       )}
-                      <div className="productById_basket">В корзину</div>
+                      <div
+                        className={
+                          buy
+                            ? "productById_basket active"
+                            : "productById_basket"
+                        }
+                        onClick={handleAdd}
+                      >
+                        {buy ? "В корзине" : "В корзину"}
+                      </div>
                     </div>
                     <details className="productById_description_individually_desc">
                       <summary className="productById_description_individually_description">
