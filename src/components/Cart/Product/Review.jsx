@@ -102,16 +102,14 @@ const Review = ({ id }) => {
       </div>
       <Modal active={modalActive} setActive={setModalActive}>
         <div className={s.modalTitle}>Ваша критика очень важна для нас</div>
-        <form className={s.modalForm}>
+        <form className={s.modalForm} onSubmit={handlePost}>
           <input
             onChange={(e) => setText(e.target.value)}
             value={text}
             className={s.modalInput}
             type="text"
           />
-          <button onClick={(e) => handlePost(e)} className={s.modalBtn}>
-            Готово
-          </button>
+          <button className={s.modalBtn}>Готово</button>
         </form>
       </Modal>
     </div>
