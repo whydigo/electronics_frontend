@@ -26,6 +26,9 @@ import CreditCard from "./components/Basket/CreditCard";
 function App() {
   const [text, setText] = useState("");
   const [openModal, setOpenModal] = useState(false);
+
+  const token = localStorage.getItem("token");
+
   return (
     <div className="App">
       <Header
@@ -41,8 +44,17 @@ function App() {
         <Route path="/category/:id" element={<Products text={text} />} />
 
         {/* ------------------------Авторизация------------------------ */}
-        <Route path="/register" element={<SignUp />} />
-        <Route path="/login" element={<SignIn />} />
+
+        {token ? (
+          <Route path="/register" element={<Navigate to="/" />} />
+        ) : (
+          <Route path="/register" element={<SignUp />} />
+        )}
+        {token ? (
+          <Route path="/login" element={<Navigate to="/" />} />
+        ) : (
+          <Route path="/login" element={<SignIn />} />
+        )}
 
         {/* ------------------------Сервисы------------------------ */}
         <Route
@@ -81,9 +93,16 @@ function App() {
         {/* ------------------------Админ------------------------ */}
         <Route path="/admin/products/:id" element={<PostProducts />} />
 
-        <Route path="/profile" element={<Profile />} />
-
-        <Route path="/basket" element={<Basket />} />
+        {token ? (
+          <Route path="/profile" element={<Profile />} />
+        ) : (
+          <Route path="/profile" element={<Navigate to="/" />} />
+        )}
+        {token ? (
+          <Route path="/basket" element={<Basket />} />
+        ) : (
+          <Route path="/basket" element={<Navigate to="/" />} />
+        )}
       </Routes>
       <Footer />
     </div>

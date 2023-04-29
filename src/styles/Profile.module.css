@@ -1,0 +1,23 @@
+.container {
+    padding: 50px;
+    font-size: 20px;
+}
+
+.name {
+    font-size: 25px;
+    padding-top: 10px;
+}
+
+.exit {
+    margin-top: 20px;
+    font-size: 18px;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    transition: 0.2s;
+}
+
+.exit:hover {
+    background-color: rgb(137, 144, 150);
+    color: rgb(255, 255, 255);
+}

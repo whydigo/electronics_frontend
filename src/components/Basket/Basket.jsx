@@ -10,6 +10,7 @@ const Basket = () => {
   const id = useSelector((state) => state.application.id);
   const users = useSelector((state) => state.application.users);
   const filt = users.filter((i) => i._id === id);
+  
   useEffect(() => {
     dispatch(fetchUser());
   }, [dispatch]);
