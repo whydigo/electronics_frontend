@@ -23,45 +23,51 @@ const CartItems = ({ cart }) => {
   return (
     <div className="basket__container">
       <div className="basket_basket">Корзина:</div>
-      {loading ? (
-        <div className="preloader">
-          <img className="preloader_item" src={preloader} alt="preloader" />
+      {cart.length !== 0 ? (
+        <div>
+          {loading ? (
+            <div className="preloader">
+              <img className="preloader_item" src={preloader} alt="preloader" />
+            </div>
+          ) : (
+            <div className="sdelat_flex">
+              <div className="main_boxshadov">
+                {cart.map((i) => {
+                  return (
+                    <CartItem
+                      key={i._id}
+                      name={i.name}
+                      price={i.price}
+                      discount={i.discount}
+                      image={i.image}
+                      id={i._id}
+                    />
+                  );
+                })}
+              </div>
+              <div className="orderingOrder">
+                <div className="ordering__finalPrice">
+                  {cart.map((i) => {
+                    return (
+                      <div className="finalPrice__container" key={i._id}>
+                        <div>{i.name}</div>
+                        <div className="emptyinside" />
+                        <div>{i.price - i.discount} ₽</div>
+                      </div>
+                    );
+                  })}
+                </div>
+                <div className="summary__order">ИТОГО: {summ}₽</div>
+
+                <Link to={"/creditcard"} className="orderingOrder_one">
+                  Оформить заказ
+                </Link>
+              </div>
+            </div>
+          )}
         </div>
       ) : (
-        <div className="sdelat_flex">
-          <div className="main_boxshadov">
-            {cart.map((i) => {
-              return (
-                <CartItem
-                  key={i._id}
-                  name={i.name}
-                  price={i.price}
-                  discount={i.discount}
-                  image={i.image}
-                  id={i._id}
-                />
-              );
-            })}
-          </div>
-          <div className="orderingOrder">
-            <div className="ordering__finalPrice">
-              {cart.map((i) => {
-                return (
-                  <div className="finalPrice__container" key={i._id}>
-                    <div>{i.name}</div>
-                    <div className="emptyinside" />
-                    <div>{i.price - i.discount} ₽</div>
-                  </div>
-                );
-              })}
-            </div>
-            <div className="summary__order">ИТОГО: {summ}₽</div>
-
-            <Link to={"/creditcard"} className="orderingOrder_one">
-              Оформить заказ
-            </Link>
-          </div>
-        </div>
+        <div className="basket__empty_inside">В корзине ничего нет. Исправляйся!</div>
       )}
     </div>
   );

@@ -1,10 +1,6 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
-import { Link } from "react-router-dom";
-import slider_1 from "../../assets/phone.jpg";
-import slider_2 from "../../assets/laptop.jpg";
-import slider_3 from "../../assets/smartwatch.jpg";
+import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from "swiper";
 import "swiper/swiper-bundle.css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -15,29 +11,33 @@ const SwiperBlock = () => {
     <div className="swiper__container">
       <Swiper
         className="swiper-wrapper"
-        modules={[Navigation, Pagination, Scrollbar, A11y]}
+        modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
         spaceBetween={50}
         slidesPerView={1}
         loop={true}
+        autoplay={{ delay: 3000 }}
         pagination={{ clickable: true, dynamicBullets: true }}
-
       >
         <SwiperSlide className="slide">
-          <Link to="/category/63cbaae09cfb3fc70c243fce">
-            <img className="image-slider" src={slider_1} alt="slice" />
-          </Link>
+          <img
+            className="image-slider"
+            src="https://www.indiewire.com/wp-content/uploads/2018/08/BCS_402_NW_0131_0046-RT1.jpg"
+            alt="slice"
+          />
         </SwiperSlide>
-
         <SwiperSlide className="slide">
-          <Link to="/category/63caaf6db2f72ed28aa640f6">
-            <img className="image-slider" src={slider_2} alt="slice" />
-          </Link>
+          <img
+            className="image-slider"
+            src="https://a-static.besthdwallpaper.com/saul-goodman-from-better-call-saul-wallpaper-3840x2160-102835_54.jpg"
+            alt="slice"
+          />
         </SwiperSlide>
-
         <SwiperSlide className="slide">
-          <Link to="/category/63ce643c9288831a7330dc4a">
-            <img className="image-slider" src={slider_3} alt="slice" />
-          </Link>
+          <img
+            className="image-slider"
+            src="https://i.pinimg.com/originals/5d/9f/93/5d9f933b4f90e0fede37d43eddbc9ed1.jpg"
+            alt="slice"
+          />
         </SwiperSlide>
       </Swiper>
     </div>

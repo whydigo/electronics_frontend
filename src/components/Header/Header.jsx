@@ -4,7 +4,6 @@ import search from "../../accets/search.png";
 import adress from "../../accets/icons9.png";
 import user from "../../accets/icon8.png";
 import basket from "../../accets/icon10.png";
-// import logo from "../../assets/logo.png";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
@@ -28,11 +27,6 @@ const Header = ({ setOpenModal, text, setText }) => {
     setIsOpen(true);
   };
 
-  // const handkeTockenclear = () => {
-  //   localStorage.clear(token);
-  //   window.location.reload();
-  // };
-
   return (
     <>
       <header className="header">
@@ -44,7 +38,9 @@ const Header = ({ setOpenModal, text, setText }) => {
               <div className="bar3"></div>
             </div>
             <Link to="/">
-              <img className="nav-title" src="" alt="logo" />
+              <div className="nav-title">
+                Electronics
+              </div>
             </Link>
             <div
               className={
