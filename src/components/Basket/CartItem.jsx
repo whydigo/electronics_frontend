@@ -4,11 +4,6 @@ import { deleteFromCart } from "../../features/applicationSlice";
 
 const CartItem = ({ name, price, discount, image, id }) => {
   const dispatch = useDispatch();
-	// const ide = useSelector((state) => state.application.id)
-  // const users = useSelector((state) => state.application.users)
-	// const filt = users.filter((i) => i._id === ide)
-  // const isAdmin = filt[0].admin
-  // console.log(isAdmin);
 
   const handleDelete = () => {
     alert('Удалено')

@@ -82,6 +82,8 @@ li {
   -webkit-box-align: center;
   width: 240px;
   height: 64px;
+  font-size: 35px;
+  color: white;
 }
 
 .nav_search {
