@@ -6,11 +6,11 @@ import {
   deleteReview,
   fetchReviews,
   postReview,
-} from "../../../features/ReviewSlice";
-import s from "../../../styles/Review.module.css";
-import Modal from "../../Modal/Modal";
-import { fetchUser } from "../../../features/applicationSlice";
-import preloader from "../../../assets/loading.gif";
+} from "../../features/ReviewSlice";
+import s from "../../styles/Review.module.css";
+import Modal from "../Modal/Modal";
+import { fetchUser } from "../../features/applicationSlice";
+import preloader from "../../assets/loading.gif";
 
 const Review = ({ id }) => {
   const [modalActive, setModalActive] = useState(false);

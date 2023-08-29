@@ -16,11 +16,11 @@ import RulesUse from "./components/Services/ServicesItems/RulesUse";
 import AboutUs from "./components/Services/ServicesItems/AboutUs";
 import Requisites from "./components/Services/ServicesItems/Requisites";
 import Menu from "./components/Header/Menu";
-import Products from "./components/Cart/Product/Products";
-import MainPage from "./components/Pages/MainPage";
+import Products from "./components/Product/Products";
+import MainPage from "./Pages/MainPage";
 import Contacts from "./components/Services/ServicesItems/Contacts";
 import PostProducts from "./components/Admin/PostProducts/PostProducts";
-import ProductById from "./components/Cart/Product/ProductById";
+import ProductById from "./components/Product/ProductById";
 import Basket from "./components/Basket/Basket";
 import CreditCard from "./components/Basket/CreditCard";
 function App() {

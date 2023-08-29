@@ -2,12 +2,12 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { fetchProducts } from "../../../features/ProductSlice";
+import { fetchProducts } from "../../features/ProductSlice";
 import Product from "./Product";
-import "../../../styles/cart.css";
+import "../../styles/cart.css";
 import Fade from "react-reveal/Fade";
-import { fetchUser } from "../../../features/applicationSlice";
-import preloader from "../../../assets/loading.gif";
+import { fetchUser } from "../../features/applicationSlice";
+import preloader from "../../assets/loading.gif";
 
 const Products = ({ text }) => {
   const { id } = useParams();
@@ -25,6 +25,7 @@ const Products = ({ text }) => {
   useEffect(() => {
     dispatch(fetchProducts());
     dispatch(fetchUser());
+    window.scrollTo(0, 0);
   }, [dispatch]);
 
   if (loading) {

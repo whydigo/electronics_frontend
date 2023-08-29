@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { fetchProducts } from "../../../features/ProductSlice";
-import "../../../styles/cartProductById.css";
+import { fetchProducts } from "../../features/ProductSlice";
+import "../../styles/cartProductById.css";
 import Review from "./Review";
-import { addToCart } from "../../../features/applicationSlice";
-import preloader from "../../../assets/loading.gif";
+import { addToCart } from "../../features/applicationSlice";
+import preloader from "../../assets/loading.gif";
 
 const ProductById = () => {
   const { id } = useParams();
@@ -59,6 +59,7 @@ const ProductById = () => {
         return null;
       });
     }
+    window.scrollTo(0, 0);
   }, [cartItems, id]);
 
   if (loading) {

@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
-import "../../../styles/cart.css";
+import "../../styles/cart.css";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart, fetchUser } from "../../../features/applicationSlice";
-import { deleteProduct } from "../../../features/ProductSlice";
+import { addToCart, fetchUser } from "../../features/applicationSlice";
+import { deleteProduct } from "../../features/ProductSlice";
 
 const Product = ({ image, name, price, discount, id }) => {
   const dispatch = useDispatch();
   const ide = useSelector((state) => state.application.id);
   const users = useSelector((state) => state.application.users);
-  const filt = users.filter((i) => i._id === ide);
+  const filt = users.filter((i) => i._id === ide);  
   const isAdmin = filt.map((i) => {
     return i.admin;
   });
