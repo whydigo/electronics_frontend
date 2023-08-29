@@ -36,8 +36,8 @@ export const postReview = createAsyncThunk(
       });
       const reviews = await res.json();
 
-      if (reviews.error){
-        return thunkAPI.rejectWithValue(reviews.error)
+      if (reviews.error) {
+        return thunkAPI.rejectWithValue(reviews.error);
       }
       return reviews;
     } catch (error) {
