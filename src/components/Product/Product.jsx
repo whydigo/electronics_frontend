@@ -1,50 +1,37 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import "../../styles/cart.css";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart, fetchUser } from "../../features/applicationSlice";
 import { deleteProduct } from "../../features/ProductSlice";
+import CartFooter from "./CartFooter";
 
 const Product = ({ image, name, price, discount, id }) => {
   const dispatch = useDispatch();
   const ide = useSelector((state) => state.application.id);
   const users = useSelector((state) => state.application.users);
-  const filt = users.filter((i) => i._id === ide);  
-  const isAdmin = filt.map((i) => {
-    return i.admin;
-  });
-  const cartItems = filt.map((i) => {
-    return i.cart;
-  });
+  const isAdmin = users.find((i) => i._id === ide)?.admin || false;
 
   const [buy, setBuy] = useState(false);
   const [dlt, setDlt] = useState(false);
 
-  const handleAdd = () => {
-    setBuy(!buy);
-    dispatch(
-      addToCart({
-        userId: localStorage.getItem("id"),
-        cartById: id,
-      })
-    );
-  };
+  const handleAdd = useCallback(() => {
+    setBuy((prevBuy) => !prevBuy);
+    dispatch(addToCart({ userId: localStorage.getItem("id"), cartById: id }));
+  }, [dispatch, id]);
 
-  const handleDeleteProduct = () => {
-    setDlt(true);
+  const handleDeleteProduct = useCallback(() => {
     dispatch(deleteProduct(id));
-  };
+    setDlt(true);
+  }, [dispatch, id]);
 
   useEffect(() => {
-    if (cartItems[0]) {
-      cartItems[0].map((i) => {
-        if (i._id === id) {
-          return setBuy(true);
-        }
-        return null;
-      });
+    if (users.length > 0) {
+      const cartItems = users.find((i) => i._id === ide)?.cart || [];
+      const isItemInCart = cartItems.some((item) => item._id === id);
+      setBuy(isItemInCart);
     }
-  }, [cartItems, id]);
+  }, [users, id, ide]);
 
   useEffect(() => {
     dispatch(fetchUser());
@@ -84,25 +71,13 @@ const Product = ({ image, name, price, discount, id }) => {
         <div className="cart_title">
           <span className="cart_title_name">{name}</span>/
         </div>
-        {dlt !== true ? (
-          <div className="cart__footer_container">
-            <button
-              disabled={buy}
-              className={buy !== true ? "basket" : "basket active"}
-              onClick={handleAdd}
-            >
-              {buy !== true ? "Купить" : "В корзине"}
-            </button>
-            {isAdmin[0] ? (
-              <div
-                disabled={dlt}
-                onClick={handleDeleteProduct}
-                className="dlt_product"
-              >
-                Удалить
-              </div>
-            ) : null}
-          </div>
+        {!dlt ? (
+          <CartFooter
+            buy={buy}
+            isAdmin={isAdmin}
+            handleAdd={handleAdd}
+            handleDeleteProduct={handleDeleteProduct}
+          />
         ) : (
           <div className="deleted_product">Продукт удален</div>
         )}

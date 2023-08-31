@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
@@ -7,6 +7,8 @@ import "../../styles/cartProductById.css";
 import Review from "./Review";
 import { addToCart } from "../../features/applicationSlice";
 import preloader from "../../assets/loading.gif";
+import Characteristics from "./Characteristics";
+import ProductCartSide from "./ProductCartSide";
 
 const ProductById = () => {
   const { id } = useParams();
@@ -21,10 +23,10 @@ const ProductById = () => {
   });
   const loading = useSelector((state) => state.productReducer.loading);
 
-  const filteredProductById = product.filter((item) => {
-    if (!id);
-    return item._id === id;
-  });
+  const filteredProductById = useMemo(() => {
+    return product.filter((item) => item._id === id);
+  }, [product, id]);
+
   const filteredCatById = category.filter(
     (i) =>
       i._id ===
@@ -95,179 +97,21 @@ const ProductById = () => {
                     </div>
                     <div className="productById_description">
                       <div className="productById_title">О товаре</div>
-                      {item.info_0 ? (
-                        <div className="productById_description_individually">
-                          <div className="productById_description_individually_item">
-                            {item.info_0?.split("-")[0]}
-                          </div>
-                          <div className="productById_emptiness"></div>
-                          <div className="productById_description_individually_item_name">
-                            {item.info_0?.split("-")[1]}
-                          </div>
-                        </div>
-                      ) : (
-                        ""
-                      )}
-                      {item.info_1 ? (
-                        <div className="productById_description_individually">
-                          <div className="productById_description_individually_item">
-                            {item.info_1?.split("-")[0]}
-                          </div>
-                          <div className="productById_emptiness"></div>
-                          <div className="productById_description_individually_item_name">
-                            {item.info_1?.split("-")[1]}
-                          </div>
-                        </div>
-                      ) : (
-                        ""
-                      )}
-                      {item.info_2 ? (
-                        <div className="productById_description_individually">
-                          <div className="productById_description_individually_item">
-                            {item.info_2?.split("-")[0]}
-                          </div>
-                          <div className="productById_emptiness"></div>
-                          <div className="productById_description_individually_item_name">
-                            {item.info_2?.split("-")[1]}
-                          </div>
-                        </div>
-                      ) : (
-                        ""
-                      )}
-                      {item.info_3 ? (
-                        <div className="productById_description_individually">
-                          <div className="productById_description_individually_item">
-                            {item.info_3?.split("-")[0]}
-                          </div>
-                          <div className="productById_emptiness"></div>
-                          <div className="productById_description_individually_item_name">
-                            {item.info_3?.split("-")[1]}
-                          </div>
-                        </div>
-                      ) : (
-                        ""
-                      )}
-                      {item.info_4 ? (
-                        <div className="productById_description_individually">
-                          <div className="productById_description_individually_item">
-                            {item.info_4?.split("-")[0]}
-                          </div>
-                          <div className="productById_emptiness"></div>
-                          <div className="productById_description_individually_item_name">
-                            {item.info_4?.split("-")[1]}
-                          </div>
-                        </div>
-                      ) : (
-                        ""
-                      )}
-                      {item.info_5 ? (
-                        <div className="productById_description_individually">
-                          <div className="productById_description_individually_item">
-                            {item.info_5?.split("-")[0]}
-                          </div>
-                          <div className="productById_emptiness"></div>
-                          <div className="productById_description_individually_item_name">
-                            {item.info_5?.split("-")[1]}
-                          </div>
-                        </div>
-                      ) : (
-                        ""
-                      )}
-                      {item.info_6 ? (
-                        <div className="productById_description_individually">
-                          <div className="productById_description_individually_item">
-                            {item.info_6?.split("-")[0]}
-                          </div>
-                          <div className="productById_emptiness"></div>
-                          <div className="productById_description_individually_item_name">
-                            {item.info_6?.split("-")[1]}
-                          </div>
-                        </div>
-                      ) : (
-                        ""
-                      )}
-                      {item.info_7 ? (
-                        <div className="productById_description_individually">
-                          <div className="productById_description_individually_item">
-                            {item.info_7?.split("-")[0]}
-                          </div>
-                          <div className="productById_emptiness"></div>
-                          <div className="productById_description_individually_item_name">
-                            {item.info_7?.split("-")[1]}
-                          </div>
-                        </div>
-                      ) : (
-                        ""
-                      )}
-                      {item.info_8 ? (
-                        <div className="productById_description_individually">
-                          <div className="productById_description_individually_item">
-                            {item.info_8?.split("-")[0]}
-                          </div>
-                          <div className="productById_emptiness"></div>
-                          <div className="productById_description_individually_item_name">
-                            {item.info_8?.split("-")[1]}
-                          </div>
-                        </div>
-                      ) : (
-                        ""
-                      )}
-                      {item.info_9 ? (
-                        <div className="productById_description_individually">
-                          <div className="productById_description_individually_item">
-                            {item.info_9?.split("-")[0]}
-                          </div>
-                          <div className="productById_emptiness"></div>
-                          <div className="productById_description_individually_item_name">
-                            {item.info_9?.split("-")[1]}
-                          </div>
-                        </div>
-                      ) : (
-                        ""
-                      )}
+                      {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((index) => (
+                        <Characteristics
+                          key={index}
+                          label={item[`info_${index}`]?.split("-")[0]}
+                          value={item[`info_${index}`]}
+                        />
+                      ))}
                     </div>
                   </div>
                   <div className="prdct-l">
-                    <div className="productById_buy ">
-                      {!item.discount ? (
-                        <div className="productById_price_product">
-                          {item.price} ₽
-                        </div>
-                      ) : (
-                        <div className="productById_price">
-                          <div className="productById_discount">
-                            <strike>{item.price} ₽</strike>
-                          </div>
-                          <div className="productById_price_product">
-                            {Math.round(item.price - item.discount)} ₽
-                          </div>
-                        </div>
-                      )}
-                      <div
-                        className={
-                          buy
-                            ? "productById_basket active"
-                            : "productById_basket"
-                        }
-                        onClick={handleAdd}
-                      >
-                        {buy ? "В корзине" : "В корзину"}
-                      </div>
-                    </div>
-                    <details className="productById_description_individually_desc">
-                      <summary className="productById_description_individually_description">
-                        описание
-                      </summary>
-                      {item.description ? (
-                        <p className="productById_description_individually_sum">
-                          {item.description}
-                        </p>
-                      ) : (
-                        <p className="productById_description_individually_sum">
-                          Тут ничего нет
-                        </p>
-                      )}
-                    </details>
+                    <ProductCartSide
+                      item={item}
+                      buy={buy}
+                      handleAdd={handleAdd}
+                    />
                   </div>
                 </div>
               </div>
