@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import "../../styles/header.css";
-import search from "../../accets/search.png";
-import adress from "../../accets/icons9.png";
-import user from "../../accets/icon8.png";
-import basket from "../../accets/icon10.png";
+import search from "../../assets/search.png";
+import adress from "../../assets/icons9.png";
+import user from "../../assets/icon8.png";
+import basket from "../../assets/icon10.png";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
@@ -38,9 +38,7 @@ const Header = ({ setOpenModal, text, setText }) => {
               <div className="bar3"></div>
             </div>
             <Link to="/">
-              <div className="nav-title">
-                Electronics
-              </div>
+              <div className="nav-title">Electronics</div>
             </Link>
             <div
               className={

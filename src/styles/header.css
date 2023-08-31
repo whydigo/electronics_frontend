@@ -14,7 +14,7 @@ li {
 }
 
 .header {
-  background: linear-gradient(45deg, #5f5942, #5f5942);
+  background: rgb(41, 41, 41);
   padding: 25px 0 47px;
   position: relative;
 }
