@@ -10,7 +10,7 @@ body {
   position: relative;
   padding-top: 45px;
   padding-bottom: 45px;
-  background: linear-gradient(45deg, #5f5942, #5f5942);
+  background: rgb(41, 41, 41);
   color: rgb(185, 183, 183);
 }
 
