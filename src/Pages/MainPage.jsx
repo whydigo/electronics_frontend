@@ -6,7 +6,6 @@ import SwiperBlock from "../components/Main/SwiperBlock";
 import CategoryBlock from "../components/Main/CategoryBlock";
 import DiscountProductsFilter from "../components/Main/Filters/DiscountProductsFilter";
 import NewProductsFilter from "../components/Main/Filters/NewProductsFilter";
-import ReviewsBlock from "../components/Main/ReviewsBlock";
 import { useDispatch } from "react-redux";
 import { fetchProducts } from "../features/ProductSlice";
 // import SmartphoneBanner from "../Main/Banners/SmartphoneBanner";
@@ -25,7 +24,7 @@ const MainPage = ({ text }) => {
       {/* <SmartphoneBanner /> */}
       <DiscountProductsFilter />
       <NewProductsFilter />
-      <ReviewsBlock />
+      {/* <ReviewsBlock /> */}
       {/* <DiscountBlock /> */}
       {/* <AllProducts text={text} /> */}
     </div>
