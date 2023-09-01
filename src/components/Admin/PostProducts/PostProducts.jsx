@@ -1,66 +1,83 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import PostNavigation from "../PostNavigation";
 import { useDispatch, useSelector } from "react-redux";
 import { postProduct } from "../../../features/ProductSlice";
 import { fetchCategories } from "../../../features/CategoriesSlice";
 import { useParams } from "react-router-dom";
-import { useState } from "react";
 import "../../../styles/admin.css";
 
 const PostProduct = () => {
-  const [img, setImg] = useState(null);
-  const [name, setName] = useState("");
-  const [description, setDescription] = useState("");
-  const [price, setPrice] = useState("");
-  const [discount, setDiscount] = useState("");
-  const [info0, setInfo0] = useState("");
-  const [info1, setInfo1] = useState("");
-  const [info2, setInfo2] = useState("");
-  const [info3, setInfo3] = useState("");
-  const [info4, setInfo4] = useState("");
-  const [info5, setInfo5] = useState("");
-  const [info6, setInfo6] = useState("");
-  const [info7, setInfo7] = useState("");
-  const [info8, setInfo8] = useState("");
-  const [info9, setInfo9] = useState("");
   const { id } = useParams();
-
+  const dispatch = useDispatch();
   const categories = useSelector((state) => state.categoryReducer.categories);
   const filteredCategories = categories.filter((i) => i._id === id);
-  const dispatch = useDispatch();
+
+  // Состояние для формы
+  const [formData, setFormData] = useState({
+    img: null,
+    name: "",
+    description: "",
+    price: "",
+    discount: "",
+  });
+
+  // Состояние для характеристик
+  const [characteristics, setCharacteristics] = useState([
+    { name: "first", value: "" },
+    { name: "second", value: "" },
+    { name: "third", value: "" },
+    { name: "fourth", value: "" },
+    { name: "fifth", value: "" },
+    { name: "sixth", value: "" },
+    { name: "seventh", value: "" },
+    { name: "eighth", value: "" },
+    { name: "ninth", value: "" },
+    { name: "tenth", value: "" },
+  ]);
+
+  // Состояние для отображения остальных характеристик
+  const [showMoreCharacteristics, setShowMoreCharacteristics] = useState(false);
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  const handleCharacteristicChange = (name, value) => {
+    const updatedCharacteristics = characteristics.map((char) => {
+      if (char.name === name) {
+        return { ...char, value };
+      }
+      return char;
+    });
+    setCharacteristics(updatedCharacteristics);
+  };
+
+  const handleShowMoreCharacteristics = () => {
+    setShowMoreCharacteristics(!showMoreCharacteristics);
+  };
 
   const handlePostProduct = () => {
     dispatch(
       postProduct({
-        name,
-        description,
-        price,
-        discount,
-        info0,
-        info1,
-        info2,
-        info3,
-        info4,
-        info5,
-        info6,
-        info7,
-        info8,
-        info9,
-        img,
+        ...formData,
+        img: formData.img,
         category: id,
+        characteristics,
       })
     );
   };
 
   useEffect(() => {
     dispatch(fetchCategories());
-  }, [dispatch]);
+  }, [dispatch, id]);
 
   return (
     <div className="post-products__container">
-      <div className="post-products__header">
-        <PostNavigation />
-      </div>
+      <PostNavigation />
       <div className="post-products__main">
         <div className="post-products__left">
           <div className="post-products__title">
@@ -72,120 +89,36 @@ const PostProduct = () => {
             <div className="post-products__item">
               Название
               <input
-                onChange={(e) => setName(e.target.value)}
-                value={name}
+                onChange={handleInputChange}
+                value={formData.name}
+                name="name"
                 type="text"
               />
             </div>
             <div className="post-products__item">
               Описание
               <input
-                onChange={(e) => setDescription(e.target.value)}
-                value={description}
+                onChange={handleInputChange}
+                value={formData.description}
+                name="description"
                 type="text"
               />
             </div>
             <div className="post-products__item">
               Цена
               <input
-                onChange={(e) => setPrice(e.target.value)}
-                value={price}
+                onChange={handleInputChange}
+                value={formData.price}
+                name="price"
                 type="text"
               />
             </div>
             <div className="post-products__item">
               Скидка
               <input
-                onChange={(e) => setDiscount(e.target.value)}
-                value={discount}
-                type="text"
-              />
-            </div>
-            <br />
-            <h4>Характеристики</h4>
-            <p className="primer">
-              <span className="primer_att">
-                ! Отделяйте наименование характеристики от ее значения - дефизом
-              </span>{" "}
-              <br /> Пример: 'Тип экрана - Amoled'
-            </p>
-            <div className="post-products__item">
-              first
-              <input
-                onChange={(e) => setInfo0(e.target.value)}
-                value={info0.characteristic}
-                type="text"
-              />
-            </div>
-            <div className="post-products__item">
-              second
-              <input
-                onChange={(e) => setInfo1(e.target.value)}
-                value={info1}
-                type="text"
-              />
-            </div>
-            <div className="post-products__item">
-              third
-              <input
-                onChange={(e) => setInfo2(e.target.value)}
-                value={info2}
-                type="text"
-              />
-            </div>
-            <div className="post-products__item">
-              fourth
-              <input
-                onChange={(e) => setInfo3(e.target.value)}
-                value={info3}
-                type="text"
-              />
-            </div>
-            <div className="post-products__item">
-              fifth
-              <input
-                onChange={(e) => setInfo4(e.target.value)}
-                value={info4}
-                type="text"
-              />
-            </div>
-            <div className="post-products__item">
-              sixth
-              <input
-                onChange={(e) => setInfo5(e.target.value)}
-                value={info5}
-                type="text"
-              />
-            </div>
-            <div className="post-products__item">
-              seventh
-              <input
-                onChange={(e) => setInfo6(e.target.value)}
-                value={info6}
-                type="text"
-              />
-            </div>
-            <div className="post-products__item">
-              eighth
-              <input
-                onChange={(e) => setInfo7(e.target.value)}
-                value={info7}
-                type="text"
-              />
-            </div>
-            <div className="post-products__item">
-              ninth
-              <input
-                onChange={(e) => setInfo8(e.target.value)}
-                value={info8}
-                type="text"
-              />
-            </div>
-            <div className="post-products__item">
-              tenth
-              <input
-                onChange={(e) => setInfo9(e.target.value)}
-                value={info9}
+                onChange={handleInputChange}
+                value={formData.discount}
+                name="discount"
                 type="text"
               />
             </div>
@@ -196,16 +129,47 @@ const PostProduct = () => {
                 type="file"
                 onChange={(e) => {
                   const file = e.target.files[0];
-                  setImg(file);
+                  setFormData({ ...formData, img: file });
                 }}
               />
             </div>
-            <button className="post-products__btn" onClick={handlePostProduct}>
-              Добавить
-            </button>
           </div>
         </div>
+        <div className="post-products__right">
+          <h4>Характеристики</h4>
+          <p className="primer">
+            <span className="primer_att">
+              Отделяйте наименование характеристики от ее значения - дефизом
+            </span>{" "}
+            <br /> Пример: "Тип экрана - Amoled"
+          </p>
+          {characteristics
+            .slice(0, showMoreCharacteristics ? undefined : 4)
+            .map((char) => (
+              <div className="post-products__item" key={char.name}>
+                {char.name}
+                <input
+                  onChange={(e) =>
+                    handleCharacteristicChange(char.name, e.target.value)
+                  }
+                  value={char.value}
+                  type="text"
+                />
+              </div>
+            ))}
+          <button
+            className="post-products__btn"
+            onClick={handleShowMoreCharacteristics}
+          >
+            {showMoreCharacteristics
+              ? "Скрыть поля"
+              : "Показать остальные поля"}
+          </button>
+        </div>
       </div>
+      <button className="post-products__btn" onClick={handlePostProduct}>
+        Добавить
+      </button>
     </div>
   );
 };

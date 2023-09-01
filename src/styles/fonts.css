@@ -1,0 +1,21 @@
+body {
+  margin: 0;
+  font-family: "FiraSans", sans-serif;
+  font-weight: normal;
+}
+
+.header {
+    font-weight: bold;
+}
+
+@font-face {
+  font-family: "FiraSans";
+  src: url("../../public/fonts/FiraSans-Regular.ttf") format("truetype");
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "FiraSans";
+  src: url("../../public/fonts/FiraSans-Bold.ttf") format("truetype");
+  font-weight: bold;
+}
