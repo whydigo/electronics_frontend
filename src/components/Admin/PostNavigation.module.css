@@ -1,9 +1,32 @@
-.active div {
-  cursor: pointer;
-  font-size: 22px;
-  border-bottom: 3px solid #345;
-  margin-bottom: -3px;
-  transition: 1s;
-  color: rgb(13, 13, 13);
+/* PostNavigation.module.css */
+
+/* Стили для активного элемента навигации */
+.active {
+  color: #ffffff;
+  font-weight: bold;
 }
 
+.navigation_element:hover {
+  background-color: #000000; 
+  color: #ffffff; 
+  font-weight: bold; 
+}
+
+.navigation_element {
+  border-radius: 10px;
+  text-decoration: none;
+  padding: 10px 20px;
+  transition: background-color 0.3s, color 0.3s, font-weight 0.3s;
+  margin-right: 10px; 
+}
+
+.post__navigation {
+  width: 90vw;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  margin-bottom: 20px;
+  background-color: #333; 
+}

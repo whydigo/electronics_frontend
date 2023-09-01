@@ -15,12 +15,18 @@ const PostNavigation = () => {
   }, [dispatch]);
 
   return (
-    <div className="post__navigation">
+    <div className={s.post__navigation}>
       {category.map((i) => {
         return (
-          <NavLink key={i._id} to={`/admin/products/${i._id}`} className={isactive}>
-            <div className="navigation-element">{i.name}</div>
-          </NavLink>
+          <div className={s.post_products__header}>
+            <NavLink
+              key={i._id}
+              to={`/admin/products/${i._id}`}
+              className={isactive}
+            >
+              <div className={s.navigation_element}>{i.name}</div>
+            </NavLink>
+          </div>
         );
       })}
     </div>

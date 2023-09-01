@@ -1,8 +1,3 @@
-body {
-  margin: 0;
-  font-family: "Comfortaa";
-}
-
 .footer {
   display: flex;
   justify-content: center;
@@ -87,9 +82,4 @@ body {
 
 .youareadmin {
   color: #07460f;
-}
-
-@font-face {
-  font-family: "Comfortaa";
-  src: url("../../fonts/Comfortaa/Comfortaa-Medium.ttf") format("truetype");
 }
