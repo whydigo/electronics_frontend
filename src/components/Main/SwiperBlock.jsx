@@ -1,6 +1,6 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from "swiper";
+import { Navigation, Pagination, Autoplay } from "swiper";
 import "swiper/swiper-bundle.css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -11,12 +11,14 @@ const SwiperBlock = () => {
     <div className="swiper__container">
       <Swiper
         className="swiper-wrapper"
-        modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
+        modules={[Navigation, Pagination, Autoplay]}
         spaceBetween={50}
         slidesPerView={1}
         loop={true}
         autoplay={{ delay: 3000 }}
         pagination={{ clickable: true, dynamicBullets: true }}
+        preloadImages={false}
+        lazy={true}
       >
         <SwiperSlide className="slide">
           <img

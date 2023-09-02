@@ -8,18 +8,17 @@ import { Link } from "react-router-dom";
 const CategoryBlock = () => {
   return (
     <div className={s.container}>
-      <div className={s.title}>Популярные категории</div>
+      <div className={s.title}>
+        <h3> Популярные категории</h3>
+      </div>
       <div className={s.categoriesContainer}>
         <div className={s.category}>
           <Link to="/category/63caaf8b48bfffa7fcebe59d">
             <img src={phone} alt="telephone" className={s.categoryImage} />
+            <div className={s.categoryTitle}>Смартфоны</div>
           </Link>
         </div>
-        <div className={s.category}>
-          <Link to="/category/63ce9096f74e0891f0e202fe">
-            <img src={laptop} alt="laptop" className={s.categoryImage} />
-          </Link>
-        </div>
+
         <div className={s.category}>
           <Link to="/category/63caaf6db2f72ed28aa640f6">
             <img
@@ -27,6 +26,13 @@ const CategoryBlock = () => {
               alt="smartwatch"
               className={s.categoryImage}
             />
+            <div className={s.categoryTitle}>Смарт-часы</div>
+          </Link>
+        </div>
+        <div className={s.category}>
+          <Link to="/category/63ce9096f74e0891f0e202fe">
+            <img src={laptop} alt="laptop" className={s.categoryImage} />
+            <div className={s.categoryTitle}>Ноутбуки</div>
           </Link>
         </div>
       </div>
