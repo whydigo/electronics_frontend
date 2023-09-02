@@ -8,8 +8,11 @@ import { Link } from "react-router-dom";
 function Menu({ setOpenModal, openModal = [] }) {
   const categories = useSelector((state) => state.categoryReducer.categories);
   const dispatch = useDispatch();
-  const handleW = (e) => {
-    setOpenModal(false);
+
+  const handleOverlayClick = (e) => {
+    if (e.target.classList.contains("m-overlay")) {
+      setOpenModal(false);
+    }
   };
 
   useEffect(() => {
@@ -19,13 +22,14 @@ function Menu({ setOpenModal, openModal = [] }) {
   return (
     <>
       {openModal && (
-        <div className="m-overlay">
+        <div className="m-overlay" onClick={handleOverlayClick}>
           <div className="m-drawer">
             <div className="m-btn-close">
-              <button className="m-removeBtn" onClick={() => handleW()}>
+              <button className="m-removeBtn"  onClick={() => setOpenModal(false)}>
                 &times;
               </button>
             </div>
+            <div className="m-title">Категории</div>
             <div className="m-items">
               {categories.map((category) => {
                 return (
