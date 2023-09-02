@@ -10,7 +10,7 @@ import { useDispatch } from "react-redux";
 import { fetchProducts } from "../features/ProductSlice";
 // import SmartphoneBanner from "../Main/Banners/SmartphoneBanner";
 
-const MainPage = ({ text }) => {
+const MainPage = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
