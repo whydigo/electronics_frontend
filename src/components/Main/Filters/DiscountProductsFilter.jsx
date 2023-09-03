@@ -11,32 +11,31 @@ const FiltersProducts = () => {
   return (
     <div className={s.container}>
       <div className={s.title}>Выгодные предложения</div>
-      {loading ? (
+      {loading && (
         <div className="preloader">
           <img className="preloader_item" src={preloader} alt="preloader" />
         </div>
-      ) : null}
+      )}
       <div className={s.products}>
-        {products.slice(0, 14).map((i) => {
-          return (
-            <Link to={`/product/${i._id}`} key={i._id}>
-              <div className={s.product}>
-                <img
-                  src={`http://localhost:4000/${i.image}`}
-                  alt="products"
-                  className={s.pic}
-                />
-                <div className={s.info}>
-                  <div className={s.price}>
-                    {i.price - i.discount} ₽{" "}
-                    <span className={s.discount}>{i.price} ₽</span>
-                  </div>
-                  <div className={s.name}>{i.name}</div>
+        {products.slice(0, 14).map((product) => (
+          <Link to={`/product/${product._id}`} key={product._id}>
+            <div className={s.product}>
+              <img
+                src={`http://localhost:4000/${product.image}`}
+                alt="products"
+                className={s.pic}
+                loading="lazy"
+              />
+              <div className={s.info}>
+                <div className={s.price}>
+                  {product.price - product.discount} ₽{" "}
+                  <span className={s.discount}>{product.price} ₽</span>
                 </div>
+                <div className={s.name}>{product.name}</div>
               </div>
-            </Link>
-          );
-        })}
+            </div>
+          </Link>
+        ))}
       </div>
     </div>
   );

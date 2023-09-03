@@ -9,7 +9,7 @@ const CategoryBlock = () => {
   return (
     <div className={s.container}>
       <div className={s.title}>
-        <h3> Популярные категории</h3>
+        Популярные категории
       </div>
       <div className={s.categoriesContainer}>
         <div className={s.category}>

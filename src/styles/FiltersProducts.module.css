@@ -1,11 +1,21 @@
+h3 {
+  margin: 0;
+}
+
 .container {
-  margin-top: 50px;
+  margin-top: 70px;
 }
 
 .title {
-  font-weight: bold;
   font-size: 24px;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
+  color: rgb(246, 246, 246);
+  background-color: rgba(0, 0, 0, 0.764);
+  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .products {
@@ -19,18 +29,26 @@
   border-radius: 20px;
   overflow: hidden;
   margin-bottom: 15px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+}
+
+.product:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2);
 }
 
 .pic {
   width: 100%;
-  height: 237px;
-  background-color: rgb(149, 149, 149);
+  height: 200px;
   object-fit: cover;
-  border-radius: 20px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
 }
 
 .info {
-  padding-top: 10px;
+  padding: 10px;
   height: 40%;
   width: 100%;
   color: black;
@@ -40,29 +58,18 @@
   font-size: 17px;
   overflow: hidden;
   height: 30px;
-  color: rgb(110, 110, 110)
+  color: rgb(110, 110, 110);
+  margin-top: 6px;
 }
 
 .price {
   font-size: 18px;
+  color: black;
 }
 
 .discount {
   text-decoration: line-through;
   font-size: 14px;
   margin-left: 10px;
-  color: rgb(110, 110, 110)
-}
-
-.buy {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 10px;
-  border: none;
-  width: 80%;
-  height: 35%;
-  margin: auto;
-  color: aliceblue;
-  background-color: rgb(83, 83, 83);
+  color: rgb(110, 110, 110);
 }
