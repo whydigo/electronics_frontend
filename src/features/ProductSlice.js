@@ -12,6 +12,7 @@ export const fetchProducts = createAsyncThunk(
     try {
       const res = await fetch("http://localhost:4000/product");
       const product = await res.json();
+      console.log(product, 'product');
       if (product.error) {
         return thunkAPI.rejectWithValue(product.error);
       }

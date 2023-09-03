@@ -6,12 +6,14 @@ const initialState = {
   loading: false,
 };
 
+// Thunk для загрузки отзывов
 export const fetchReviews = createAsyncThunk(
   "reviews/fetch",
   async (_, thunkAPI) => {
     try {
       const res = await fetch("http://localhost:4000/review");
       const reviews = await res.json();
+      console.log(reviews, 'reviews');
       if (reviews.error) {
         return thunkAPI.rejectWithValue(reviews.error);
       }
@@ -22,6 +24,7 @@ export const fetchReviews = createAsyncThunk(
   }
 );
 
+// Thunk для создания отзыва
 export const postReview = createAsyncThunk(
   "reviews/post",
   async (data, thunkAPI) => {
@@ -34,30 +37,30 @@ export const postReview = createAsyncThunk(
           Authorization: `Bearer ${thunkAPI.getState().application.token}`,
         },
       });
-      const reviews = await res.json();
+      const review = await res.json();
 
-      if (reviews.error) {
-        return thunkAPI.rejectWithValue(reviews.error);
+      if (review.error) {
+        return thunkAPI.rejectWithValue(review.error);
       }
-      return reviews;
+      return review;
     } catch (error) {
-      thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
 
+// Thunk для удаления отзыва
 export const deleteReview = createAsyncThunk(
   "review/delete",
   async (id, thunkAPI) => {
-    console.log(id, "id3");
     try {
-      const res = fetch(`http://localhost:4000/review/${id}`, {
+      const res = await fetch(`http://localhost:4000/review/${id}`, {
         method: "DELETE",
       });
-      const review = await res.json();
-      return review;
+      const deletedReview = await res.json();
+      return deletedReview;
     } catch (error) {
-      thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
@@ -68,7 +71,7 @@ const ReviewsSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
-      //fetch
+      // Загрузка отзывов
       .addCase(fetchReviews.fulfilled, (state, action) => {
         state.reviews = action.payload;
         state.error = null;
@@ -82,7 +85,7 @@ const ReviewsSlice = createSlice({
         state.loading = true;
         state.error = null;
       })
-      //post
+      // Создание отзыва
       .addCase(postReview.fulfilled, (state, action) => {
         state.reviews.push(action.payload);
         state.loading = false;
@@ -95,23 +98,25 @@ const ReviewsSlice = createSlice({
         state.loading = true;
         state.error = null;
       })
-      //delete
+      // Удаление отзыва
       .addCase(deleteReview.fulfilled, (state, action) => {
-        state.reviews = state.reviews.filter((review) => {
-          if (review._id === action.payload) {
-            return false;
-          }
-          state.loading = false;
-          return true;
-        });
+        const deletedId = action.payload;
+        state.reviews = state.reviews.filter(
+          (review) => review._id !== deletedId
+        );
+        state.loading = false;
       })
       .addCase(deleteReview.pending, (state, action) => {
         state.loading = true;
-        state.reviews = state.reviews.filter((review) => {
-          if (review._id === action.meta.arg.id) {
-            review.loading = true;
+        const idToDelete = action.meta.arg.id;
+        state.reviews = state.reviews.map((review) => {
+          if (review._id === idToDelete) {
+            return {
+              ...review,
+              loading: true,
+            };
           }
-          return true;
+          return review;
         });
       })
       .addCase(deleteReview.rejected, (state, action) => {

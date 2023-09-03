@@ -75,53 +75,52 @@ const ProductById = () => {
   return (
     <div>
       <div>
-        {filteredProductById.map((item) => {
-          return (
-            <div className="productById" key={item._id}>
-              <div className="container_productById">
-                <div className="productById_name">
-                  <span>{item.name}</span> /{" "}
-                  {filteredCatById.map((i) => {
-                    return i.name;
-                  })}
-                  <span>{item.model}</span>
-                </div>
-                <div className="productById_characteristics">
-                  <div className="prdct-r">
-                    <div className="productById_image">
-                      <img
-                        className="cart_productById_image"
-                        src={`http://localhost:4000/${item.image}`}
-                        alt="what"
+        {filteredProductById.length > 0 &&
+          filteredProductById.map((item) => {
+            return (
+              <div className="productById" key={item._id}>
+                <div className="container_productById">
+                  <div className="productById_name">
+                    <span>{item.name}</span> /{" "}
+                    {filteredCatById.map((i) => {
+                      return i.name;
+                    })}
+                    <span>{item.model}</span>
+                  </div>
+                  <div className="productById_characteristics">
+                    <div className="prdct-r">
+                      <div className="productById_image">
+                        <img
+                          className="cart_productById_image"
+                          src={`http://localhost:4000/${item.image}`}
+                          alt="what"
+                        />
+                      </div>
+                      <div className="productById_description">
+                        <div className="productById_title">О товаре</div>
+                        {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((index) => (
+                          <Characteristics
+                            key={index}
+                            label={item[`info_${index}`]?.split("-")[0]}
+                            value={item[`info_${index}`]}
+                          />
+                        ))}
+                      </div>
+                    </div>
+                    <div className="prdct-l">
+                      <ProductCartSide
+                        item={item}
+                        buy={buy}
+                        handleAdd={handleAdd}
                       />
                     </div>
-                    <div className="productById_description">
-                      <div className="productById_title">О товаре</div>
-                      {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((index) => (
-                        <Characteristics
-                          key={index}
-                          label={item[`info_${index}`]?.split("-")[0]}
-                          value={item[`info_${index}`]}
-                        />
-                      ))}
-                    </div>
-                  </div>
-                  <div className="prdct-l">
-                    <ProductCartSide
-                      item={item}
-                      buy={buy}
-                      handleAdd={handleAdd}
-                    />
                   </div>
                 </div>
+                {item._id ? <Review key={item._id} id={item._id} /> : null}
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
       </div>
-      {filteredProductById.map((i) => {
-        return <Review key={i._id} id={i._id} />;
-      })}
     </div>
   );
 };

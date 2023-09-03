@@ -19,28 +19,32 @@ const Review = ({ id }) => {
   const loading = useSelector((state) => state.reviewReducer.loading);
   const ide = useSelector((state) => state.application.id);
   const users = useSelector((state) => state.application.users);
-  const filt = users.filter((i) => i._id === ide);
-  const isAdmin = filt.map((i) => {
-    return i.admin;
-  });
+
+  // Объявляем isAdmin на уровне компонента
+  let isAdmin = false;
+
+  // Проверяем, есть ли данные в users и ide
+  if (users.length > 0 && ide) {
+    const filt = users.filter((i) => i._id === ide);
+    isAdmin = filt[0].admin; // Теперь у нас есть isAdmin, и мы можем использовать его
+  }
 
   const reviews = useSelector((state) => state.reviewReducer.reviews);
   const filteredRev = reviews.filter((i) => i.product._id === id);
-  // const userRevs = filteredRev.filter((i) => {
-  //   return i.user;
-  // });
-  // const isUserRevs = userRevs.map((i) => {
-  //   return i.user === ide ? true : false;
-  // });
-  // console.log(isUserRevs.map(i => {return i}));
 
-  const handleDelete = () => {};
+  const handleDelete = async (reviewId) => {
+    await dispatch(deleteReview(reviewId));
+    await dispatch(fetchReviews());
+  };
 
-  const handlePost = (e) => {
+  const handlePost = async (e) => {
     e.preventDefault();
-    dispatch(postReview({ text, product: id }));
+    await dispatch(postReview({ text, product: id }));
     setText("");
     setModalActive(false);
+
+    // После успешного создания отзыва, обновляем список отзывов
+    await dispatch(fetchReviews());
   };
 
   useEffect(() => {
@@ -82,12 +86,10 @@ const Review = ({ id }) => {
                 <div className={s.review}>
                   <div className={s.profile}>Пользователь</div>
                   <div className={s.text}>{i.text}</div>
-                  {isAdmin[0] ? (
+                  {isAdmin ? (
                     <div className={s.delete}>
                       <div
-                        onClick={() =>
-                          handleDelete(dispatch(deleteReview(i._id)))
-                        }
+                        onClick={() => handleDelete(i._id)}
                         className={s.dlt}
                       >
                         Удалить
