@@ -18,7 +18,9 @@ const NewProductsFilter = () => {
 
   return (
     <div className={s.container}>
-      <div className={s.title}>Новинки</div>
+      <div className={s.title}>
+        Новинки
+      </div>
       {loading ? (
         <div className="preloader">
           <img className="preloader_item" src={preloader} alt="preloader" />
