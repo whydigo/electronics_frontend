@@ -17,15 +17,17 @@
 .m-title {
   font-size: 30px;
   font-weight: bold;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 .m-items {
-  padding-top: 20px;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: #ededed;
 }
 
 .m-categoty {
-  margin-bottom: 20px;
+  margin-bottom: 14px;
 }
 
 .m-categoty a {
@@ -34,10 +36,14 @@
   display: block;
   font-size: 18px;
   transition: 0.1s;
+  border-radius: 10px;
+  padding: 6px;
 }
 
 .m-categoty a:hover {
-  color: #000000;
+  color: #ececec;
+  padding-left: 22px;
+  background-color: #000000cc;
   font-weight: bold;
 }
 
@@ -57,7 +63,7 @@
 .m-drawer {
   height: 100vh;
   background-color: #fff;
-  width: 300px;
+  width: 360px;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   padding: 20px;
