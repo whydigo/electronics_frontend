@@ -1,12 +1,8 @@
 import React from "react";
-import { ProductById } from "../components/Product/ProductById";
+import ProductById from "../components/Product/ProductById";
 
 const ProductPage = () => {
-  return (
-    <div>
-      <ProductById />
-    </div>
-  );
+  return <ProductById />;
 };
 
 export default ProductPage;
