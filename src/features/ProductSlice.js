@@ -48,8 +48,6 @@ export const postProduct = createAsyncThunk(
     formData.append("price", data.price);
     formData.append("discount", data.discount);
     formData.append("info_0", data.info0);
-    // formData.append("info_0", data.info0.title, data.info0.characteristic)
-    // formData.append("info0", {title: data.info0.title, characteristic:  data.info0.characteristic })
     formData.append("info_1", data.info1);
     formData.append("info_2", data.info2);
     formData.append("info_3", data.info3);
@@ -67,6 +65,7 @@ export const postProduct = createAsyncThunk(
         body: formData,
       });
       const result = await res.json();
+      console.log(result, 'result');
       return thunkAPI.fulfillWithValue(result);
     } catch (err) {
       return thunkAPI.rejectWithValue(err);

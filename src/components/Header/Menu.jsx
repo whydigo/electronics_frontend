@@ -25,7 +25,10 @@ function Menu({ setOpenModal, openModal = [] }) {
         <div className="m-overlay" onClick={handleOverlayClick}>
           <div className="m-drawer">
             <div className="m-btn-close">
-              <button className="m-removeBtn"  onClick={() => setOpenModal(false)}>
+              <button
+                className="m-removeBtn"
+                onClick={() => setOpenModal(false)}
+              >
                 &times;
               </button>
             </div>

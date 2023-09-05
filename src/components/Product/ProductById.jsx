@@ -98,13 +98,16 @@ const ProductById = () => {
                       </div>
                       <div className="productById_description">
                         <div className="productById_title">О товаре</div>
-                        {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((index) => (
-                          <Characteristics
-                            key={index}
-                            label={item[`info_${index}`]?.split("-")[0]}
-                            value={item[`info_${index}`]}
-                          />
-                        ))}
+                        {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map(
+                          (index) =>
+                            item[`info_${index}`] && (
+                              <Characteristics
+                                key={index}
+                                label={item[`info_${index}`]?.split("-")[0]}
+                                value={item[`info_${index}`]}
+                              />
+                            )
+                        )}
                       </div>
                     </div>
                     <div className="prdct-l">
