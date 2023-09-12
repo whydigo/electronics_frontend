@@ -5,14 +5,12 @@ import { fetchUser } from "../../features/applicationSlice";
 import "../../styles/basket.css";
 import CartItems from "./CartItems";
 
-
-// Продукты не добавляются в корзину.
 const Basket = () => {
   const dispatch = useDispatch();
   const id = useSelector((state) => state.application.id);
   const users = useSelector((state) => state.application.users);
   const filt = users.filter((i) => i._id === id);
-  
+
   useEffect(() => {
     dispatch(fetchUser());
   }, [dispatch]);

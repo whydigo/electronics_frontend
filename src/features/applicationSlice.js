@@ -4,7 +4,7 @@ const initialState = {
   error: null,
   signUp: false,
   signIn: false,
-  loading: null,
+  loading: false,
   users: [],
   cart: [],
   token: localStorage.getItem("token"),
@@ -126,6 +126,7 @@ const applicationSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
+
       // Register
       .addCase(authSignUp.pending, (state) => {
         state.error = null;
@@ -139,6 +140,7 @@ const applicationSlice = createSlice({
         state.error = null;
         state.signUp = false;
       })
+
       // Login
       .addCase(authSignIn.pending, (state) => {
         state.error = null;
@@ -154,6 +156,8 @@ const applicationSlice = createSlice({
         state.token = action.payload.token;
         state.id = action.payload.id;
       })
+
+      // fetch users
       .addCase(fetchUser.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
@@ -162,12 +166,6 @@ const applicationSlice = createSlice({
         state.loading = false;
         state.error = false;
         state.users = action.payload;
-        //   action.payload.map((item) => {
-        //     if (item._id === localStorage.getItem("id")) {
-        //       state.users = item;
-        //     }
-        //     return state.users;
-        //   });
       })
       .addCase(fetchUser.pending, (state) => {
         state.loading = true;
@@ -185,6 +183,21 @@ const applicationSlice = createSlice({
       })
       .addCase(addToCart.fulfilled, (state, action) => {
         state.cart = state.cart.push(action.payload);
+        state.loading = false;
+        state.error = false;
+      })
+
+      // delete from cart
+      .addCase(deleteFromCart.pending, (state) => {
+        state.loading = true;
+        state.error = false;
+      })
+      .addCase(deleteFromCart.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+      })
+      .addCase(deleteFromCart.fulfilled, (state, action) => {
+        state.cart = state.cart.pop(action.payload);
         state.loading = false;
         state.error = false;
       });

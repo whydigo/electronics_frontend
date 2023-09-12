@@ -28,19 +28,24 @@ const Products = ({ text }) => {
     window.scrollTo(0, 0);
   }, [dispatch]);
 
-  if (loading) {
-    return (
-      <div className="preloader">
-        <img className="preloader_item" src={preloader} alt="preloader" />
-      </div>
-    );
-  }
+  // if (loading) {
+  //   return (
+  //     <div className="preloader">
+  //       <img className="preloader_item" src={preloader} alt="preloader" />
+  //     </div>
+  //   );
+  // }
 
   return (
-    <Fade right>
-      <div className="cart_container">
-        {filtered.map((item) => {
-          return (
+    <div className="cart_container">
+      {loading && (
+        <div className="preloader">
+          <img className="preloader_item" src={preloader} alt="preloader" />
+        </div>
+      )}
+      {filtered.map((item) => {
+        return (
+          <Fade right>
             <Product
               key={item._id}
               name={item.name}
@@ -50,10 +55,10 @@ const Products = ({ text }) => {
               model={item.model}
               id={item._id}
             />
-          );
-        })}
-      </div>
-    </Fade>
+          </Fade>
+        );
+      })}
+    </div>
   );
 };
 
